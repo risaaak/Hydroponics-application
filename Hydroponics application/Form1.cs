@@ -45,5 +45,22 @@ namespace Hydroponics_application
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime datetrasfer = Convert.ToDateTime(dateTimePicker1.Value);
+            DateTime dateHarvest = datetrasfer.AddDays(25);
+            label9.Text = dateHarvest.ToString("MM/dd/yyyy");
+            DateTime nextplant = dateHarvest.AddDays(-15);
+            label11.Text = nextplant.ToString("MM/dd/yyyy");
+            label5.Text = "";
+            label6.Text = "";
+            label7.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -42,6 +42,9 @@ namespace Hydroponics_application
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.addseedlingtraybtn = new System.Windows.Forms.Button();
+            this.addgrowboxbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -55,11 +58,11 @@ namespace Hydroponics_application
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(156, 74);
+            this.button1.Location = new System.Drawing.Point(46, 74);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(110, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Initialize";
+            this.button1.Text = "DATE PLANTED";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -158,11 +161,44 @@ namespace Hydroponics_application
             this.label11.TabIndex = 13;
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(162, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "DATE TRANSFERRED";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // addseedlingtraybtn
+            // 
+            this.addseedlingtraybtn.Location = new System.Drawing.Point(56, 305);
+            this.addseedlingtraybtn.Name = "addseedlingtraybtn";
+            this.addseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
+            this.addseedlingtraybtn.TabIndex = 15;
+            this.addseedlingtraybtn.Text = "ADD SEEDLING TRAY";
+            this.addseedlingtraybtn.UseVisualStyleBackColor = true;
+            this.addseedlingtraybtn.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // addgrowboxbtn
+            // 
+            this.addgrowboxbtn.Location = new System.Drawing.Point(202, 305);
+            this.addgrowboxbtn.Name = "addgrowboxbtn";
+            this.addgrowboxbtn.Size = new System.Drawing.Size(110, 23);
+            this.addgrowboxbtn.TabIndex = 16;
+            this.addgrowboxbtn.Text = "ADD GROW BOX";
+            this.addgrowboxbtn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 375);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(324, 344);
+            this.Controls.Add(this.addgrowboxbtn);
+            this.Controls.Add(this.addseedlingtraybtn);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -177,6 +213,7 @@ namespace Hydroponics_application
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hydroponics Scheduler";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,6 +235,9 @@ namespace Hydroponics_application
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addseedlingtraybtn;
+        private System.Windows.Forms.Button addgrowboxbtn;
     }
 }
 
