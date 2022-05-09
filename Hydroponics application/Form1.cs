@@ -60,7 +60,16 @@ namespace Hydroponics_application
 
         private void button3_Click(object sender, EventArgs e)
         {
+            addseedlingtrayform addseedling = new addseedlingtrayform();
+            addseedling.Show();
+            this.Hide();
+        }
 
+        private void addgrowboxbtn_Click(object sender, EventArgs e)
+        {
+            addgrowboxform addgrowbox = new addgrowboxform();
+            addgrowbox.Show();
+            this.Hide();
         }
     }
 }

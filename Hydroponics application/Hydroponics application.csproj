@@ -75,6 +75,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addgrowboxform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addgrowboxform.Designer.cs">
+      <DependentUpon>addgrowboxform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addseedlingtrayform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addseedlingtrayform.Designer.cs">
+      <DependentUpon>addseedlingtrayform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

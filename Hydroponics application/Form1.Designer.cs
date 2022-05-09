@@ -189,6 +189,7 @@ namespace Hydroponics_application
             this.addgrowboxbtn.TabIndex = 16;
             this.addgrowboxbtn.Text = "ADD GROW BOX";
             this.addgrowboxbtn.UseVisualStyleBackColor = true;
+            this.addgrowboxbtn.Click += new System.EventHandler(this.addgrowboxbtn_Click);
             // 
             // Form1
             // 
