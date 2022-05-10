@@ -45,6 +45,8 @@ namespace Hydroponics_application
             this.button2 = new System.Windows.Forms.Button();
             this.addseedlingtraybtn = new System.Windows.Forms.Button();
             this.addgrowboxbtn = new System.Windows.Forms.Button();
+            this.viewseedlingtraybtn = new System.Windows.Forms.Button();
+            this.viewgrowboxbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -173,7 +175,7 @@ namespace Hydroponics_application
             // 
             // addseedlingtraybtn
             // 
-            this.addseedlingtraybtn.Location = new System.Drawing.Point(56, 305);
+            this.addseedlingtraybtn.Location = new System.Drawing.Point(42, 305);
             this.addseedlingtraybtn.Name = "addseedlingtraybtn";
             this.addseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
             this.addseedlingtraybtn.TabIndex = 15;
@@ -183,20 +185,42 @@ namespace Hydroponics_application
             // 
             // addgrowboxbtn
             // 
-            this.addgrowboxbtn.Location = new System.Drawing.Point(202, 305);
+            this.addgrowboxbtn.Location = new System.Drawing.Point(188, 305);
             this.addgrowboxbtn.Name = "addgrowboxbtn";
-            this.addgrowboxbtn.Size = new System.Drawing.Size(110, 23);
+            this.addgrowboxbtn.Size = new System.Drawing.Size(124, 23);
             this.addgrowboxbtn.TabIndex = 16;
             this.addgrowboxbtn.Text = "ADD GROW BOX";
             this.addgrowboxbtn.UseVisualStyleBackColor = true;
             this.addgrowboxbtn.Click += new System.EventHandler(this.addgrowboxbtn_Click);
+            // 
+            // viewseedlingtraybtn
+            // 
+            this.viewseedlingtraybtn.Location = new System.Drawing.Point(42, 341);
+            this.viewseedlingtraybtn.Name = "viewseedlingtraybtn";
+            this.viewseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
+            this.viewseedlingtraybtn.TabIndex = 17;
+            this.viewseedlingtraybtn.Text = "VIEW SEEDLING TRAYS";
+            this.viewseedlingtraybtn.UseVisualStyleBackColor = true;
+            this.viewseedlingtraybtn.Click += new System.EventHandler(this.viewseedlingtraybtn_Click);
+            // 
+            // viewgrowboxbtn
+            // 
+            this.viewgrowboxbtn.Location = new System.Drawing.Point(188, 341);
+            this.viewgrowboxbtn.Name = "viewgrowboxbtn";
+            this.viewgrowboxbtn.Size = new System.Drawing.Size(124, 23);
+            this.viewgrowboxbtn.TabIndex = 18;
+            this.viewgrowboxbtn.Text = "VIEW GROW BOXES";
+            this.viewgrowboxbtn.UseVisualStyleBackColor = true;
+            this.viewgrowboxbtn.Click += new System.EventHandler(this.viewgrowboxbtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 344);
+            this.ClientSize = new System.Drawing.Size(324, 376);
+            this.Controls.Add(this.viewgrowboxbtn);
+            this.Controls.Add(this.viewseedlingtraybtn);
             this.Controls.Add(this.addgrowboxbtn);
             this.Controls.Add(this.addseedlingtraybtn);
             this.Controls.Add(this.button2);
@@ -239,6 +263,8 @@ namespace Hydroponics_application
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button addseedlingtraybtn;
         private System.Windows.Forms.Button addgrowboxbtn;
+        private System.Windows.Forms.Button viewseedlingtraybtn;
+        private System.Windows.Forms.Button viewgrowboxbtn;
     }
 }
 

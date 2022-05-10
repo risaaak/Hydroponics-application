@@ -71,5 +71,20 @@ namespace Hydroponics_application
             addgrowbox.Show();
             this.Hide();
         }
+
+        private void viewseedlingtraybtn_Click(object sender, EventArgs e)
+        {
+            viewseedlingtrayform viewseedlingtrayform = new viewseedlingtrayform();
+            viewseedlingtrayform.Show();
+            this.Hide();
+
+        }
+
+        private void viewgrowboxbtn_Click(object sender, EventArgs e)
+        {
+            viewgrowboxform viewgrowboxform = new viewgrowboxform();
+            viewgrowboxform.Show();
+            this.Hide();
+        }
     }
 }
