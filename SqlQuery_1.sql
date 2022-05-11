@@ -31,4 +31,6 @@ CREATE TABLE SEEDLINGTRAY
   nextplantdate date not null
 )
 */
-select * from SEEDLINGTRAY
+
+SELECT plantdate FROM SEEDLINGTRAY WHERE EXISTS(SELECT seedlingtrayid FROM SEEDLINGTRAY WHERE seedlingtrayid = 1);
+

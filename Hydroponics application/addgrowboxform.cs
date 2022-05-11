@@ -53,6 +53,7 @@ namespace Hydroponics_application
                 SqlCommand cmd = new SqlCommand("INSERT INTO GROWBOX VALUES ('" + growboxid + "', '" + datetransfer + "','" + harvestdate + "','" + nextplantdate + "')", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                MessageBox.Show("Successful");
             }
             catch (Exception ex)
             {

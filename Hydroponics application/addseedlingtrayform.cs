@@ -50,6 +50,7 @@ namespace Hydroponics_application
                 SqlCommand cmd = new SqlCommand("INSERT INTO SEEDLINGTRAY VALUES ('" + seedlingtrayid + "', '" + plantdate + "','" + nosolutiondate + "','" + halfstrengthdate + "','" + fullstrengthdate + "', '" + harvestdate + "', '" + nextplantdate + "')", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                MessageBox.Show("Successful");
             }
             catch (Exception ex)
             {

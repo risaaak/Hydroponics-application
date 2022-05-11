@@ -36,7 +36,7 @@ namespace Hydroponics_application
             //SqlCommand getplantdate = new SqlCommand("SELECT dateplanted FROM HYDROPONICS WHERE growboxid ='" + textBox1.Text + "'", con);
             //nosolutiondate = (DateTime)getnosolutiondate.ExecuteScalar();
             //label5.Text = nosolutiondate.ToString("MM/dd/yyyy");
-            int id = Convert.ToInt32(textBox1.Text);
+            /*int id = Convert.ToInt32(textBox1.Text);
             dateplanted = getplantdate(id);
             nosolutiondate = getplantdate(id).AddDays(6);
             halfstrengthdate = nosolutiondate.AddDays(6);
@@ -47,20 +47,39 @@ namespace Hydroponics_application
             label6.Text = nosolutiondate.AddDays(1).ToString("MM/dd/yyyy") + "    to    " + halfstrengthdate.ToString("MM/dd/yyyy");
             label7.Text = halfstrengthdate.AddDays(1).ToString("MM/dd/yyyy") + "    to   " + fullstrengthdate.ToString("MM/dd/yyyy");
             label9.Text = harvestdate.ToString("MM/dd/yyyy");
-            label11.Text = nextplantdate.ToString("MM/dd/yyyy");
+            label11.Text = nextplantdate.ToString("MM/dd/yyyy");*/
         }
 
-        private DateTime getplantdate(int id)
+        public DateTime getplantdate(int id)
         {
-            DateTime dateplanted;
+            bool flag = false;
+            DateTime dateplanted = DateTime.Now;
             SqlConnection con = new SqlConnection(connectionstring);
             con.Open();
-            SqlCommand getplantdate = new SqlCommand("SELECT plantdate FROM SEEDLINGTRAY WHERE seedlingtrayid ='" + id + "'", con);
-            dateplanted = (DateTime)getplantdate.ExecuteScalar();
+            SqlCommand verifyExistence = new SqlCommand("SELECT seedlingtrayid from SEEDLINGTRAY WHERE seedlingtrayid ='" + id + "'",con);
+            SqlDataReader read = verifyExistence.ExecuteReader();
+            while(read.Read())
+            {
+                if (Convert.ToInt32(read[0]) == id);
+                {
+                    flag = true;
+                    con.Close();
+                    break;
+                }
+            }
+            if (flag == true)
+            {
+                SqlCommand getplantdate = new SqlCommand("SELECT plantdate FROM SEEDLINGTRAY WHERE seedlingtrayid ='" + id + "'", con);
+                con.Open();
+                dateplanted = (DateTime)getplantdate.ExecuteScalar();
+            }
+            else
+            {
+                MessageBox.Show("does not exists");
+            }
             return dateplanted;
-            con.Close();
         }
-        private DateTime getnosolutiondate(int id)
+        public DateTime getnosolutiondate(int id)
         {
             DateTime nosolutiondate;
             SqlConnection con = new SqlConnection(connectionstring);
@@ -72,74 +91,50 @@ namespace Hydroponics_application
         }
         private void viewseedlingtrayform_Load(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection(connectionstring);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM SEEDLINGTRAY",con);
+            DataTable dtbl = new DataTable();
+            adapter.Fill(dtbl);
+            dataGridView1.DataSource = dtbl;
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection (connectionstring);
+            con.Open();
+            SqlCommand delete = new SqlCommand();
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["seedlingtrayid"].Value.ToString());
+
+            delete.CommandText = "DELETE FROM SEEDLINGTRAY WHERE seedlingtrayid = " + id;
+            delete.Connection = con;
+            delete.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM SEEDLINGTRAY", con);
+            DataTable dtbl = new DataTable();
+            adapter.Fill(dtbl);
+            dataGridView1.DataSource = dtbl;
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            con.Close ();
+
+
+
+
+            /*
             SqlConnection con = new SqlConnection(connectionstring);
             con.Open();
             SqlCommand delete = new SqlCommand("DELETE FROM SEEDLINGTRAY WHERE seedlingtrayid = " + textBox1.Text, con);
             delete.ExecuteNonQuery();
             con.Close();
+            */
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
