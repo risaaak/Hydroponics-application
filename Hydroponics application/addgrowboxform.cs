@@ -25,47 +25,40 @@ namespace Hydroponics_application
             this.Hide();
         }
 
-        public string connectionstring = "Data Source=ISAAKLAPTOP\\SQLEXPRESS;Initial Catalog = HYDROPONICS; Integrated Security = True";
+        public string connectionstring = "Data Source=ISAAK-DESKTOP\\SQLEXPRESS;Initial Catalog = HYDROPONICSAPP; Integrated Security = True";
         private void button2_Click(object sender, EventArgs e)
         {
-            /*if(addgrowboxtextBox.Text == null)
-                MessageBox.Show("growbox id cannot be null");*/
-            if (addgrowboxtextBox.Text != null || addgrowboxtextBox.Text != "")
+            int growboxid;
+            DateTime datetransfer, nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate;
+            datetransfer = Convert.ToDateTime(dateTimePicker1.Value);
+
+            nosolutiondate = datetransfer.AddDays(6);
+            halfstrengthdate = nosolutiondate.AddDays(6);
+            fullstrengthdate = halfstrengthdate.AddDays(2);
+            harvestdate = fullstrengthdate.AddDays(25);
+            nextplantdate = harvestdate.AddDays(-15);
+            growboxid = int.Parse(addgrowboxtextBox.Text);
+
+            label5.Text = datetransfer.ToString("MM/dd/yyyy") + " to " + nosolutiondate.ToString("MM/dd/yyyy");
+            label6.Text = nosolutiondate.AddDays(1).ToString("MM/dd/yyyy") + " to " + halfstrengthdate.ToString("MM/dd/yyyy");
+            label7.Text = halfstrengthdate.AddDays(1).ToString("MM/dd/yyyy") + " to " + fullstrengthdate.ToString("MM/dd/yyyy");
+            label9.Text = harvestdate.ToString("MM/dd/yyyy");
+            label11.Text = nextplantdate.ToString("MM/dd/yyyy");
+
+            SqlConnection con = new SqlConnection(connectionstring);
+            con.Open();
+
+            try
             {
-                int growboxid;
-                DateTime datetransfer, nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate;
-                datetransfer = Convert.ToDateTime(dateTimePicker1.Value);
-
-                nosolutiondate = datetransfer.AddDays(6);
-                halfstrengthdate = nosolutiondate.AddDays(6);
-                fullstrengthdate = halfstrengthdate.AddDays(2);
-                harvestdate = fullstrengthdate.AddDays(25);
-                nextplantdate = harvestdate.AddDays(-15);
-                growboxid = int.Parse(addgrowboxtextBox.Text);
-
-                label5.Text = datetransfer.ToString("MM/dd/yyyy") + " to " + nosolutiondate.ToString("MM/dd/yyyy");
-                label6.Text = nosolutiondate.AddDays(1).ToString("MM/dd/yyyy") + " to " + halfstrengthdate.ToString("MM/dd/yyyy");
-                label7.Text = halfstrengthdate.AddDays(1).ToString("MM/dd/yyyy") + " to " + fullstrengthdate.ToString("MM/dd/yyyy");
-                label9.Text = harvestdate.ToString("MM/dd/yyyy");
-                label11.Text = nextplantdate.ToString("MM/dd/yyyy");
-
-                SqlConnection con = new SqlConnection(connectionstring);
-                con.Open();
-
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO GROWBOX VALUES ('" + growboxid + "', '" + datetransfer + "','" + harvestdate + "','" + nextplantdate + "')", con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Successful");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                SqlCommand cmd = new SqlCommand("INSERT INTO GROWBOX VALUES ('" + growboxid + "', '" + datetransfer + "','" + harvestdate + "','" + nextplantdate + "')", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Successful");
             }
-            else
-                MessageBox.Show("id cannot be null");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
