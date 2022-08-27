@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace Hydroponics_application
 {
@@ -22,10 +23,20 @@ namespace Hydroponics_application
 
         }
 
+        private void notification()
+        {
+         new ToastContentBuilder()
+        .AddArgument("action", "viewConversation")
+        .AddArgument("conversationId", 9813)
+        .AddText("Andrew sent you a picture")
+        .AddText("Check this out, The Enchantments in Washington!")
+        .Show();
+        }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            notification();
             DateTime datePlanted = Convert.ToDateTime(dateTimePicker1.Value);
 
             label7.Text = datePlanted.ToString();
