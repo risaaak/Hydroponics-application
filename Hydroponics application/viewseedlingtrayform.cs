@@ -30,7 +30,7 @@ namespace Hydroponics_application
         {
 
 
-            DateTime nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate, dateplanted;
+            //DateTime nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate, dateplanted;
             //SqlCommand getnosolutiondate = new SqlCommand("SELECT nosolutiondate FROM HYDROPONICS WHERE growboxid = '" + textBox1.Text + "'",con);
 
             //SqlCommand getplantdate = new SqlCommand("SELECT dateplanted FROM HYDROPONICS WHERE growboxid ='" + textBox1.Text + "'", con);
@@ -50,7 +50,7 @@ namespace Hydroponics_application
             label11.Text = nextplantdate.ToString("MM/dd/yyyy");*/
         }
 
-        public DateTime getplantdate(int id)
+        /*public DateTime getplantdate(int id)
         {
             bool flag = false;
             DateTime dateplanted = DateTime.Now;
@@ -86,9 +86,10 @@ namespace Hydroponics_application
             con.Open();
             SqlCommand getnosolutiondate = new SqlCommand("SELECT nosolutiondate FROM SEEDLINGTRAY WHERE seedlingtrayid = '" + id + "'", con);
             nosolutiondate = (DateTime)getnosolutiondate.ExecuteScalar();
+            con.Close();
             return nosolutiondate;
-            con.Close ();
-        }
+            
+        }*/
         private void viewseedlingtrayform_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(connectionstring);

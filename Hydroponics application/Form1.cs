@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,21 +23,105 @@ namespace Hydroponics_application
         {
 
         }
+        //connection string
+        public string connectionstring = "Data Source=ISAAKLAPTOP\\SQLEXPRESS;Initial Catalog = HYDROPONICS; Integrated Security = True";
 
-        private void notification()
+        //function to set harvest date toast
+        private void notificationHarvestDate()
         {
+         //command to get the harvest date
+         SqlConnection con = new SqlConnection(connectionstring);
+        if (con.State == ConnectionState.Closed)
+         {
+            con.Open();
+         }
+         SqlCommand getHarvestDate = new SqlCommand("SELECT harvestdate FROM GROWBOX", con);
+         DateTime harvestdate = (DateTime)getHarvestDate.ExecuteScalar();
+         con.Close();
          new ToastContentBuilder()
-        .AddArgument("action", "viewConversation")
-        .AddArgument("conversationId", 9813)
-        .AddText("Andrew sent you a picture")
-        .AddText("Check this out, The Enchantments in Washington!")
-        .Show();
+            .AddText("Harvest Lettuce")
+            .Schedule(harvestdate);
+        }
+
+        //fucntion to get the next plant date notification
+        private void notificationNextPlantDate()
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            if(con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand getNextPlantDate = new SqlCommand("SELECT nextplant FROM GROWBOX", con);
+            DateTime nextPlantDate = (DateTime)getNextPlantDate.ExecuteScalar();
+            con.Close();
+            new ToastContentBuilder()
+                .AddText("Plant next seedling batch")
+                .Schedule(nextPlantDate);
+        }
+
+        //function to get water solution notification
+        private void notificationWaterNoSolution()
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            if(con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand getWaterNoSolution = new SqlCommand("SELECT nosolutiondate FROM SEEDLINGTRAY", con);
+            DateTime noSolutionDate = (DateTime)getWaterNoSolution.ExecuteScalar();
+            con.Close();
+            new ToastContentBuilder()
+                .AddText("Water seedling with no solution")
+                .Schedule(noSolutionDate);
+        }
+        private void notificationHalfStrengthSolution()
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand getWaterHalfStrength = new SqlCommand("SELECT halfstrengthsolutiondate FROM SEEDLINGTRAY", con);
+            DateTime halfStrengthSolution = (DateTime)getWaterHalfStrength.ExecuteScalar();
+            con.Close();
+            new ToastContentBuilder()
+                .AddText("Water seedling with half strength solution")
+                .Schedule(halfStrengthSolution);
+        }
+        
+        private void notificationFullStrengthSolution()
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand getWaterFullStrength = new SqlCommand("SELECT fullstrengthsolutiondate FROM SEEDLINGTRAY", con);
+            DateTime fullStrengthSolution = (DateTime)getWaterFullStrength.ExecuteScalar();
+            con.Close();
+            new ToastContentBuilder()
+                .AddText("Water seedling with full strength solution")
+                .Schedule(fullStrengthSolution);
+        }
+
+        private void notificationTransferSeedling()
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand getTransferDate = new SqlCommand("SELECT plantdate FROM SEEDLINGTRAY", con);
+            DateTime transferDate = (DateTime)getTransferDate.ExecuteScalar();
+            con.Close();
+            new ToastContentBuilder()
+                .AddText("Transfer seedling to grow box")
+                .Schedule(transferDate.AddDays(15));
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            notification();
             DateTime datePlanted = Convert.ToDateTime(dateTimePicker1.Value);
 
             label7.Text = datePlanted.ToString();
@@ -96,6 +181,16 @@ namespace Hydroponics_application
             viewgrowboxform viewgrowboxform = new viewgrowboxform();
             viewgrowboxform.Show();
             this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            notificationHarvestDate();
+            notificationNextPlantDate();
+            notificationFullStrengthSolution();
+            notificationHalfStrengthSolution();
+            notificationWaterNoSolution();
+            notificationTransferSeedling();
         }
     }
 }
