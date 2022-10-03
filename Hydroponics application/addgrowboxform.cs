@@ -34,19 +34,23 @@ namespace Hydroponics_application
             DateTime datetransfer, nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate;
             datetransfer = Convert.ToDateTime(dateTimePicker1.Value);
 
+            /*
             nosolutiondate = datetransfer.AddDays(6);
             halfstrengthdate = nosolutiondate.AddDays(6);
             fullstrengthdate = halfstrengthdate.AddDays(2);
-            harvestdate = fullstrengthdate.AddDays(25);
+            */
+            harvestdate = datetransfer.AddDays(30);
             nextplantdate = harvestdate.AddDays(-15);
             growboxid = int.Parse(addgrowboxtextBox.Text);
 
-            label5.Text = datetransfer.ToString("MM/dd/yyyy") + " to " + nosolutiondate.ToString("MM/dd/yyyy");
+            /*label5.Text = datetransfer.ToString("MM/dd/yyyy") + " to " + nosolutiondate.ToString("MM/dd/yyyy");
             label6.Text = nosolutiondate.AddDays(1).ToString("MM/dd/yyyy") + " to " + halfstrengthdate.ToString("MM/dd/yyyy");
             label7.Text = halfstrengthdate.AddDays(1).ToString("MM/dd/yyyy") + " to " + fullstrengthdate.ToString("MM/dd/yyyy");
+            */
             label9.Text = harvestdate.ToString("MM/dd/yyyy");
             label11.Text = nextplantdate.ToString("MM/dd/yyyy");
-
+            
+            
             SqlConnection con = new SqlConnection(connectionstring);
             con.Open();
 
@@ -60,7 +64,9 @@ namespace Hydroponics_application
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
             }
+            
         }
     }
 }
