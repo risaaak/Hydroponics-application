@@ -46,7 +46,7 @@
             // 
             // addseedbtn
             // 
-            this.addseedbtn.Location = new System.Drawing.Point(79, 92);
+            this.addseedbtn.Location = new System.Drawing.Point(85, 102);
             this.addseedbtn.Name = "addseedbtn";
             this.addseedbtn.Size = new System.Drawing.Size(75, 23);
             this.addseedbtn.TabIndex = 1;
@@ -74,13 +74,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 135);
+            this.ClientSize = new System.Drawing.Size(246, 142);
             this.Controls.Add(this.seednametxtbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addseedbtn);
             this.Controls.Add(this.backbtn);
             this.Name = "Add_Seedlings";
             this.Text = "Add Seedlings";
+            this.Load += new System.EventHandler(this.Add_Seedlings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
