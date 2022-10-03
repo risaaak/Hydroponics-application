@@ -32,13 +32,15 @@ namespace Hydroponics_application
             DateTime waterWithnoSLN = datePlanted.AddDays(6);
             DateTime halfstrengthSLN = waterWithnoSLN.AddDays(6);
             DateTime fullStrength = halfstrengthSLN.AddDays(2);
-            DateTime harvestDate = fullStrength.AddDays(25);
+            DateTime transferDate = fullStrength.AddDays(1);
+            DateTime harvestDate = transferDate.AddDays(30);
             DateTime nextPlant = harvestDate.AddDays(-15);
             label5.Text = datePlanted.ToString("MM/dd/yyyy") + " to " + waterWithnoSLN.ToString("MM/dd/yyyy");
             label6.Text = waterWithnoSLN.AddDays(1).ToString("MM/dd/yyyy")  + " to " + halfstrengthSLN.ToString("MM/dd/yyyy");
             label7.Text = halfstrengthSLN.AddDays(1).ToString("MM/dd/yyyy") + " to " + fullStrength.ToString("MM/dd/yyyy");
             label9.Text = harvestDate.ToString("MM/dd/yyyy");
             label11.Text = nextPlant.ToString("MM/dd/yyyy");
+            transferdatelabel.Text = transferDate.ToString("MM/dd/yyyy");
         }
 
         private void label11_Click(object sender, EventArgs e)

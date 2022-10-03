@@ -47,6 +47,8 @@ namespace Hydroponics_application
             this.addgrowboxbtn = new System.Windows.Forms.Button();
             this.viewseedlingtraybtn = new System.Windows.Forms.Button();
             this.viewgrowboxbtn = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.transferdatelabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -131,7 +133,7 @@ namespace Hydroponics_application
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 230);
+            this.label8.Location = new System.Drawing.Point(31, 268);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 10;
@@ -140,7 +142,7 @@ namespace Hydroponics_application
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(153, 230);
+            this.label9.Location = new System.Drawing.Point(153, 268);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 11;
@@ -148,7 +150,7 @@ namespace Hydroponics_application
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 264);
+            this.label10.Location = new System.Drawing.Point(31, 302);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 12;
@@ -157,7 +159,7 @@ namespace Hydroponics_application
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(156, 264);
+            this.label11.Location = new System.Drawing.Point(156, 302);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(0, 13);
             this.label11.TabIndex = 13;
@@ -175,7 +177,7 @@ namespace Hydroponics_application
             // 
             // addseedlingtraybtn
             // 
-            this.addseedlingtraybtn.Location = new System.Drawing.Point(42, 305);
+            this.addseedlingtraybtn.Location = new System.Drawing.Point(42, 343);
             this.addseedlingtraybtn.Name = "addseedlingtraybtn";
             this.addseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
             this.addseedlingtraybtn.TabIndex = 15;
@@ -185,7 +187,7 @@ namespace Hydroponics_application
             // 
             // addgrowboxbtn
             // 
-            this.addgrowboxbtn.Location = new System.Drawing.Point(188, 305);
+            this.addgrowboxbtn.Location = new System.Drawing.Point(188, 343);
             this.addgrowboxbtn.Name = "addgrowboxbtn";
             this.addgrowboxbtn.Size = new System.Drawing.Size(124, 23);
             this.addgrowboxbtn.TabIndex = 16;
@@ -195,7 +197,7 @@ namespace Hydroponics_application
             // 
             // viewseedlingtraybtn
             // 
-            this.viewseedlingtraybtn.Location = new System.Drawing.Point(42, 341);
+            this.viewseedlingtraybtn.Location = new System.Drawing.Point(42, 379);
             this.viewseedlingtraybtn.Name = "viewseedlingtraybtn";
             this.viewseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
             this.viewseedlingtraybtn.TabIndex = 17;
@@ -205,7 +207,7 @@ namespace Hydroponics_application
             // 
             // viewgrowboxbtn
             // 
-            this.viewgrowboxbtn.Location = new System.Drawing.Point(188, 341);
+            this.viewgrowboxbtn.Location = new System.Drawing.Point(188, 379);
             this.viewgrowboxbtn.Name = "viewgrowboxbtn";
             this.viewgrowboxbtn.Size = new System.Drawing.Size(124, 23);
             this.viewgrowboxbtn.TabIndex = 18;
@@ -213,12 +215,31 @@ namespace Hydroponics_application
             this.viewgrowboxbtn.UseVisualStyleBackColor = true;
             this.viewgrowboxbtn.Click += new System.EventHandler(this.viewgrowboxbtn_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(34, 228);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Transfer Date:";
+            // 
+            // transferdatelabel
+            // 
+            this.transferdatelabel.AutoSize = true;
+            this.transferdatelabel.Location = new System.Drawing.Point(156, 228);
+            this.transferdatelabel.Name = "transferdatelabel";
+            this.transferdatelabel.Size = new System.Drawing.Size(0, 13);
+            this.transferdatelabel.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 376);
+            this.ClientSize = new System.Drawing.Size(324, 452);
+            this.Controls.Add(this.transferdatelabel);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.viewgrowboxbtn);
             this.Controls.Add(this.viewseedlingtraybtn);
             this.Controls.Add(this.addgrowboxbtn);
@@ -265,6 +286,8 @@ namespace Hydroponics_application
         private System.Windows.Forms.Button addgrowboxbtn;
         private System.Windows.Forms.Button viewseedlingtraybtn;
         private System.Windows.Forms.Button viewgrowboxbtn;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label transferdatelabel;
     }
 }
 
