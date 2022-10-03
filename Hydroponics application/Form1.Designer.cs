@@ -253,6 +253,7 @@ namespace Hydroponics_application
             this.updatestatsbtn.TabIndex = 22;
             this.updatestatsbtn.Text = "UPDATE STATS";
             this.updatestatsbtn.UseVisualStyleBackColor = true;
+            this.updatestatsbtn.Click += new System.EventHandler(this.updatestatsbtn_Click);
             // 
             // viewseedsbtn
             // 

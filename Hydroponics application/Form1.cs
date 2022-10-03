@@ -183,5 +183,12 @@ namespace Hydroponics_application
             add_Seedlings.Show();
             this.Hide();
         }
+
+        private void updatestatsbtn_Click(object sender, EventArgs e)
+        {
+            updatestatsform updatestatsform = new updatestatsform();
+            updatestatsform.Show();
+            this.Hide();
+        }
     }
 }
