@@ -119,6 +119,12 @@
     <Compile Include="viewseedlingtrayform.Designer.cs">
       <DependentUpon>viewseedlingtrayform.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewseedsform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewseedsform.Designer.cs">
+      <DependentUpon>viewseedsform.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Addseedlingsform.resx">
       <DependentUpon>Addseedlingsform.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewseedlingtrayform.resx">
       <DependentUpon>viewseedlingtrayform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewseedsform.resx">
+      <DependentUpon>viewseedsform.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Hydroponics application_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

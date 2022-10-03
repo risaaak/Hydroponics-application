@@ -263,6 +263,7 @@ namespace Hydroponics_application
             this.viewseedsbtn.TabIndex = 23;
             this.viewseedsbtn.Text = "VIEW SEEDS";
             this.viewseedsbtn.UseVisualStyleBackColor = true;
+            this.viewseedsbtn.Click += new System.EventHandler(this.viewseedsbtn_Click);
             // 
             // viewstatsbtn
             // 

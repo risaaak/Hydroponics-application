@@ -190,5 +190,12 @@ namespace Hydroponics_application
             updatestatsform.Show();
             this.Hide();
         }
+
+        private void viewseedsbtn_Click(object sender, EventArgs e)
+        {
+            viewseedsform viewseedsform = new viewseedsform();
+            viewseedsform.Show();
+            this.Hide();
+        }
     }
 }
