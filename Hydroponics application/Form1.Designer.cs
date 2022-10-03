@@ -48,14 +48,19 @@ namespace Hydroponics_application
             this.viewseedlingtraybtn = new System.Windows.Forms.Button();
             this.viewgrowboxbtn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.addseedsbtn = new System.Windows.Forms.Button();
+            this.updatestatsbtn = new System.Windows.Forms.Button();
+            this.viewseedsbtn = new System.Windows.Forms.Button();
+            this.viewstatsbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(156, 48);
+            this.dateTimePicker1.Location = new System.Drawing.Point(162, 32);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(141, 20);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -72,7 +77,7 @@ namespace Hydroponics_application
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 55);
+            this.label1.Location = new System.Drawing.Point(43, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 3;
@@ -81,7 +86,7 @@ namespace Hydroponics_application
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 110);
+            this.label2.Location = new System.Drawing.Point(43, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 13);
             this.label2.TabIndex = 4;
@@ -90,7 +95,7 @@ namespace Hydroponics_application
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 148);
+            this.label3.Location = new System.Drawing.Point(43, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 5;
@@ -99,7 +104,7 @@ namespace Hydroponics_application
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 189);
+            this.label4.Location = new System.Drawing.Point(43, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 6;
@@ -108,7 +113,7 @@ namespace Hydroponics_application
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(153, 110);
+            this.label5.Location = new System.Drawing.Point(165, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 7;
@@ -116,7 +121,7 @@ namespace Hydroponics_application
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(153, 148);
+            this.label6.Location = new System.Drawing.Point(165, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 8;
@@ -124,7 +129,7 @@ namespace Hydroponics_application
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 189);
+            this.label7.Location = new System.Drawing.Point(165, 194);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 9;
@@ -132,7 +137,7 @@ namespace Hydroponics_application
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 230);
+            this.label8.Location = new System.Drawing.Point(43, 267);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 10;
@@ -141,7 +146,7 @@ namespace Hydroponics_application
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(153, 230);
+            this.label9.Location = new System.Drawing.Point(165, 267);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 11;
@@ -149,7 +154,7 @@ namespace Hydroponics_application
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 264);
+            this.label10.Location = new System.Drawing.Point(43, 301);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 12;
@@ -158,11 +163,10 @@ namespace Hydroponics_application
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(156, 264);
+            this.label11.Location = new System.Drawing.Point(165, 301);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(0, 13);
             this.label11.TabIndex = 13;
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // button2
             // 
@@ -176,9 +180,9 @@ namespace Hydroponics_application
             // 
             // addseedlingtraybtn
             // 
-            this.addseedlingtraybtn.Location = new System.Drawing.Point(42, 305);
+            this.addseedlingtraybtn.Location = new System.Drawing.Point(42, 349);
             this.addseedlingtraybtn.Name = "addseedlingtraybtn";
-            this.addseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
+            this.addseedlingtraybtn.Size = new System.Drawing.Size(124, 23);
             this.addseedlingtraybtn.TabIndex = 15;
             this.addseedlingtraybtn.Text = "ADD SEEDLING TRAY";
             this.addseedlingtraybtn.UseVisualStyleBackColor = true;
@@ -186,7 +190,7 @@ namespace Hydroponics_application
             // 
             // addgrowboxbtn
             // 
-            this.addgrowboxbtn.Location = new System.Drawing.Point(188, 305);
+            this.addgrowboxbtn.Location = new System.Drawing.Point(42, 385);
             this.addgrowboxbtn.Name = "addgrowboxbtn";
             this.addgrowboxbtn.Size = new System.Drawing.Size(124, 23);
             this.addgrowboxbtn.TabIndex = 16;
@@ -196,9 +200,9 @@ namespace Hydroponics_application
             // 
             // viewseedlingtraybtn
             // 
-            this.viewseedlingtraybtn.Location = new System.Drawing.Point(42, 341);
+            this.viewseedlingtraybtn.Location = new System.Drawing.Point(188, 349);
             this.viewseedlingtraybtn.Name = "viewseedlingtraybtn";
-            this.viewseedlingtraybtn.Size = new System.Drawing.Size(140, 23);
+            this.viewseedlingtraybtn.Size = new System.Drawing.Size(124, 23);
             this.viewseedlingtraybtn.TabIndex = 17;
             this.viewseedlingtraybtn.Text = "VIEW SEEDLING TRAYS";
             this.viewseedlingtraybtn.UseVisualStyleBackColor = true;
@@ -206,7 +210,7 @@ namespace Hydroponics_application
             // 
             // viewgrowboxbtn
             // 
-            this.viewgrowboxbtn.Location = new System.Drawing.Point(188, 341);
+            this.viewgrowboxbtn.Location = new System.Drawing.Point(188, 385);
             this.viewgrowboxbtn.Name = "viewgrowboxbtn";
             this.viewgrowboxbtn.Size = new System.Drawing.Size(124, 23);
             this.viewgrowboxbtn.TabIndex = 18;
@@ -217,18 +221,67 @@ namespace Hydroponics_application
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(141, 398);
+            this.label12.Location = new System.Drawing.Point(43, 231);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.Size = new System.Drawing.Size(78, 13);
             this.label12.TabIndex = 19;
-            this.label12.Text = "label12";
+            this.label12.Text = "Transfer Date: ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(165, 231);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 13);
+            this.label13.TabIndex = 20;
+            // 
+            // addseedsbtn
+            // 
+            this.addseedsbtn.Location = new System.Drawing.Point(42, 419);
+            this.addseedsbtn.Name = "addseedsbtn";
+            this.addseedsbtn.Size = new System.Drawing.Size(124, 23);
+            this.addseedsbtn.TabIndex = 21;
+            this.addseedsbtn.Text = "ADD SEEDS";
+            this.addseedsbtn.UseVisualStyleBackColor = true;
+            // 
+            // updatestatsbtn
+            // 
+            this.updatestatsbtn.Location = new System.Drawing.Point(42, 455);
+            this.updatestatsbtn.Name = "updatestatsbtn";
+            this.updatestatsbtn.Size = new System.Drawing.Size(124, 22);
+            this.updatestatsbtn.TabIndex = 22;
+            this.updatestatsbtn.Text = "UPDATE STATS";
+            this.updatestatsbtn.UseVisualStyleBackColor = true;
+            // 
+            // viewseedsbtn
+            // 
+            this.viewseedsbtn.Location = new System.Drawing.Point(188, 418);
+            this.viewseedsbtn.Name = "viewseedsbtn";
+            this.viewseedsbtn.Size = new System.Drawing.Size(124, 23);
+            this.viewseedsbtn.TabIndex = 23;
+            this.viewseedsbtn.Text = "VIEW SEEDS";
+            this.viewseedsbtn.UseVisualStyleBackColor = true;
+            // 
+            // viewstatsbtn
+            // 
+            this.viewstatsbtn.Location = new System.Drawing.Point(188, 455);
+            this.viewstatsbtn.Name = "viewstatsbtn";
+            this.viewstatsbtn.Size = new System.Drawing.Size(124, 23);
+            this.viewstatsbtn.TabIndex = 24;
+            this.viewstatsbtn.Text = "VIEW STATS";
+            this.viewstatsbtn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 432);
+            this.ClientSize = new System.Drawing.Size(334, 522);
+            this.Controls.Add(this.viewstatsbtn);
+            this.Controls.Add(this.viewseedsbtn);
+            this.Controls.Add(this.updatestatsbtn);
+            this.Controls.Add(this.addseedsbtn);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.viewgrowboxbtn);
             this.Controls.Add(this.viewseedlingtraybtn);
@@ -278,6 +331,11 @@ namespace Hydroponics_application
         private System.Windows.Forms.Button viewseedlingtraybtn;
         private System.Windows.Forms.Button viewgrowboxbtn;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button addseedsbtn;
+        private System.Windows.Forms.Button updatestatsbtn;
+        private System.Windows.Forms.Button viewseedsbtn;
+        private System.Windows.Forms.Button viewstatsbtn;
     }
 }
 

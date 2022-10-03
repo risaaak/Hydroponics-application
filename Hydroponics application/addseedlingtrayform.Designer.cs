@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backbtn
@@ -58,7 +60,7 @@
             // 
             // addgrowboxtextBox
             // 
-            this.addgrowboxtextBox.Location = new System.Drawing.Point(115, 316);
+            this.addgrowboxtextBox.Location = new System.Drawing.Point(115, 355);
             this.addgrowboxtextBox.Name = "addgrowboxtextBox";
             this.addgrowboxtextBox.Size = new System.Drawing.Size(100, 20);
             this.addgrowboxtextBox.TabIndex = 45;
@@ -66,7 +68,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(23, 319);
+            this.label12.Location = new System.Drawing.Point(23, 358);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 13);
             this.label12.TabIndex = 44;
@@ -85,7 +87,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(148, 287);
+            this.label11.Location = new System.Drawing.Point(148, 326);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(0, 13);
             this.label11.TabIndex = 42;
@@ -93,7 +95,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 287);
+            this.label10.Location = new System.Drawing.Point(23, 326);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 41;
@@ -184,11 +186,30 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
             this.dateTimePicker1.TabIndex = 31;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(26, 286);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 13);
+            this.label13.TabIndex = 46;
+            this.label13.Text = "Transfer Date: ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(115, 286);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(0, 13);
+            this.label14.TabIndex = 47;
+            // 
             // addseedlingtrayform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 371);
+            this.ClientSize = new System.Drawing.Size(289, 415);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.addgrowboxtextBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button2);
@@ -230,5 +251,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

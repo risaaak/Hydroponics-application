@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Toolkit.Uwp.Notifications;
+//using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace Hydroponics_application
 {
@@ -24,8 +24,9 @@ namespace Hydroponics_application
 
         }
         //connection string
-        public string connectionstring = "Data Source=ISAAKLAPTOP\\SQLEXPRESS;Initial Catalog = HYDROPONICS; Integrated Security = True";
+        public string connectionstring = "Data Source=ISAAK-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
 
+        /*
         //function to set harvest date toast
         private void notificationHarvestDate()
         {
@@ -38,9 +39,6 @@ namespace Hydroponics_application
          SqlCommand getHarvestDate = new SqlCommand("SELECT harvestdate FROM GROWBOX", con);
          DateTime harvestdate = (DateTime)getHarvestDate.ExecuteScalar();
          con.Close();
-         new ToastContentBuilder()
-            .AddText("Harvest Lettuce")
-            .Schedule(harvestdate);
         }
 
         //fucntion to get the next plant date notification
@@ -54,9 +52,6 @@ namespace Hydroponics_application
             SqlCommand getNextPlantDate = new SqlCommand("SELECT nextplant FROM GROWBOX", con);
             DateTime nextPlantDate = (DateTime)getNextPlantDate.ExecuteScalar();
             con.Close();
-            new ToastContentBuilder()
-                .AddText("Plant next seedling batch")
-                .Schedule(nextPlantDate);
         }
 
         //function to get water solution notification
@@ -70,9 +65,6 @@ namespace Hydroponics_application
             SqlCommand getWaterNoSolution = new SqlCommand("SELECT nosolutiondate FROM SEEDLINGTRAY", con);
             DateTime noSolutionDate = (DateTime)getWaterNoSolution.ExecuteScalar();
             con.Close();
-            new ToastContentBuilder()
-                .AddText("Water seedling with no solution")
-                .Schedule(noSolutionDate);
         }
         private void notificationHalfStrengthSolution()
         {
@@ -84,9 +76,6 @@ namespace Hydroponics_application
             SqlCommand getWaterHalfStrength = new SqlCommand("SELECT halfstrengthsolutiondate FROM SEEDLINGTRAY", con);
             DateTime halfStrengthSolution = (DateTime)getWaterHalfStrength.ExecuteScalar();
             con.Close();
-            new ToastContentBuilder()
-                .AddText("Water seedling with half strength solution")
-                .Schedule(halfStrengthSolution);
         }
         
         private void notificationFullStrengthSolution()
@@ -99,9 +88,6 @@ namespace Hydroponics_application
             SqlCommand getWaterFullStrength = new SqlCommand("SELECT fullstrengthsolutiondate FROM SEEDLINGTRAY", con);
             DateTime fullStrengthSolution = (DateTime)getWaterFullStrength.ExecuteScalar();
             con.Close();
-            new ToastContentBuilder()
-                .AddText("Water seedling with full strength solution")
-                .Schedule(fullStrengthSolution);
         }
 
         private void notificationTransferSeedling()
@@ -114,11 +100,8 @@ namespace Hydroponics_application
             SqlCommand getTransferDate = new SqlCommand("SELECT plantdate FROM SEEDLINGTRAY", con);
             DateTime transferDate = (DateTime)getTransferDate.ExecuteScalar();
             con.Close();
-            new ToastContentBuilder()
-                .AddText("Transfer seedling to grow box")
-                .Schedule(transferDate.AddDays(15));
         }
-
+        */
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -128,19 +111,18 @@ namespace Hydroponics_application
             DateTime waterWithnoSLN = datePlanted.AddDays(6);
             DateTime halfstrengthSLN = waterWithnoSLN.AddDays(6);
             DateTime fullStrength = halfstrengthSLN.AddDays(2);
-            DateTime harvestDate = fullStrength.AddDays(25);
+            DateTime transferDate = fullStrength.AddDays(1);
+            DateTime harvestDate = transferDate.AddDays(30);
             DateTime nextPlant = harvestDate.AddDays(-15);
-            label5.Text = datePlanted.ToString("MM/dd/yyyy") + " to " + waterWithnoSLN.ToString("MM/dd/yyyy");
-            label6.Text = waterWithnoSLN.AddDays(1).ToString("MM/dd/yyyy")  + " to " + halfstrengthSLN.ToString("MM/dd/yyyy");
-            label7.Text = halfstrengthSLN.AddDays(1).ToString("MM/dd/yyyy") + " to " + fullStrength.ToString("MM/dd/yyyy");
+            label5.Text = datePlanted.ToString("MM/dd/yyyy") + "  to " + waterWithnoSLN.ToString("MM/dd/yyyy");
+            label6.Text = waterWithnoSLN.AddDays(1).ToString("MM/dd/yyyy")  + "  to " + halfstrengthSLN.ToString("MM/dd/yyyy");
+            label7.Text = halfstrengthSLN.AddDays(1).ToString("MM/dd/yyyy") + "  to " + fullStrength.ToString("MM/dd/yyyy");
             label9.Text = harvestDate.ToString("MM/dd/yyyy");
             label11.Text = nextPlant.ToString("MM/dd/yyyy");
+            label13.Text = transferDate.ToString("MM/dd/yyyy");
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -185,12 +167,15 @@ namespace Hydroponics_application
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*
             notificationHarvestDate();
             notificationNextPlantDate();
             notificationFullStrengthSolution();
             notificationHalfStrengthSolution();
             notificationWaterNoSolution();
             notificationTransferSeedling();
+            */
         }
+
     }
 }

@@ -24,16 +24,17 @@ namespace Hydroponics_application
             form.Show();
             this.Hide();
         }
-        public string connectionstring = "Data Source=ISAAKLAPTOP\\SQLEXPRESS;Initial Catalog = HYDROPONICS; Integrated Security = True";
+        public string connectionstring = "Data Source=ISAAK-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
         private void button2_Click(object sender, EventArgs e)
         {
             int seedlingtrayid;
-            DateTime nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate, plantdate;
+            DateTime nosolutiondate, halfstrengthdate, fullstrengthdate, harvestdate, nextplantdate, plantdate, transferDate;
             plantdate = Convert.ToDateTime(dateTimePicker1.Value);
             nosolutiondate = plantdate.AddDays(6);
             halfstrengthdate = nosolutiondate.AddDays(6);
             fullstrengthdate = halfstrengthdate.AddDays(2);
-            harvestdate = fullstrengthdate.AddDays(25);
+            transferDate = fullstrengthdate.AddDays(1);
+            harvestdate = transferDate.AddDays(30);
             nextplantdate = harvestdate.AddDays(-15);
             seedlingtrayid = int.Parse(addgrowboxtextBox.Text);
 
@@ -47,7 +48,7 @@ namespace Hydroponics_application
             con.Open();
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO SEEDLINGTRAY VALUES ('" + seedlingtrayid + "', '" + plantdate + "','" + nosolutiondate + "','" + halfstrengthdate + "','" + fullstrengthdate + "', '" + harvestdate + "', '" + nextplantdate + "')", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO SEEDLINGTRAY VALUES ('" + seedlingtrayid + "', '" + plantdate + "','" + nosolutiondate + "','" + halfstrengthdate + "','" + fullstrengthdate + "', '" + transferDate + "', '" + harvestdate + "', '" + nextplantdate + "')", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Successful");
