@@ -243,6 +243,7 @@ namespace Hydroponics_application
             this.addseedsbtn.TabIndex = 21;
             this.addseedsbtn.Text = "ADD SEEDS";
             this.addseedsbtn.UseVisualStyleBackColor = true;
+            this.addseedsbtn.Click += new System.EventHandler(this.addseedsbtn_Click);
             // 
             // updatestatsbtn
             // 

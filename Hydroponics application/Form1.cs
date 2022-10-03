@@ -177,5 +177,11 @@ namespace Hydroponics_application
             */
         }
 
+        private void addseedsbtn_Click(object sender, EventArgs e)
+        {
+            Add_Seedlings add_Seedlings = new Add_Seedlings();
+            add_Seedlings.Show();
+            this.Hide();
+        }
     }
 }
