@@ -24,7 +24,7 @@ namespace Hydroponics_application
 
         }
         //connection string
-        public string connectionstring = "Data Source=ISAAK-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
+        public string connectionstring = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
 
         /*
         //function to set harvest date toast

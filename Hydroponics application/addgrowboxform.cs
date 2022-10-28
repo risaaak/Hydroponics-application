@@ -25,7 +25,7 @@ namespace Hydroponics_application
             this.Hide();
         }
 
-        public string connectionstring = "Data Source=ISAAK-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
+        public string connectionstring = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
         private void button2_Click(object sender, EventArgs e)
         {
             /*if(addgrowboxtextBox.Text == null)

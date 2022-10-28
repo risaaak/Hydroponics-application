@@ -18,7 +18,7 @@ namespace Hydroponics_application
             InitializeComponent();
         }
 
-        public string connectionstring = "Data Source=ISAAK-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
+        public string connectionstring = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICSAPP;Integrated Security=True";
         private void addseedbtn_Click(object sender, EventArgs e)
         {
             string seedname = seednametxtbox.Text.ToUpper();
