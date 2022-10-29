@@ -108,7 +108,7 @@ namespace Hydroponics_application
             DateTime datePlanted = Convert.ToDateTime(dateTimePicker1.Value);
 
             label7.Text = datePlanted.ToString();
-            DateTime waterWithnoSLN = datePlanted.AddDays(6);
+            DateTime waterWithnoSLN = getWaterWithNoSolutionDate(datePlanted);
             DateTime halfstrengthSLN = waterWithnoSLN.AddDays(6);
             DateTime fullStrength = halfstrengthSLN.AddDays(2);
             DateTime transferDate = fullStrength.AddDays(1);
@@ -122,7 +122,11 @@ namespace Hydroponics_application
             label13.Text = transferDate.ToString("MM/dd/yyyy");
         }
 
-
+        private DateTime getWaterWithNoSolutionDate(DateTime datePlanted)
+        {
+            DateTime waterWithNoSolutionDate = datePlanted.AddDays(6);
+            return waterWithNoSolutionDate;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
