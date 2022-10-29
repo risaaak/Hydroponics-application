@@ -140,6 +140,11 @@ namespace Hydroponics_application
             return fullStrengthSolutionDate;
         }
 
+        private DateTime getTransferDate(DateTime waterWithFullStrength)
+        {
+            DateTime transferDate = waterWithFullStrength.AddDays(1);
+            return transferDate;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             DateTime datetrasfer = Convert.ToDateTime(dateTimePicker1.Value);
