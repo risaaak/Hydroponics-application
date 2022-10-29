@@ -105,7 +105,7 @@ namespace Hydroponics_application
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime datePlanted = Convert.ToDateTime(dateTimePicker1.Value);
+            DateTime datePlanted = getDatePlanted();
 
             label7.Text = datePlanted.ToString();
             DateTime waterWithnoSLN = getWaterWithNoSolutionDate(datePlanted);
@@ -122,6 +122,11 @@ namespace Hydroponics_application
             label13.Text = transferDate.ToString("MM/dd/yyyy");
         }
 
+        private DateTime getDatePlanted()
+        {
+            DateTime datePlanted = Convert.ToDateTime(dateTimePicker1.Value);
+            return datePlanted;
+        }
         private DateTime getWaterWithNoSolutionDate(DateTime datePlanted)
         {
             DateTime waterWithNoSolutionDate = datePlanted.AddDays(6);
@@ -200,14 +205,6 @@ namespace Hydroponics_application
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*
-            notificationHarvestDate();
-            notificationNextPlantDate();
-            notificationFullStrengthSolution();
-            notificationHalfStrengthSolution();
-            notificationWaterNoSolution();
-            notificationTransferSeedling();
-            */
         }
 
         private void addseedsbtn_Click(object sender, EventArgs e)
