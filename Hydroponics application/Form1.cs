@@ -109,8 +109,8 @@ namespace Hydroponics_application
 
             label7.Text = datePlanted.ToString();
             DateTime waterWithnoSLN = getWaterWithNoSolutionDate(datePlanted);
-            DateTime halfstrengthSLN = waterWithnoSLN.AddDays(6);
-            DateTime fullStrength = halfstrengthSLN.AddDays(2);
+            DateTime halfstrengthSLN = getHalfStrengthSolutionDate(waterWithnoSLN);
+            DateTime fullStrength = getWaterWithFullStrengthDate(halfstrengthSLN);
             DateTime transferDate = fullStrength.AddDays(1);
             DateTime harvestDate = transferDate.AddDays(30);
             DateTime nextPlant = harvestDate.AddDays(-15);
@@ -126,6 +126,18 @@ namespace Hydroponics_application
         {
             DateTime waterWithNoSolutionDate = datePlanted.AddDays(6);
             return waterWithNoSolutionDate;
+        }
+
+        private DateTime getHalfStrengthSolutionDate(DateTime waterWithNoSolutionDate)
+        {
+            DateTime halfStrengthSolutionDate = waterWithNoSolutionDate.AddDays(6);
+            return halfStrengthSolutionDate;
+        }
+
+        private DateTime getWaterWithFullStrengthDate(DateTime waterWithHalfStrengthDate)
+        {
+            DateTime fullStrengthSolutionDate = waterWithHalfStrengthDate.AddDays(2);
+            return fullStrengthSolutionDate;
         }
 
         private void button2_Click(object sender, EventArgs e)
