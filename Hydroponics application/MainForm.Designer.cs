@@ -37,7 +37,7 @@
             this.waterWithNoSolutionLabel = new System.Windows.Forms.Label();
             this.waterWithNoSolutionLbl = new System.Windows.Forms.Label();
             this.HalfStrengthLabel = new System.Windows.Forms.Label();
-            this.HalfStrength = new System.Windows.Forms.Label();
+            this.HalfStrengthLbl = new System.Windows.Forms.Label();
             this.FullStrengthLabel = new System.Windows.Forms.Label();
             this.FullStrength = new System.Windows.Forms.Label();
             this.transferDateLabel = new System.Windows.Forms.Label();
@@ -135,13 +135,13 @@
             this.HalfStrengthLabel.TabIndex = 8;
             this.HalfStrengthLabel.Text = "Water with 50% Solution:";
             // 
-            // HalfStrength
+            // HalfStrengthLbl
             // 
-            this.HalfStrength.AutoSize = true;
-            this.HalfStrength.Location = new System.Drawing.Point(154, 182);
-            this.HalfStrength.Name = "HalfStrength";
-            this.HalfStrength.Size = new System.Drawing.Size(0, 13);
-            this.HalfStrength.TabIndex = 9;
+            this.HalfStrengthLbl.AutoSize = true;
+            this.HalfStrengthLbl.Location = new System.Drawing.Point(154, 182);
+            this.HalfStrengthLbl.Name = "HalfStrengthLbl";
+            this.HalfStrengthLbl.Size = new System.Drawing.Size(0, 13);
+            this.HalfStrengthLbl.TabIndex = 9;
             // 
             // FullStrengthLabel
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.transferDateLabel);
             this.Controls.Add(this.FullStrength);
             this.Controls.Add(this.FullStrengthLabel);
-            this.Controls.Add(this.HalfStrength);
+            this.Controls.Add(this.HalfStrengthLbl);
             this.Controls.Add(this.HalfStrengthLabel);
             this.Controls.Add(this.waterWithNoSolutionLbl);
             this.Controls.Add(this.waterWithNoSolutionLabel);
@@ -314,7 +314,7 @@
         private System.Windows.Forms.Label waterWithNoSolutionLabel;
         private System.Windows.Forms.Label waterWithNoSolutionLbl;
         private System.Windows.Forms.Label HalfStrengthLabel;
-        private System.Windows.Forms.Label HalfStrength;
+        private System.Windows.Forms.Label HalfStrengthLbl;
         private System.Windows.Forms.Label FullStrengthLabel;
         private System.Windows.Forms.Label FullStrength;
         private System.Windows.Forms.Label transferDateLabel;
