@@ -33,7 +33,7 @@
             this.sowDateButton = new System.Windows.Forms.Button();
             this.transferDateButton = new System.Windows.Forms.Button();
             this.sowDateLabel = new System.Windows.Forms.Label();
-            this.sowDate = new System.Windows.Forms.Label();
+            this.sowDateLbl = new System.Windows.Forms.Label();
             this.waterWithNoSolutionLabel = new System.Windows.Forms.Label();
             this.waterWithNoSolution = new System.Windows.Forms.Label();
             this.HalfStrengthLabel = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@
             this.sowDateButton.TabIndex = 2;
             this.sowDateButton.Text = "Sow Date";
             this.sowDateButton.UseVisualStyleBackColor = true;
+            this.sowDateButton.Click += new System.EventHandler(this.sowDateButton_Click);
             // 
             // transferDateButton
             // 
@@ -100,13 +101,13 @@
             this.sowDateLabel.TabIndex = 4;
             this.sowDateLabel.Text = "Sow Date:";
             // 
-            // sowDate
+            // sowDateLbl
             // 
-            this.sowDate.AutoSize = true;
-            this.sowDate.Location = new System.Drawing.Point(154, 131);
-            this.sowDate.Name = "sowDate";
-            this.sowDate.Size = new System.Drawing.Size(0, 13);
-            this.sowDate.TabIndex = 5;
+            this.sowDateLbl.AutoSize = true;
+            this.sowDateLbl.Location = new System.Drawing.Point(154, 131);
+            this.sowDateLbl.Name = "sowDateLbl";
+            this.sowDateLbl.Size = new System.Drawing.Size(0, 13);
+            this.sowDateLbl.TabIndex = 5;
             // 
             // waterWithNoSolutionLabel
             // 
@@ -288,7 +289,7 @@
             this.Controls.Add(this.HalfStrengthLabel);
             this.Controls.Add(this.waterWithNoSolution);
             this.Controls.Add(this.waterWithNoSolutionLabel);
-            this.Controls.Add(this.sowDate);
+            this.Controls.Add(this.sowDateLbl);
             this.Controls.Add(this.sowDateLabel);
             this.Controls.Add(this.transferDateButton);
             this.Controls.Add(this.sowDateButton);
@@ -309,7 +310,7 @@
         private System.Windows.Forms.Button sowDateButton;
         private System.Windows.Forms.Button transferDateButton;
         private System.Windows.Forms.Label sowDateLabel;
-        private System.Windows.Forms.Label sowDate;
+        private System.Windows.Forms.Label sowDateLbl;
         private System.Windows.Forms.Label waterWithNoSolutionLabel;
         private System.Windows.Forms.Label waterWithNoSolution;
         private System.Windows.Forms.Label HalfStrengthLabel;

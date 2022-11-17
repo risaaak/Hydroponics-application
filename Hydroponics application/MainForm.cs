@@ -31,5 +31,18 @@ namespace Hydroponics_application
         {
 
         }
+
+        private void sowDateButton_Click(object sender, EventArgs e)
+        {
+            DateTime sowDate, noSolutionDate, HalfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
+            sowDate = getSowDate();
+            sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
+        }
+
+        private DateTime getSowDate()
+        {
+            DateTime sowDate = dateTimePicker.Value;
+            return sowDate;
+        }
     }
 }
