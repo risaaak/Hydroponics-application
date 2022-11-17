@@ -37,12 +37,17 @@ namespace Hydroponics_application
             DateTime sowDate, noSolutionDate, HalfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
             sowDate = getSowDate();
             sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
+            waterWithNoSolutionLbl.Text = getNoSolutionDate(sowDate).ToString("MM/dd/yyyy");
         }
 
         private DateTime getSowDate()
         {
             DateTime sowDate = dateTimePicker.Value;
             return sowDate;
+        }
+        private DateTime getNoSolutionDate(DateTime sowDate)
+        {
+            return sowDate.AddDays(6);
         }
     }
 }

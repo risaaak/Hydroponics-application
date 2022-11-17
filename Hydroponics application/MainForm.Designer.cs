@@ -35,7 +35,7 @@
             this.sowDateLabel = new System.Windows.Forms.Label();
             this.sowDateLbl = new System.Windows.Forms.Label();
             this.waterWithNoSolutionLabel = new System.Windows.Forms.Label();
-            this.waterWithNoSolution = new System.Windows.Forms.Label();
+            this.waterWithNoSolutionLbl = new System.Windows.Forms.Label();
             this.HalfStrengthLabel = new System.Windows.Forms.Label();
             this.HalfStrength = new System.Windows.Forms.Label();
             this.FullStrengthLabel = new System.Windows.Forms.Label();
@@ -118,13 +118,13 @@
             this.waterWithNoSolutionLabel.TabIndex = 6;
             this.waterWithNoSolutionLabel.Text = "Water with No Solution:";
             // 
-            // waterWithNoSolution
+            // waterWithNoSolutionLbl
             // 
-            this.waterWithNoSolution.AutoSize = true;
-            this.waterWithNoSolution.Location = new System.Drawing.Point(154, 158);
-            this.waterWithNoSolution.Name = "waterWithNoSolution";
-            this.waterWithNoSolution.Size = new System.Drawing.Size(0, 13);
-            this.waterWithNoSolution.TabIndex = 7;
+            this.waterWithNoSolutionLbl.AutoSize = true;
+            this.waterWithNoSolutionLbl.Location = new System.Drawing.Point(154, 158);
+            this.waterWithNoSolutionLbl.Name = "waterWithNoSolutionLbl";
+            this.waterWithNoSolutionLbl.Size = new System.Drawing.Size(0, 13);
+            this.waterWithNoSolutionLbl.TabIndex = 7;
             // 
             // HalfStrengthLabel
             // 
@@ -287,7 +287,7 @@
             this.Controls.Add(this.FullStrengthLabel);
             this.Controls.Add(this.HalfStrength);
             this.Controls.Add(this.HalfStrengthLabel);
-            this.Controls.Add(this.waterWithNoSolution);
+            this.Controls.Add(this.waterWithNoSolutionLbl);
             this.Controls.Add(this.waterWithNoSolutionLabel);
             this.Controls.Add(this.sowDateLbl);
             this.Controls.Add(this.sowDateLabel);
@@ -312,7 +312,7 @@
         private System.Windows.Forms.Label sowDateLabel;
         private System.Windows.Forms.Label sowDateLbl;
         private System.Windows.Forms.Label waterWithNoSolutionLabel;
-        private System.Windows.Forms.Label waterWithNoSolution;
+        private System.Windows.Forms.Label waterWithNoSolutionLbl;
         private System.Windows.Forms.Label HalfStrengthLabel;
         private System.Windows.Forms.Label HalfStrength;
         private System.Windows.Forms.Label FullStrengthLabel;
