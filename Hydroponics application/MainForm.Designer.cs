@@ -62,7 +62,6 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(106, 20);
             this.dateTimePicker.TabIndex = 0;
-            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // dateLabel
             // 
@@ -91,6 +90,7 @@
             this.transferDateButton.TabIndex = 3;
             this.transferDateButton.Text = "Transfer Date";
             this.transferDateButton.UseVisualStyleBackColor = true;
+            this.transferDateButton.Click += new System.EventHandler(this.transferDateButton_Click);
             // 
             // sowDateLabel
             // 
@@ -219,6 +219,7 @@
             this.addPlantButton.TabIndex = 18;
             this.addPlantButton.Text = "Add Plant";
             this.addPlantButton.UseVisualStyleBackColor = true;
+            this.addPlantButton.Click += new System.EventHandler(this.addPlantButton_Click);
             // 
             // viewPlantsButton
             // 

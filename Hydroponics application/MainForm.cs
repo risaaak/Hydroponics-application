@@ -17,16 +17,6 @@ namespace Hydroponics_application
             InitializeComponent();
         }
 
-        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void addSeedsButton_Click(object sender, EventArgs e)
         {
 
@@ -52,12 +42,12 @@ namespace Hydroponics_application
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
         }
 
-        private DateTime getSowDate()
+        public DateTime getSowDate()
         {
             DateTime sowDate = dateTimePicker.Value;
             return sowDate;
         }
-        private DateTime getNoSolutionDate(DateTime sowDate)
+        public DateTime getNoSolutionDate(DateTime sowDate)
         {
             return sowDate.AddDays(6);
         }
@@ -67,17 +57,22 @@ namespace Hydroponics_application
             return noSolutionDate.AddDays(6);
         }
 
-        private DateTime getFullStrengthSoltuionDate(DateTime halfStrengthSolutionDate)
+        public void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public DateTime getFullStrengthSoltuionDate(DateTime halfStrengthSolutionDate)
         {
             return halfStrengthSolutionDate.AddDays(2);
         }
 
-        private DateTime getTransferDate(DateTime fullStrengthSolutionDate)
+        public DateTime getTransferDate(DateTime fullStrengthSolutionDate)
         {
             return fullStrengthSolutionDate.AddDays(1);
         }
 
-        private DateTime getHarvestDate(DateTime transferDate)
+        public DateTime getHarvestDate(DateTime transferDate)
         {
             return transferDate.AddDays(30);
         }
@@ -94,6 +89,13 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
+        }
+
+        private void addPlantButton_Click(object sender, EventArgs e)
+        {
+            addPlantForm addPlantForm = new addPlantForm();
+            addPlantForm.Show();
+            this.Hide();
         }
     }
 }
