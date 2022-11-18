@@ -39,13 +39,13 @@
             this.HalfStrengthLabel = new System.Windows.Forms.Label();
             this.HalfStrengthLbl = new System.Windows.Forms.Label();
             this.FullStrengthLabel = new System.Windows.Forms.Label();
-            this.FullStrength = new System.Windows.Forms.Label();
+            this.FullStrengthLbl = new System.Windows.Forms.Label();
             this.transferDateLabel = new System.Windows.Forms.Label();
             this.harvestDateLabel = new System.Windows.Forms.Label();
-            this.transferDate = new System.Windows.Forms.Label();
-            this.harvestDate = new System.Windows.Forms.Label();
+            this.transferDateLbl = new System.Windows.Forms.Label();
+            this.harvestDateLbl = new System.Windows.Forms.Label();
             this.nextPlantDateLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.NextPlantDateLbl = new System.Windows.Forms.Label();
             this.addPlantButton = new System.Windows.Forms.Button();
             this.viewPlantsButton = new System.Windows.Forms.Button();
             this.addSeedsButton = new System.Windows.Forms.Button();
@@ -152,13 +152,13 @@
             this.FullStrengthLabel.TabIndex = 10;
             this.FullStrengthLabel.Text = "Water with 100% Solution:";
             // 
-            // FullStrength
+            // FullStrengthLbl
             // 
-            this.FullStrength.AutoSize = true;
-            this.FullStrength.Location = new System.Drawing.Point(154, 212);
-            this.FullStrength.Name = "FullStrength";
-            this.FullStrength.Size = new System.Drawing.Size(0, 13);
-            this.FullStrength.TabIndex = 11;
+            this.FullStrengthLbl.AutoSize = true;
+            this.FullStrengthLbl.Location = new System.Drawing.Point(154, 212);
+            this.FullStrengthLbl.Name = "FullStrengthLbl";
+            this.FullStrengthLbl.Size = new System.Drawing.Size(0, 13);
+            this.FullStrengthLbl.TabIndex = 11;
             // 
             // transferDateLabel
             // 
@@ -178,21 +178,21 @@
             this.harvestDateLabel.TabIndex = 13;
             this.harvestDateLabel.Text = "Harvest Date:";
             // 
-            // transferDate
+            // transferDateLbl
             // 
-            this.transferDate.AutoSize = true;
-            this.transferDate.Location = new System.Drawing.Point(157, 239);
-            this.transferDate.Name = "transferDate";
-            this.transferDate.Size = new System.Drawing.Size(0, 13);
-            this.transferDate.TabIndex = 14;
+            this.transferDateLbl.AutoSize = true;
+            this.transferDateLbl.Location = new System.Drawing.Point(157, 239);
+            this.transferDateLbl.Name = "transferDateLbl";
+            this.transferDateLbl.Size = new System.Drawing.Size(0, 13);
+            this.transferDateLbl.TabIndex = 14;
             // 
-            // harvestDate
+            // harvestDateLbl
             // 
-            this.harvestDate.AutoSize = true;
-            this.harvestDate.Location = new System.Drawing.Point(157, 268);
-            this.harvestDate.Name = "harvestDate";
-            this.harvestDate.Size = new System.Drawing.Size(0, 13);
-            this.harvestDate.TabIndex = 15;
+            this.harvestDateLbl.AutoSize = true;
+            this.harvestDateLbl.Location = new System.Drawing.Point(157, 268);
+            this.harvestDateLbl.Name = "harvestDateLbl";
+            this.harvestDateLbl.Size = new System.Drawing.Size(0, 13);
+            this.harvestDateLbl.TabIndex = 15;
             // 
             // nextPlantDateLabel
             // 
@@ -203,13 +203,13 @@
             this.nextPlantDateLabel.TabIndex = 16;
             this.nextPlantDateLabel.Text = "Next Plant:";
             // 
-            // label1
+            // NextPlantDateLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(154, 294);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 17;
+            this.NextPlantDateLbl.AutoSize = true;
+            this.NextPlantDateLbl.Location = new System.Drawing.Point(154, 294);
+            this.NextPlantDateLbl.Name = "NextPlantDateLbl";
+            this.NextPlantDateLbl.Size = new System.Drawing.Size(0, 13);
+            this.NextPlantDateLbl.TabIndex = 17;
             // 
             // addPlantButton
             // 
@@ -277,13 +277,13 @@
             this.Controls.Add(this.addSeedsButton);
             this.Controls.Add(this.viewPlantsButton);
             this.Controls.Add(this.addPlantButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.NextPlantDateLbl);
             this.Controls.Add(this.nextPlantDateLabel);
-            this.Controls.Add(this.harvestDate);
-            this.Controls.Add(this.transferDate);
+            this.Controls.Add(this.harvestDateLbl);
+            this.Controls.Add(this.transferDateLbl);
             this.Controls.Add(this.harvestDateLabel);
             this.Controls.Add(this.transferDateLabel);
-            this.Controls.Add(this.FullStrength);
+            this.Controls.Add(this.FullStrengthLbl);
             this.Controls.Add(this.FullStrengthLabel);
             this.Controls.Add(this.HalfStrengthLbl);
             this.Controls.Add(this.HalfStrengthLabel);
@@ -316,13 +316,13 @@
         private System.Windows.Forms.Label HalfStrengthLabel;
         private System.Windows.Forms.Label HalfStrengthLbl;
         private System.Windows.Forms.Label FullStrengthLabel;
-        private System.Windows.Forms.Label FullStrength;
+        private System.Windows.Forms.Label FullStrengthLbl;
         private System.Windows.Forms.Label transferDateLabel;
         private System.Windows.Forms.Label harvestDateLabel;
-        private System.Windows.Forms.Label transferDate;
-        private System.Windows.Forms.Label harvestDate;
+        private System.Windows.Forms.Label transferDateLbl;
+        private System.Windows.Forms.Label harvestDateLbl;
         private System.Windows.Forms.Label nextPlantDateLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NextPlantDateLbl;
         private System.Windows.Forms.Button addPlantButton;
         private System.Windows.Forms.Button viewPlantsButton;
         private System.Windows.Forms.Button addSeedsButton;

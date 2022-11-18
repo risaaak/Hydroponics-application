@@ -34,13 +34,15 @@ namespace Hydroponics_application
 
         private void sowDateButton_Click(object sender, EventArgs e)
         {
-            DateTime sowDate, noSolutionDate, HalfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
+            DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
             sowDate = getSowDate();
             noSolutionDate = getNoSolutionDate(sowDate);
-            HalfStrengthSolutionDate = getHalfStrengthSolutionDate(noSolutionDate);
+            halfStrengthSolutionDate = getHalfStrengthSolutionDate(noSolutionDate);
+            fullStrengthSolutionDate = getFullStrengthSoltuionDate(halfStrengthSolutionDate);
             sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
             waterWithNoSolutionLbl.Text = noSolutionDate.ToString("MM/dd/yyyy");
-            HalfStrengthLbl.Text = HalfStrengthSolutionDate.ToString("MM/dd/yyyy");
+            HalfStrengthLbl.Text = halfStrengthSolutionDate.ToString("MM/dd/yyyy");
+            FullStrengthLbl.Text = fullStrengthSolutionDate.ToString("MM/dd/yyyy");
         }
 
         private DateTime getSowDate()
@@ -53,9 +55,14 @@ namespace Hydroponics_application
             return sowDate.AddDays(6);
         }
 
-        private DateTime getHalfStrengthSolutionDate(DateTime noSolutionDate)
+        public DateTime getHalfStrengthSolutionDate(DateTime noSolutionDate)
         {
-           return noSolutionDate.AddDays(6);
+            return noSolutionDate.AddDays(6);
+        }
+
+        private DateTime getFullStrengthSoltuionDate(DateTime halfStrengthSolutionDate)
+        {
+            return halfStrengthSolutionDate.AddDays(2);
         }
     }
 }
