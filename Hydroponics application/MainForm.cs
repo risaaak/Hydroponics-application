@@ -43,9 +43,9 @@ namespace Hydroponics_application
             harvestDate = getHarvestDate(transferDate);
             nextPlantDate = getNextPlantDate(harvestDate);
             sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
-            waterWithNoSolutionLbl.Text = noSolutionDate.ToString("MM/dd/yyyy");
-            HalfStrengthLbl.Text = halfStrengthSolutionDate.ToString("MM/dd/yyyy");
-            FullStrengthLbl.Text = fullStrengthSolutionDate.ToString("MM/dd/yyyy");
+            waterWithNoSolutionLbl.Text = sowDate.ToString("MM/dd/yyyy") + " - " + noSolutionDate.ToString("MM/dd/yyyy");
+            HalfStrengthLbl.Text = noSolutionDate.AddDays(1).ToString("MM/dd/yyyy") +  " - " + halfStrengthSolutionDate.ToString("MM/dd/yyyy");
+            FullStrengthLbl.Text = halfStrengthSolutionDate.AddDays(1).ToString("MM/dd/yyyy") + " - " + fullStrengthSolutionDate.ToString("MM/dd/yyyy");
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
