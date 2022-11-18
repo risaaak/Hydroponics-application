@@ -39,10 +39,12 @@ namespace Hydroponics_application
             noSolutionDate = getNoSolutionDate(sowDate);
             halfStrengthSolutionDate = getHalfStrengthSolutionDate(noSolutionDate);
             fullStrengthSolutionDate = getFullStrengthSoltuionDate(halfStrengthSolutionDate);
+            transferDate = getTransferDate(fullStrengthSolutionDate);
             sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
             waterWithNoSolutionLbl.Text = noSolutionDate.ToString("MM/dd/yyyy");
             HalfStrengthLbl.Text = halfStrengthSolutionDate.ToString("MM/dd/yyyy");
             FullStrengthLbl.Text = fullStrengthSolutionDate.ToString("MM/dd/yyyy");
+            transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
         }
 
         private DateTime getSowDate()
@@ -63,6 +65,11 @@ namespace Hydroponics_application
         private DateTime getFullStrengthSoltuionDate(DateTime halfStrengthSolutionDate)
         {
             return halfStrengthSolutionDate.AddDays(2);
+        }
+
+        private DateTime getTransferDate(DateTime fullStrengthSolutionDate)
+        {
+            return fullStrengthSolutionDate.AddDays(1);
         }
     }
 }
