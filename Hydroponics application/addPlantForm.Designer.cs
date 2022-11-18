@@ -235,6 +235,7 @@
             this.transferDateButton.TabIndex = 27;
             this.transferDateButton.Text = "Transfer Date";
             this.transferDateButton.UseVisualStyleBackColor = true;
+            this.transferDateButton.Click += new System.EventHandler(this.transferDateButton_Click);
             // 
             // sowDateButton
             // 
@@ -295,7 +296,6 @@
             this.Controls.Add(this.dateTimePicker);
             this.Name = "addPlantForm";
             this.Text = "addPlantForm";
-            this.Load += new System.EventHandler(this.addPlantForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

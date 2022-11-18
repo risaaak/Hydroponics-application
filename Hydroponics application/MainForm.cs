@@ -76,13 +76,17 @@ namespace Hydroponics_application
         {
             return transferDate.AddDays(30);
         }
-        private DateTime getNextPlantDate(DateTime harvestDate)
+        public DateTime getNextPlantDate(DateTime harvestDate)
         {
             return harvestDate.AddDays(-17);
         }
 
         private void transferDateButton_Click(object sender, EventArgs e)
         {
+            sowDateLbl.Text = "";
+            waterWithNoSolutionLbl.Text = "";
+            HalfStrengthLbl.Text = "";
+            FullStrengthLbl.Text = "";
             transferDate = dateTimePicker.Value;
             harvestDate = getHarvestDate(transferDate);
             nextPlantDate = getNextPlantDate(harvestDate);
