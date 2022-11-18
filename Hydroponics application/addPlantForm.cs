@@ -16,5 +16,20 @@ namespace Hydroponics_application
         {
             InitializeComponent();
         }
+        DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
+
+        private void addPlantForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+        MainForm mainForm = new MainForm();
+        private void sowDateButton_Click(object sender, EventArgs e)
+        {
+            sowDate = dateTimePicker.Value;
+            noSolutionDate = mainForm.getNoSolutionDate(sowDate);
+
+            sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
+            waterWithNoSolutionLbl.Text = noSolutionDate.ToString("MM/dd/yyyy");
+        }
     }
 }
