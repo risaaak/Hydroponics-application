@@ -32,9 +32,10 @@ namespace Hydroponics_application
 
         }
 
+        DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
+
         private void sowDateButton_Click(object sender, EventArgs e)
         {
-            DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
             sowDate = getSowDate();
             noSolutionDate = getNoSolutionDate(sowDate);
             halfStrengthSolutionDate = getHalfStrengthSolutionDate(noSolutionDate);
@@ -83,6 +84,16 @@ namespace Hydroponics_application
         private DateTime getNextPlantDate(DateTime harvestDate)
         {
             return harvestDate.AddDays(-17);
+        }
+
+        private void transferDateButton_Click(object sender, EventArgs e)
+        {
+            transferDate = dateTimePicker.Value;
+            harvestDate = getHarvestDate(transferDate);
+            nextPlantDate = getNextPlantDate(harvestDate);
+            transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
+            harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
+            NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
         }
     }
 }
