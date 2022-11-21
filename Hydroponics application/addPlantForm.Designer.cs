@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.viewStatsButton = new System.Windows.Forms.Button();
-            this.addStatsButton = new System.Windows.Forms.Button();
-            this.viewSeedsButton = new System.Windows.Forms.Button();
-            this.addSeedsButton = new System.Windows.Forms.Button();
-            this.viewPlantsButton = new System.Windows.Forms.Button();
-            this.addPlantButton = new System.Windows.Forms.Button();
             this.NextPlantDateLbl = new System.Windows.Forms.Label();
             this.nextPlantDateLabel = new System.Windows.Forms.Label();
             this.harvestDateLbl = new System.Windows.Forms.Label();
@@ -53,60 +47,6 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // viewStatsButton
-            // 
-            this.viewStatsButton.Location = new System.Drawing.Point(153, 400);
-            this.viewStatsButton.Name = "viewStatsButton";
-            this.viewStatsButton.Size = new System.Drawing.Size(101, 23);
-            this.viewStatsButton.TabIndex = 47;
-            this.viewStatsButton.Text = "View Stats";
-            this.viewStatsButton.UseVisualStyleBackColor = true;
-            // 
-            // addStatsButton
-            // 
-            this.addStatsButton.Location = new System.Drawing.Point(39, 400);
-            this.addStatsButton.Name = "addStatsButton";
-            this.addStatsButton.Size = new System.Drawing.Size(101, 23);
-            this.addStatsButton.TabIndex = 46;
-            this.addStatsButton.Text = "Add/Modify Stats";
-            this.addStatsButton.UseVisualStyleBackColor = true;
-            // 
-            // viewSeedsButton
-            // 
-            this.viewSeedsButton.Location = new System.Drawing.Point(153, 360);
-            this.viewSeedsButton.Name = "viewSeedsButton";
-            this.viewSeedsButton.Size = new System.Drawing.Size(101, 23);
-            this.viewSeedsButton.TabIndex = 45;
-            this.viewSeedsButton.Text = "View Seeds";
-            this.viewSeedsButton.UseVisualStyleBackColor = true;
-            // 
-            // addSeedsButton
-            // 
-            this.addSeedsButton.Location = new System.Drawing.Point(39, 360);
-            this.addSeedsButton.Name = "addSeedsButton";
-            this.addSeedsButton.Size = new System.Drawing.Size(101, 23);
-            this.addSeedsButton.TabIndex = 44;
-            this.addSeedsButton.Text = "Add Seed";
-            this.addSeedsButton.UseVisualStyleBackColor = true;
-            // 
-            // viewPlantsButton
-            // 
-            this.viewPlantsButton.Location = new System.Drawing.Point(153, 318);
-            this.viewPlantsButton.Name = "viewPlantsButton";
-            this.viewPlantsButton.Size = new System.Drawing.Size(101, 23);
-            this.viewPlantsButton.TabIndex = 43;
-            this.viewPlantsButton.Text = "View Plants";
-            this.viewPlantsButton.UseVisualStyleBackColor = true;
-            // 
-            // addPlantButton
-            // 
-            this.addPlantButton.Location = new System.Drawing.Point(39, 318);
-            this.addPlantButton.Name = "addPlantButton";
-            this.addPlantButton.Size = new System.Drawing.Size(101, 23);
-            this.addPlantButton.TabIndex = 42;
-            this.addPlantButton.Text = "Add Plant";
-            this.addPlantButton.UseVisualStyleBackColor = true;
             // 
             // NextPlantDateLbl
             // 
@@ -269,13 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 450);
-            this.Controls.Add(this.viewStatsButton);
-            this.Controls.Add(this.addStatsButton);
-            this.Controls.Add(this.viewSeedsButton);
-            this.Controls.Add(this.addSeedsButton);
-            this.Controls.Add(this.viewPlantsButton);
-            this.Controls.Add(this.addPlantButton);
+            this.ClientSize = new System.Drawing.Size(292, 328);
             this.Controls.Add(this.NextPlantDateLbl);
             this.Controls.Add(this.nextPlantDateLabel);
             this.Controls.Add(this.harvestDateLbl);
@@ -302,13 +236,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button viewStatsButton;
-        private System.Windows.Forms.Button addStatsButton;
-        private System.Windows.Forms.Button viewSeedsButton;
-        private System.Windows.Forms.Button addSeedsButton;
-        private System.Windows.Forms.Button viewPlantsButton;
-        private System.Windows.Forms.Button addPlantButton;
         private System.Windows.Forms.Label NextPlantDateLbl;
         private System.Windows.Forms.Label nextPlantDateLabel;
         private System.Windows.Forms.Label harvestDateLbl;
