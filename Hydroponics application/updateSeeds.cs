@@ -39,5 +39,16 @@ namespace Hydroponics_application
             timesPlanted = Convert.ToInt32(getTimePlanted.ExecuteScalar());
             return timesPlanted;
         }
+
+        private int getTimesSproutedFromDatabase()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            int timesSprouted = 0;
+            SqlCommand getTimePlanted = new SqlCommand("SELECT seed_times_sprouted FROM SEEDS WHERE seed_name=@seedName", con);
+            getTimePlanted.Parameters.Add(new SqlParameter("seedName", textBox1.Text));
+            timesSprouted = Convert.ToInt32(getTimePlanted.ExecuteScalar());
+            return timesSprouted;
+        }
     }
 }
