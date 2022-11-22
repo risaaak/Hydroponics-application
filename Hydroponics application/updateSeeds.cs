@@ -20,35 +20,48 @@ namespace Hydroponics_application
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            int timesPlanted = Convert.ToInt32(timesPlantedTextbox.Text), timesSprouted = Convert.ToInt32(timesSproutedTextbox.Text);
+            string seedName = seedNameTextbox.Text;
+            timesPlanted+= getTimesPlantedFromDatabase(seedName);
+            timesSprouted+= getTimesSproutedFromDatabase(seedName);
+            float germinationRate = getGerminationRate(timesPlanted, timesSprouted);
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO SEEDS VALUES(@seedName, @timesPlanted, @timesSprouted)",con);
-            command.Parameters.Add(new SqlParameter("seedName", textBox1.Text));
-            command.Parameters.Add(new SqlParameter("timesPlanted", textBox2.Text));
-            command.Parameters.Add(new SqlParameter("timesSprouted", textBox3.Text));
-            //command.ExecuteNonQuery();
+            SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, seed_times_sprouted=@timesSprouted, seed_germination_rate = @germinationRate WHERE seed_name = @seedName", con);
+            command.Parameters.Add(new SqlParameter("seedName", seedName));
+            command.Parameters.Add(new SqlParameter("timesPlanted", timesPlanted));
+            command.Parameters.Add(new SqlParameter("timesSprouted", timesSprouted));
+            command.Parameters.Add(new SqlParameter("germinationRate", germinationRate));
+            command.ExecuteNonQuery();
         }
 
-        private int getTimesPlantedFromDatabase()
+        private int getTimesPlantedFromDatabase(string seedName)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             int timesPlanted = 0;
-            SqlCommand getTimePlanted = new SqlCommand("SELECT seed_times_planted FROM SEEDS WHERE seed_name=@seedName", con);
-            getTimePlanted.Parameters.Add(new SqlParameter("seedName", textBox1.Text));
-            timesPlanted = Convert.ToInt32(getTimePlanted.ExecuteScalar());
+            SqlCommand getTimesPlanted = new SqlCommand("SELECT seed_times_planted FROM SEEDS WHERE seed_name=@seedName", con);
+            getTimesPlanted.Parameters.Add(new SqlParameter("seedName", seedName));
+            timesPlanted = Convert.ToInt32(getTimesPlanted.ExecuteScalar());
             return timesPlanted;
         }
 
-        private int getTimesSproutedFromDatabase()
+        private int getTimesSproutedFromDatabase(string seedName)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             int timesSprouted = 0;
-            SqlCommand getTimePlanted = new SqlCommand("SELECT seed_times_sprouted FROM SEEDS WHERE seed_name=@seedName", con);
-            getTimePlanted.Parameters.Add(new SqlParameter("seedName", textBox1.Text));
-            timesSprouted = Convert.ToInt32(getTimePlanted.ExecuteScalar());
+            SqlCommand getTimesSprouted = new SqlCommand("SELECT seed_times_sprouted FROM SEEDS WHERE seed_name=@seedName", con);
+            getTimesSprouted.Parameters.Add(new SqlParameter("seedName", seedName));
+            timesSprouted = Convert.ToInt32(getTimesSprouted.ExecuteScalar());
             return timesSprouted;
+        }
+
+        private float getGerminationRate(int timesPlanted, int timesSprouted)
+        {
+            float germinationRate = 0;
+            germinationRate = (float)timesSprouted / (float)timesPlanted * 100 ;
+            return germinationRate;
         }
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.seedNameTextbox = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.timesPlantedTextbox = new System.Windows.Forms.TextBox();
+            this.timesSproutedTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -47,12 +47,12 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Seed Name:";
             // 
-            // textBox1
+            // seedNameTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 20);
-            this.textBox1.TabIndex = 5;
+            this.seedNameTextbox.Location = new System.Drawing.Point(158, 75);
+            this.seedNameTextbox.Name = "seedNameTextbox";
+            this.seedNameTextbox.Size = new System.Drawing.Size(153, 20);
+            this.seedNameTextbox.TabIndex = 5;
             // 
             // backBtn
             // 
@@ -91,33 +91,33 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Times Sprouted:";
             // 
-            // textBox2
+            // timesPlantedTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(158, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 20);
-            this.textBox2.TabIndex = 11;
+            this.timesPlantedTextbox.Location = new System.Drawing.Point(158, 106);
+            this.timesPlantedTextbox.Name = "timesPlantedTextbox";
+            this.timesPlantedTextbox.Size = new System.Drawing.Size(153, 20);
+            this.timesPlantedTextbox.TabIndex = 11;
             // 
-            // textBox3
+            // timesSproutedTextbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(158, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(153, 20);
-            this.textBox3.TabIndex = 12;
+            this.timesSproutedTextbox.Location = new System.Drawing.Point(158, 136);
+            this.timesSproutedTextbox.Name = "timesSproutedTextbox";
+            this.timesSproutedTextbox.Size = new System.Drawing.Size(153, 20);
+            this.timesSproutedTextbox.TabIndex = 12;
             // 
             // updateSeeds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 259);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.timesSproutedTextbox);
+            this.Controls.Add(this.timesPlantedTextbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.seedNameTextbox);
             this.Name = "updateSeeds";
             this.Text = "updateSeeds";
             this.ResumeLayout(false);
@@ -128,12 +128,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox seedNameTextbox;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox timesPlantedTextbox;
+        private System.Windows.Forms.TextBox timesSproutedTextbox;
     }
 }
