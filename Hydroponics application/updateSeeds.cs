@@ -25,14 +25,8 @@ namespace Hydroponics_application
             timesPlanted+= getTimesPlantedFromDatabase(seedName);
             timesSprouted+= getTimesSproutedFromDatabase(seedName);
             float germinationRate = getGerminationRate(timesPlanted, timesSprouted);
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, seed_times_sprouted=@timesSprouted, seed_germination_rate = @germinationRate WHERE seed_name = @seedName", con);
-            command.Parameters.Add(new SqlParameter("seedName", seedName));
-            command.Parameters.Add(new SqlParameter("timesPlanted", timesPlanted));
-            command.Parameters.Add(new SqlParameter("timesSprouted", timesSprouted));
-            command.Parameters.Add(new SqlParameter("germinationRate", germinationRate));
-            command.ExecuteNonQuery();
+
+            sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
         }
 
         private int getTimesPlantedFromDatabase(string seedName)
@@ -62,6 +56,26 @@ namespace Hydroponics_application
             float germinationRate = 0;
             germinationRate = (float)timesSprouted / (float)timesPlanted * 100 ;
             return germinationRate;
+        }
+
+        private void sendDataToDatabase(string seedName, int timesPlanted, int timesSprouted, float germinationRate)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, seed_times_sprouted=@timesSprouted, seed_germination_rate = @germinationRate WHERE seed_name = @seedName", con);
+                command.Parameters.Add(new SqlParameter("seedName", seedName));
+                command.Parameters.Add(new SqlParameter("timesPlanted", timesPlanted));
+                command.Parameters.Add(new SqlParameter("timesSprouted", timesSprouted));
+                command.Parameters.Add(new SqlParameter("germinationRate", germinationRate));
+                command.ExecuteNonQuery();
+                MessageBox.Show("Successfully updated!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
