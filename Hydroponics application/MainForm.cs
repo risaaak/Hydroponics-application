@@ -19,7 +19,9 @@ namespace Hydroponics_application
 
         private void addSeedsButton_Click(object sender, EventArgs e)
         {
-
+            AddSeeds addSeeds = new AddSeeds();
+            addSeeds.Show();
+            this.Hide();
         }
 
         DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
@@ -47,6 +49,7 @@ namespace Hydroponics_application
             DateTime sowDate = dateTimePicker.Value;
             return sowDate;
         }
+
         public DateTime getNoSolutionDate(DateTime sowDate)
         {
             return sowDate.AddDays(6);
