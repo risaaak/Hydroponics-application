@@ -60,6 +60,7 @@
             this.UpdateBtn.TabIndex = 2;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // backBtn
             // 

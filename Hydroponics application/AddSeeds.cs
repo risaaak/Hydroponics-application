@@ -33,5 +33,12 @@ namespace Hydroponics_application
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            updateSeeds updateSeeds = new updateSeeds();
+            updateSeeds.Show();
+            this.Hide();
+        }
     }
 }
