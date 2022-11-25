@@ -21,7 +21,7 @@ namespace Hydroponics_application
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             int timesPlanted = Convert.ToInt32(timesPlantedTextbox.Text), timesSprouted = Convert.ToInt32(timesSproutedTextbox.Text);
-            string seedName = seedNameTextbox.Text;
+            string seedName = seedNameTextbox.Text.ToLower();
             timesPlanted+= getTimesPlantedFromDatabase(seedName);
             timesSprouted+= getTimesSproutedFromDatabase(seedName);
             float germinationRate = getGerminationRate(timesPlanted, timesSprouted);
@@ -29,7 +29,7 @@ namespace Hydroponics_application
             sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
         }
 
-        private int getTimesPlantedFromDatabase(string seedName)
+        public int getTimesPlantedFromDatabase(string seedName)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -40,7 +40,7 @@ namespace Hydroponics_application
             return timesPlanted;
         }
 
-        private int getTimesSproutedFromDatabase(string seedName)
+        public int getTimesSproutedFromDatabase(string seedName)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -51,14 +51,14 @@ namespace Hydroponics_application
             return timesSprouted;
         }
 
-        private float getGerminationRate(int timesPlanted, int timesSprouted)
+        public float getGerminationRate(int timesPlanted, int timesSprouted)
         {
             float germinationRate = 0;
             germinationRate = (float)timesSprouted / (float)timesPlanted * 100 ;
             return germinationRate;
         }
 
-        private void sendDataToDatabase(string seedName, int timesPlanted, int timesSprouted, float germinationRate)
+        public void sendDataToDatabase(string seedName, int timesPlanted = 0, int timesSprouted = 0, float germinationRate=0)
         {
             try
             {
