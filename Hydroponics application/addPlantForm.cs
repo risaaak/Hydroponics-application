@@ -19,10 +19,29 @@ namespace Hydroponics_application
             InitializeComponent();
         }
         DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
+        string seedName;
+        int timesPlanted,seedId;
+
+        private void addPlantForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'hYDROPONICSAPPDataSet.SEEDLINGS' table. You can move, or remove it, as needed.
+            this.sEEDLINGSTableAdapter.Fill(this.hYDROPONICSAPPDataSet.SEEDLINGS);
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         MainForm mainForm = new MainForm();
+        updateSeeds updateSeeds = new updateSeeds();
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private void transferDateButton_Click(object sender, EventArgs e)
         {
+            seedName = comboBox1.Text;
+            seedId = getSeedId(seedName);
+            timesPlanted = Convert.ToInt32(textBox1.Text);
             sowDateLbl.Text = "";
             waterWithNoSolutionLbl.Text = "";
             HalfStrengthLbl.Text = "";
@@ -33,11 +52,15 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(1, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
+            sendDataToDatabase(seedId, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
+            sendTimesPlantedToDatabase(timesPlanted, seedId);
         }
 
         private void sowDateButton_Click(object sender, EventArgs e)
         {
+            seedName = comboBox1.Text;
+            seedId = getSeedId(seedName);
+            timesPlanted = Convert.ToInt32(textBox1.Text);
             sowDate = mainForm.getSowDate();
             noSolutionDate = mainForm.getNoSolutionDate(sowDate);
             halfStrengthSolutionDate = mainForm.getHalfStrengthSolutionDate(noSolutionDate);
@@ -53,8 +76,10 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(1, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
-        }
+            sendDataToDatabase(seedId, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
+            timesPlanted+=updateSeeds.getTimesPlantedFromDatabase(seedName);
+            updateSeeds.sendDataToDatabase(seedName, timesPlanted);
+         }
 
         private void sendDataToDatabase(int seed, string sowDate, string noSolutionDate, string halfStrengthDate, string fullStrengthDate, string transferDate, string harvestDate, string nextPlantDate)
         {
@@ -80,6 +105,28 @@ namespace Hydroponics_application
                 MessageBox.Show(e.Message);
             }
             
+        }
+        private int getSeedId(string seedName)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand getSeedID = new SqlCommand("SELECT seed_id FROM SEEDS WHERE seed_name = @seedName", con);
+            getSeedID.Parameters.Add(new SqlParameter("seedName", seedName));
+            int seedId = (int)getSeedID.ExecuteScalar();
+            con.Close();
+
+            return seedId;
+        }
+
+        private void sendTimesPlantedToDatabase(int timesPlanted, int seedId)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted WHERE seed_id = @seedId",con);
+            command.Parameters.Add(new SqlParameter("timesPlanted",timesPlanted));
+            command.Parameters.Add(new SqlParameter("seedId", seedId));
+            command.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
