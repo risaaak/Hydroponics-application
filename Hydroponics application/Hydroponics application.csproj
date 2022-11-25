@@ -114,6 +114,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HYDROPONICSAPPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HYDROPONICSAPPDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +203,17 @@
       <DependentUpon>viewseedsform.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Hydroponics application_TemporaryKey.pfx" />
+    <None Include="HYDROPONICSAPPDataSet.xsc">
+      <DependentUpon>HYDROPONICSAPPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICSAPPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HYDROPONICSAPPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HYDROPONICSAPPDataSet.xss">
+      <DependentUpon>HYDROPONICSAPPDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
