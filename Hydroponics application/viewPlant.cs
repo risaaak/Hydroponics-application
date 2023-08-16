@@ -20,8 +20,10 @@ namespace Hydroponics_application
         private void viewPlant_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet2.PLANT' table. You can move, or remove it, as needed.
-            this.pLANTTableAdapter1.Fill(this.hYDROPONICS_TESTDataSet2.PLANT);
-            // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet1.PLANT' table. You can move, or remove it, as needed.
+            this.pLANTTableAdapter.Fill(this.hYDROPONICS_TESTDataSet2.PLANT);
+            // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet.PLANT' table. You can move, or remove it, as needed.
+
+
         }
 
         private void backButton_Click(object sender, EventArgs e)
