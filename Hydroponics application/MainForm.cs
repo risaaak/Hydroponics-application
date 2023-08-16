@@ -19,10 +19,10 @@ namespace Hydroponics_application
         
         private void addSeedsButton_Click(object sender, EventArgs e)
         {
-            /*AddSeeds addSeeds = new AddSeeds();
+            AddSeeds addSeeds = new AddSeeds();
             addSeeds.RefToMainForm = this;
             this.Visible = false;
-            addSeeds.Show();*/
+            addSeeds.Show();
         }
         
         DateTime sowDate, transferDate, harvestDate, nextPlantDate;
@@ -93,12 +93,22 @@ namespace Hydroponics_application
 
         private void viewSeedsButton_Click(object sender, EventArgs e)
         {
-            /*
+            
             viewSeeds viewSeeds = new viewSeeds();
             viewSeeds.RefToMainForm = this;
             this.Visible = false;
             viewSeeds.Show();
-            */
+            
+        }
+
+        private void addStatsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewStatsButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void viewPlantsButton_Click(object sender, EventArgs e)

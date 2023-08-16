@@ -202,6 +202,7 @@
             this.addStatsButton.TabIndex = 22;
             this.addStatsButton.Text = "Add/Modify Stats";
             this.addStatsButton.UseVisualStyleBackColor = true;
+            this.addStatsButton.Click += new System.EventHandler(this.addStatsButton_Click);
             // 
             // viewStatsButton
             // 
@@ -211,6 +212,7 @@
             this.viewStatsButton.TabIndex = 23;
             this.viewStatsButton.Text = "View Stats";
             this.viewStatsButton.UseVisualStyleBackColor = true;
+            this.viewStatsButton.Click += new System.EventHandler(this.viewStatsButton_Click);
             // 
             // MainForm
             // 

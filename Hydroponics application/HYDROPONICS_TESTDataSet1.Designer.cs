@@ -24,7 +24,7 @@ namespace Hydroponics_application {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class HYDROPONICS_TESTDataSet1 : global::System.Data.DataSet {
         
-        private PLANTDataTable tablePLANT;
+        private SEEDSDataTable tableSEEDS;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace Hydroponics_application {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["PLANT"] != null)) {
-                    base.Tables.Add(new PLANTDataTable(ds.Tables["PLANT"]));
+                if ((ds.Tables["SEEDS"] != null)) {
+                    base.Tables.Add(new SEEDSDataTable(ds.Tables["SEEDS"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Hydroponics_application {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PLANTDataTable PLANT {
+        public SEEDSDataTable SEEDS {
             get {
-                return this.tablePLANT;
+                return this.tableSEEDS;
             }
         }
         
@@ -152,8 +152,8 @@ namespace Hydroponics_application {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["PLANT"] != null)) {
-                    base.Tables.Add(new PLANTDataTable(ds.Tables["PLANT"]));
+                if ((ds.Tables["SEEDS"] != null)) {
+                    base.Tables.Add(new SEEDSDataTable(ds.Tables["SEEDS"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Hydroponics_application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePLANT = ((PLANTDataTable)(base.Tables["PLANT"]));
+            this.tableSEEDS = ((SEEDSDataTable)(base.Tables["SEEDS"]));
             if ((initTable == true)) {
-                if ((this.tablePLANT != null)) {
-                    this.tablePLANT.InitVars();
+                if ((this.tableSEEDS != null)) {
+                    this.tableSEEDS.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Hydroponics_application {
             this.Namespace = "http://tempuri.org/HYDROPONICS_TESTDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePLANT = new PLANTDataTable();
-            base.Tables.Add(this.tablePLANT);
+            this.tableSEEDS = new SEEDSDataTable();
+            base.Tables.Add(this.tableSEEDS);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializePLANT() {
+        private bool ShouldSerializeSEEDS() {
             return false;
         }
         
@@ -270,37 +270,29 @@ namespace Hydroponics_application {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void PLANTRowChangeEventHandler(object sender, PLANTRowChangeEvent e);
+        public delegate void SEEDSRowChangeEventHandler(object sender, SEEDSRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PLANTDataTable : global::System.Data.TypedTableBase<PLANTRow> {
-            
-            private global::System.Data.DataColumn columnplant_id;
+        public partial class SEEDSDataTable : global::System.Data.TypedTableBase<SEEDSRow> {
             
             private global::System.Data.DataColumn columnseed_id;
             
-            private global::System.Data.DataColumn columnsow_date;
+            private global::System.Data.DataColumn columnseed_name;
             
-            private global::System.Data.DataColumn columnno_solution_date;
+            private global::System.Data.DataColumn columnseed_times_planted;
             
-            private global::System.Data.DataColumn columnhalf_strength_solution_date;
+            private global::System.Data.DataColumn columnseed_times_sprouted;
             
-            private global::System.Data.DataColumn columnfull_strength_solution_date;
-            
-            private global::System.Data.DataColumn columntransfer_date;
-            
-            private global::System.Data.DataColumn columnharvest_date;
-            
-            private global::System.Data.DataColumn columnnext_plant_date;
+            private global::System.Data.DataColumn columnseed_germination_rate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTDataTable() {
-                this.TableName = "PLANT";
+            public SEEDSDataTable() {
+                this.TableName = "SEEDS";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +300,7 @@ namespace Hydroponics_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal PLANTDataTable(global::System.Data.DataTable table) {
+            internal SEEDSDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,17 +317,9 @@ namespace Hydroponics_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected PLANTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SEEDSDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn plant_idColumn {
-                get {
-                    return this.columnplant_id;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -348,57 +332,33 @@ namespace Hydroponics_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn sow_dateColumn {
+            public global::System.Data.DataColumn seed_nameColumn {
                 get {
-                    return this.columnsow_date;
+                    return this.columnseed_name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn no_solution_dateColumn {
+            public global::System.Data.DataColumn seed_times_plantedColumn {
                 get {
-                    return this.columnno_solution_date;
+                    return this.columnseed_times_planted;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn half_strength_solution_dateColumn {
+            public global::System.Data.DataColumn seed_times_sproutedColumn {
                 get {
-                    return this.columnhalf_strength_solution_date;
+                    return this.columnseed_times_sprouted;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn full_strength_solution_dateColumn {
+            public global::System.Data.DataColumn seed_germination_rateColumn {
                 get {
-                    return this.columnfull_strength_solution_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn transfer_dateColumn {
-                get {
-                    return this.columntransfer_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn harvest_dateColumn {
-                get {
-                    return this.columnharvest_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn next_plant_dateColumn {
-                get {
-                    return this.columnnext_plant_date;
+                    return this.columnseed_germination_rate;
                 }
             }
             
@@ -413,60 +373,56 @@ namespace Hydroponics_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTRow this[int index] {
+            public SEEDSRow this[int index] {
                 get {
-                    return ((PLANTRow)(this.Rows[index]));
+                    return ((SEEDSRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PLANTRowChangeEventHandler PLANTRowChanging;
+            public event SEEDSRowChangeEventHandler SEEDSRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PLANTRowChangeEventHandler PLANTRowChanged;
+            public event SEEDSRowChangeEventHandler SEEDSRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PLANTRowChangeEventHandler PLANTRowDeleting;
+            public event SEEDSRowChangeEventHandler SEEDSRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PLANTRowChangeEventHandler PLANTRowDeleted;
+            public event SEEDSRowChangeEventHandler SEEDSRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddPLANTRow(PLANTRow row) {
+            public void AddSEEDSRow(SEEDSRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTRow AddPLANTRow(int seed_id, string sow_date, string no_solution_date, string half_strength_solution_date, string full_strength_solution_date, string transfer_date, string harvest_date, string next_plant_date) {
-                PLANTRow rowPLANTRow = ((PLANTRow)(this.NewRow()));
+            public SEEDSRow AddSEEDSRow(string seed_name, int seed_times_planted, int seed_times_sprouted, double seed_germination_rate) {
+                SEEDSRow rowSEEDSRow = ((SEEDSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        seed_id,
-                        sow_date,
-                        no_solution_date,
-                        half_strength_solution_date,
-                        full_strength_solution_date,
-                        transfer_date,
-                        harvest_date,
-                        next_plant_date};
-                rowPLANTRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPLANTRow);
-                return rowPLANTRow;
+                        seed_name,
+                        seed_times_planted,
+                        seed_times_sprouted,
+                        seed_germination_rate};
+                rowSEEDSRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSEEDSRow);
+                return rowSEEDSRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTRow FindByplant_id(int plant_id) {
-                return ((PLANTRow)(this.Rows.Find(new object[] {
-                            plant_id})));
+            public SEEDSRow FindByseed_id(int seed_id) {
+                return ((SEEDSRow)(this.Rows.Find(new object[] {
+                            seed_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PLANTDataTable cln = ((PLANTDataTable)(base.Clone()));
+                SEEDSDataTable cln = ((SEEDSDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -474,85 +430,68 @@ namespace Hydroponics_application {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PLANTDataTable();
+                return new SEEDSDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnplant_id = base.Columns["plant_id"];
                 this.columnseed_id = base.Columns["seed_id"];
-                this.columnsow_date = base.Columns["sow_date"];
-                this.columnno_solution_date = base.Columns["no_solution_date"];
-                this.columnhalf_strength_solution_date = base.Columns["half_strength_solution_date"];
-                this.columnfull_strength_solution_date = base.Columns["full_strength_solution_date"];
-                this.columntransfer_date = base.Columns["transfer_date"];
-                this.columnharvest_date = base.Columns["harvest_date"];
-                this.columnnext_plant_date = base.Columns["next_plant_date"];
+                this.columnseed_name = base.Columns["seed_name"];
+                this.columnseed_times_planted = base.Columns["seed_times_planted"];
+                this.columnseed_times_sprouted = base.Columns["seed_times_sprouted"];
+                this.columnseed_germination_rate = base.Columns["seed_germination_rate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnplant_id = new global::System.Data.DataColumn("plant_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnplant_id);
                 this.columnseed_id = new global::System.Data.DataColumn("seed_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnseed_id);
-                this.columnsow_date = new global::System.Data.DataColumn("sow_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsow_date);
-                this.columnno_solution_date = new global::System.Data.DataColumn("no_solution_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnno_solution_date);
-                this.columnhalf_strength_solution_date = new global::System.Data.DataColumn("half_strength_solution_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhalf_strength_solution_date);
-                this.columnfull_strength_solution_date = new global::System.Data.DataColumn("full_strength_solution_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfull_strength_solution_date);
-                this.columntransfer_date = new global::System.Data.DataColumn("transfer_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntransfer_date);
-                this.columnharvest_date = new global::System.Data.DataColumn("harvest_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnharvest_date);
-                this.columnnext_plant_date = new global::System.Data.DataColumn("next_plant_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnext_plant_date);
+                this.columnseed_name = new global::System.Data.DataColumn("seed_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnseed_name);
+                this.columnseed_times_planted = new global::System.Data.DataColumn("seed_times_planted", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnseed_times_planted);
+                this.columnseed_times_sprouted = new global::System.Data.DataColumn("seed_times_sprouted", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnseed_times_sprouted);
+                this.columnseed_germination_rate = new global::System.Data.DataColumn("seed_germination_rate", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnseed_germination_rate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnplant_id}, true));
-                this.columnplant_id.AutoIncrement = true;
-                this.columnplant_id.AutoIncrementSeed = -1;
-                this.columnplant_id.AutoIncrementStep = -1;
-                this.columnplant_id.AllowDBNull = false;
-                this.columnplant_id.ReadOnly = true;
-                this.columnplant_id.Unique = true;
-                this.columnsow_date.MaxLength = 255;
-                this.columnno_solution_date.MaxLength = 255;
-                this.columnhalf_strength_solution_date.MaxLength = 255;
-                this.columnfull_strength_solution_date.MaxLength = 255;
-                this.columntransfer_date.MaxLength = 255;
-                this.columnharvest_date.MaxLength = 255;
-                this.columnnext_plant_date.MaxLength = 255;
+                                this.columnseed_id}, true));
+                this.columnseed_id.AutoIncrement = true;
+                this.columnseed_id.AutoIncrementSeed = -1;
+                this.columnseed_id.AutoIncrementStep = -1;
+                this.columnseed_id.AllowDBNull = false;
+                this.columnseed_id.ReadOnly = true;
+                this.columnseed_id.Unique = true;
+                this.columnseed_name.AllowDBNull = false;
+                this.columnseed_name.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTRow NewPLANTRow() {
-                return ((PLANTRow)(this.NewRow()));
+            public SEEDSRow NewSEEDSRow() {
+                return ((SEEDSRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PLANTRow(builder);
+                return new SEEDSRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PLANTRow);
+                return typeof(SEEDSRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PLANTRowChanged != null)) {
-                    this.PLANTRowChanged(this, new PLANTRowChangeEvent(((PLANTRow)(e.Row)), e.Action));
+                if ((this.SEEDSRowChanged != null)) {
+                    this.SEEDSRowChanged(this, new SEEDSRowChangeEvent(((SEEDSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -560,8 +499,8 @@ namespace Hydroponics_application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PLANTRowChanging != null)) {
-                    this.PLANTRowChanging(this, new PLANTRowChangeEvent(((PLANTRow)(e.Row)), e.Action));
+                if ((this.SEEDSRowChanging != null)) {
+                    this.SEEDSRowChanging(this, new SEEDSRowChangeEvent(((SEEDSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -569,8 +508,8 @@ namespace Hydroponics_application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PLANTRowDeleted != null)) {
-                    this.PLANTRowDeleted(this, new PLANTRowChangeEvent(((PLANTRow)(e.Row)), e.Action));
+                if ((this.SEEDSRowDeleted != null)) {
+                    this.SEEDSRowDeleted(this, new SEEDSRowChangeEvent(((SEEDSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -578,14 +517,14 @@ namespace Hydroponics_application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PLANTRowDeleting != null)) {
-                    this.PLANTRowDeleting(this, new PLANTRowChangeEvent(((PLANTRow)(e.Row)), e.Action));
+                if ((this.SEEDSRowDeleting != null)) {
+                    this.SEEDSRowDeleting(this, new SEEDSRowChangeEvent(((SEEDSRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovePLANTRow(PLANTRow row) {
+            public void RemoveSEEDSRow(SEEDSRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -612,7 +551,7 @@ namespace Hydroponics_application {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PLANTDataTable";
+                attribute2.FixedValue = "SEEDSDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -656,250 +595,121 @@ namespace Hydroponics_application {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PLANTRow : global::System.Data.DataRow {
+        public partial class SEEDSRow : global::System.Data.DataRow {
             
-            private PLANTDataTable tablePLANT;
+            private SEEDSDataTable tableSEEDS;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal PLANTRow(global::System.Data.DataRowBuilder rb) : 
+            internal SEEDSRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePLANT = ((PLANTDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int plant_id {
-                get {
-                    return ((int)(this[this.tablePLANT.plant_idColumn]));
-                }
-                set {
-                    this[this.tablePLANT.plant_idColumn] = value;
-                }
+                this.tableSEEDS = ((SEEDSDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int seed_id {
                 get {
-                    try {
-                        return ((int)(this[this.tablePLANT.seed_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'seed_id\' in table \'PLANT\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableSEEDS.seed_idColumn]));
                 }
                 set {
-                    this[this.tablePLANT.seed_idColumn] = value;
+                    this[this.tableSEEDS.seed_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string sow_date {
+            public string seed_name {
+                get {
+                    return ((string)(this[this.tableSEEDS.seed_nameColumn]));
+                }
+                set {
+                    this[this.tableSEEDS.seed_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int seed_times_planted {
                 get {
                     try {
-                        return ((string)(this[this.tablePLANT.sow_dateColumn]));
+                        return ((int)(this[this.tableSEEDS.seed_times_plantedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'sow_date\' in table \'PLANT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'seed_times_planted\' in table \'SEEDS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePLANT.sow_dateColumn] = value;
+                    this[this.tableSEEDS.seed_times_plantedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string no_solution_date {
+            public int seed_times_sprouted {
                 get {
                     try {
-                        return ((string)(this[this.tablePLANT.no_solution_dateColumn]));
+                        return ((int)(this[this.tableSEEDS.seed_times_sproutedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'no_solution_date\' in table \'PLANT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'seed_times_sprouted\' in table \'SEEDS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePLANT.no_solution_dateColumn] = value;
+                    this[this.tableSEEDS.seed_times_sproutedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string half_strength_solution_date {
+            public double seed_germination_rate {
                 get {
                     try {
-                        return ((string)(this[this.tablePLANT.half_strength_solution_dateColumn]));
+                        return ((double)(this[this.tableSEEDS.seed_germination_rateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'half_strength_solution_date\' in table \'PLANT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'seed_germination_rate\' in table \'SEEDS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePLANT.half_strength_solution_dateColumn] = value;
+                    this[this.tableSEEDS.seed_germination_rateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string full_strength_solution_date {
-                get {
-                    try {
-                        return ((string)(this[this.tablePLANT.full_strength_solution_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'full_strength_solution_date\' in table \'PLANT\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePLANT.full_strength_solution_dateColumn] = value;
-                }
+            public bool Isseed_times_plantedNull() {
+                return this.IsNull(this.tableSEEDS.seed_times_plantedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string transfer_date {
-                get {
-                    try {
-                        return ((string)(this[this.tablePLANT.transfer_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'transfer_date\' in table \'PLANT\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePLANT.transfer_dateColumn] = value;
-                }
+            public void Setseed_times_plantedNull() {
+                this[this.tableSEEDS.seed_times_plantedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string harvest_date {
-                get {
-                    try {
-                        return ((string)(this[this.tablePLANT.harvest_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'harvest_date\' in table \'PLANT\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePLANT.harvest_dateColumn] = value;
-                }
+            public bool Isseed_times_sproutedNull() {
+                return this.IsNull(this.tableSEEDS.seed_times_sproutedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string next_plant_date {
-                get {
-                    try {
-                        return ((string)(this[this.tablePLANT.next_plant_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'next_plant_date\' in table \'PLANT\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePLANT.next_plant_dateColumn] = value;
-                }
+            public void Setseed_times_sproutedNull() {
+                this[this.tableSEEDS.seed_times_sproutedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isseed_idNull() {
-                return this.IsNull(this.tablePLANT.seed_idColumn);
+            public bool Isseed_germination_rateNull() {
+                return this.IsNull(this.tableSEEDS.seed_germination_rateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setseed_idNull() {
-                this[this.tablePLANT.seed_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Issow_dateNull() {
-                return this.IsNull(this.tablePLANT.sow_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setsow_dateNull() {
-                this[this.tablePLANT.sow_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isno_solution_dateNull() {
-                return this.IsNull(this.tablePLANT.no_solution_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setno_solution_dateNull() {
-                this[this.tablePLANT.no_solution_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ishalf_strength_solution_dateNull() {
-                return this.IsNull(this.tablePLANT.half_strength_solution_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sethalf_strength_solution_dateNull() {
-                this[this.tablePLANT.half_strength_solution_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isfull_strength_solution_dateNull() {
-                return this.IsNull(this.tablePLANT.full_strength_solution_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setfull_strength_solution_dateNull() {
-                this[this.tablePLANT.full_strength_solution_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Istransfer_dateNull() {
-                return this.IsNull(this.tablePLANT.transfer_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Settransfer_dateNull() {
-                this[this.tablePLANT.transfer_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isharvest_dateNull() {
-                return this.IsNull(this.tablePLANT.harvest_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setharvest_dateNull() {
-                this[this.tablePLANT.harvest_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isnext_plant_dateNull() {
-                return this.IsNull(this.tablePLANT.next_plant_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setnext_plant_dateNull() {
-                this[this.tablePLANT.next_plant_dateColumn] = global::System.Convert.DBNull;
+            public void Setseed_germination_rateNull() {
+                this[this.tableSEEDS.seed_germination_rateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -907,22 +717,22 @@ namespace Hydroponics_application {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class PLANTRowChangeEvent : global::System.EventArgs {
+        public class SEEDSRowChangeEvent : global::System.EventArgs {
             
-            private PLANTRow eventRow;
+            private SEEDSRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTRowChangeEvent(PLANTRow row, global::System.Data.DataRowAction action) {
+            public SEEDSRowChangeEvent(SEEDSRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PLANTRow Row {
+            public SEEDSRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -950,7 +760,7 @@ namespace Hydroponics_application.HYDROPONICS_TESTDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PLANTTableAdapter : global::System.ComponentModel.Component {
+    public partial class SEEDSTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -964,7 +774,7 @@ namespace Hydroponics_application.HYDROPONICS_TESTDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public PLANTTableAdapter() {
+        public SEEDSTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1061,100 +871,52 @@ namespace Hydroponics_application.HYDROPONICS_TESTDataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "PLANT";
-            tableMapping.ColumnMappings.Add("plant_id", "plant_id");
+            tableMapping.DataSetTable = "SEEDS";
             tableMapping.ColumnMappings.Add("seed_id", "seed_id");
-            tableMapping.ColumnMappings.Add("sow_date", "sow_date");
-            tableMapping.ColumnMappings.Add("no_solution_date", "no_solution_date");
-            tableMapping.ColumnMappings.Add("half_strength_solution_date", "half_strength_solution_date");
-            tableMapping.ColumnMappings.Add("full_strength_solution_date", "full_strength_solution_date");
-            tableMapping.ColumnMappings.Add("transfer_date", "transfer_date");
-            tableMapping.ColumnMappings.Add("harvest_date", "harvest_date");
-            tableMapping.ColumnMappings.Add("next_plant_date", "next_plant_date");
+            tableMapping.ColumnMappings.Add("seed_name", "seed_name");
+            tableMapping.ColumnMappings.Add("seed_times_planted", "seed_times_planted");
+            tableMapping.ColumnMappings.Add("seed_times_sprouted", "seed_times_sprouted");
+            tableMapping.ColumnMappings.Add("seed_germination_rate", "seed_germination_rate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PLANT] WHERE (([plant_id] = @Original_plant_id) AND ((@IsNull_seed_id = 1 AND [seed_id] IS NULL) OR ([seed_id] = @Original_seed_id)) AND ((@IsNull_sow_date = 1 AND [sow_date] IS NULL) OR ([sow_date] = @Original_sow_date)) AND ((@IsNull_no_solution_date = 1 AND [no_solution_date] IS NULL) OR ([no_solution_date] = @Original_no_solution_date)) AND ((@IsNull_half_strength_solution_date = 1 AND [half_strength_solution_date] IS NULL) OR ([half_strength_solution_date] = @Original_half_strength_solution_date)) AND ((@IsNull_full_strength_solution_date = 1 AND [full_strength_solution_date] IS NULL) OR ([full_strength_solution_date] = @Original_full_strength_solution_date)) AND ((@IsNull_transfer_date = 1 AND [transfer_date] IS NULL) OR ([transfer_date] = @Original_transfer_date)) AND ((@IsNull_harvest_date = 1 AND [harvest_date] IS NULL) OR ([harvest_date] = @Original_harvest_date)) AND ((@IsNull_next_plant_date = 1 AND [next_plant_date] IS NULL) OR ([next_plant_date] = @Original_next_plant_date)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[SEEDS] WHERE (([seed_id] = @Original_seed_id) AND ([seed_name] = @Original_seed_name) AND ((@IsNull_seed_times_planted = 1 AND [seed_times_planted] IS NULL) OR ([seed_times_planted] = @Original_seed_times_planted)) AND ((@IsNull_seed_times_sprouted = 1 AND [seed_times_sprouted] IS NULL) OR ([seed_times_sprouted] = @Original_seed_times_sprouted)) AND ((@IsNull_seed_germination_rate = 1 AND [seed_germination_rate] IS NULL) OR ([seed_germination_rate] = @Original_seed_germination_rate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_plant_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "plant_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_sow_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sow_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sow_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sow_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_no_solution_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no_solution_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_no_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no_solution_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_half_strength_solution_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "half_strength_solution_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_half_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "half_strength_solution_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_full_strength_solution_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "full_strength_solution_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_full_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "full_strength_solution_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_transfer_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "transfer_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_transfer_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "transfer_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_harvest_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "harvest_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_harvest_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "harvest_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_next_plant_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "next_plant_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_next_plant_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "next_plant_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_times_planted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_planted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_times_planted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_planted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_times_sprouted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_sprouted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_times_sprouted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_sprouted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_germination_rate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_germination_rate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_germination_rate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_germination_rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PLANT] ([seed_id], [sow_date], [no_solution_date], [half_strength_solution_date], [full_strength_solution_date], [transfer_date], [harvest_date], [next_plant_date]) VALUES (@seed_id, @sow_date, @no_solution_date, @half_strength_solution_date, @full_strength_solution_date, @transfer_date, @harvest_date, @next_plant_date);
-SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_date, full_strength_solution_date, transfer_date, harvest_date, next_plant_date FROM PLANT WHERE (plant_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SEEDS] ([seed_name], [seed_times_planted], [seed_times_sprouted], [seed_germination_rate]) VALUES (@seed_name, @seed_times_planted, @seed_times_sprouted, @seed_germination_rate);
+SELECT seed_id, seed_name, seed_times_planted, seed_times_sprouted, seed_germination_rate FROM SEEDS WHERE (seed_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sow_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sow_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no_solution_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@half_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "half_strength_solution_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@full_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "full_strength_solution_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@transfer_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "transfer_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@harvest_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "harvest_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@next_plant_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "next_plant_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_times_planted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_planted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_times_sprouted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_sprouted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_germination_rate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_germination_rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PLANT] SET [seed_id] = @seed_id, [sow_date] = @sow_date, [no_soluti" +
-                "on_date] = @no_solution_date, [half_strength_solution_date] = @half_strength_sol" +
-                "ution_date, [full_strength_solution_date] = @full_strength_solution_date, [trans" +
-                "fer_date] = @transfer_date, [harvest_date] = @harvest_date, [next_plant_date] = " +
-                "@next_plant_date WHERE (([plant_id] = @Original_plant_id) AND ((@IsNull_seed_id " +
-                "= 1 AND [seed_id] IS NULL) OR ([seed_id] = @Original_seed_id)) AND ((@IsNull_sow" +
-                "_date = 1 AND [sow_date] IS NULL) OR ([sow_date] = @Original_sow_date)) AND ((@I" +
-                "sNull_no_solution_date = 1 AND [no_solution_date] IS NULL) OR ([no_solution_date" +
-                "] = @Original_no_solution_date)) AND ((@IsNull_half_strength_solution_date = 1 A" +
-                "ND [half_strength_solution_date] IS NULL) OR ([half_strength_solution_date] = @O" +
-                "riginal_half_strength_solution_date)) AND ((@IsNull_full_strength_solution_date " +
-                "= 1 AND [full_strength_solution_date] IS NULL) OR ([full_strength_solution_date]" +
-                " = @Original_full_strength_solution_date)) AND ((@IsNull_transfer_date = 1 AND [" +
-                "transfer_date] IS NULL) OR ([transfer_date] = @Original_transfer_date)) AND ((@I" +
-                "sNull_harvest_date = 1 AND [harvest_date] IS NULL) OR ([harvest_date] = @Origina" +
-                "l_harvest_date)) AND ((@IsNull_next_plant_date = 1 AND [next_plant_date] IS NULL" +
-                ") OR ([next_plant_date] = @Original_next_plant_date)));\r\nSELECT plant_id, seed_i" +
-                "d, sow_date, no_solution_date, half_strength_solution_date, full_strength_soluti" +
-                "on_date, transfer_date, harvest_date, next_plant_date FROM PLANT WHERE (plant_id" +
-                " = @plant_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SEEDS] SET [seed_name] = @seed_name, [seed_times_planted] = @seed_times_planted, [seed_times_sprouted] = @seed_times_sprouted, [seed_germination_rate] = @seed_germination_rate WHERE (([seed_id] = @Original_seed_id) AND ([seed_name] = @Original_seed_name) AND ((@IsNull_seed_times_planted = 1 AND [seed_times_planted] IS NULL) OR ([seed_times_planted] = @Original_seed_times_planted)) AND ((@IsNull_seed_times_sprouted = 1 AND [seed_times_sprouted] IS NULL) OR ([seed_times_sprouted] = @Original_seed_times_sprouted)) AND ((@IsNull_seed_germination_rate = 1 AND [seed_germination_rate] IS NULL) OR ([seed_germination_rate] = @Original_seed_germination_rate)));
+SELECT seed_id, seed_name, seed_times_planted, seed_times_sprouted, seed_germination_rate FROM SEEDS WHERE (seed_id = @seed_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sow_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sow_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no_solution_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@half_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "half_strength_solution_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@full_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "full_strength_solution_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@transfer_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "transfer_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@harvest_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "harvest_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@next_plant_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "next_plant_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_plant_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "plant_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_times_planted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_planted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_times_sprouted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_sprouted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_germination_rate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_germination_rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_sow_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sow_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sow_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sow_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_no_solution_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no_solution_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_no_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no_solution_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_half_strength_solution_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "half_strength_solution_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_half_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "half_strength_solution_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_full_strength_solution_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "full_strength_solution_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_full_strength_solution_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "full_strength_solution_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_transfer_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "transfer_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_transfer_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "transfer_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_harvest_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "harvest_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_harvest_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "harvest_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_next_plant_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "next_plant_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_next_plant_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "next_plant_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@plant_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "plant_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_times_planted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_planted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_times_planted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_planted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_times_sprouted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_sprouted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_times_sprouted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_times_sprouted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_seed_germination_rate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_germination_rate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_seed_germination_rate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "seed_germination_rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seed_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "seed_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1170,9 +932,8 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_date" +
-                ", full_strength_solution_date, transfer_date, harvest_date, next_plant_date FROM" +
-                " dbo.PLANT";
+            this._commandCollection[0].CommandText = "SELECT seed_id, seed_name, seed_times_planted, seed_times_sprouted, seed_germinat" +
+                "ion_rate FROM dbo.SEEDS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1180,7 +941,7 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HYDROPONICS_TESTDataSet1.PLANTDataTable dataTable) {
+        public virtual int Fill(HYDROPONICS_TESTDataSet1.SEEDSDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1193,9 +954,9 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HYDROPONICS_TESTDataSet1.PLANTDataTable GetData() {
+        public virtual HYDROPONICS_TESTDataSet1.SEEDSDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HYDROPONICS_TESTDataSet1.PLANTDataTable dataTable = new HYDROPONICS_TESTDataSet1.PLANTDataTable();
+            HYDROPONICS_TESTDataSet1.SEEDSDataTable dataTable = new HYDROPONICS_TESTDataSet1.SEEDSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1203,7 +964,7 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HYDROPONICS_TESTDataSet1.PLANTDataTable dataTable) {
+        public virtual int Update(HYDROPONICS_TESTDataSet1.SEEDSDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1211,7 +972,7 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(HYDROPONICS_TESTDataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "PLANT");
+            return this.Adapter.Update(dataSet, "SEEDS");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1233,71 +994,37 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_plant_id, global::System.Nullable<int> Original_seed_id, string Original_sow_date, string Original_no_solution_date, string Original_half_strength_solution_date, string Original_full_strength_solution_date, string Original_transfer_date, string Original_harvest_date, string Original_next_plant_date) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_plant_id));
-            if ((Original_seed_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_seed_id.Value));
+        public virtual int Delete(int Original_seed_id, string Original_seed_name, global::System.Nullable<int> Original_seed_times_planted, global::System.Nullable<int> Original_seed_times_sprouted, global::System.Nullable<double> Original_seed_germination_rate) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_seed_id));
+            if ((Original_seed_name == null)) {
+                throw new global::System.ArgumentNullException("Original_seed_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_seed_name));
             }
-            if ((Original_sow_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_sow_date));
-            }
-            if ((Original_no_solution_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Original_seed_times_planted.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_seed_times_planted.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_no_solution_date));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Original_half_strength_solution_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_half_strength_solution_date));
-            }
-            if ((Original_full_strength_solution_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((Original_seed_times_sprouted.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_seed_times_sprouted.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_full_strength_solution_date));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_transfer_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_transfer_date));
-            }
-            if ((Original_harvest_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((Original_seed_germination_rate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((double)(Original_seed_germination_rate.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_harvest_date));
-            }
-            if ((Original_next_plant_date == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_next_plant_date));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1319,54 +1046,30 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> seed_id, string sow_date, string no_solution_date, string half_strength_solution_date, string full_strength_solution_date, string transfer_date, string harvest_date, string next_plant_date) {
-            if ((seed_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(seed_id.Value));
+        public virtual int Insert(string seed_name, global::System.Nullable<int> seed_times_planted, global::System.Nullable<int> seed_times_sprouted, global::System.Nullable<double> seed_germination_rate) {
+            if ((seed_name == null)) {
+                throw new global::System.ArgumentNullException("seed_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(seed_name));
             }
-            if ((sow_date == null)) {
+            if ((seed_times_planted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(seed_times_planted.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(sow_date));
+            if ((seed_times_sprouted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(seed_times_sprouted.Value));
             }
-            if ((no_solution_date == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(no_solution_date));
+            if ((seed_germination_rate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(seed_germination_rate.Value));
             }
-            if ((half_strength_solution_date == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(half_strength_solution_date));
-            }
-            if ((full_strength_solution_date == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(full_strength_solution_date));
-            }
-            if ((transfer_date == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(transfer_date));
-            }
-            if ((harvest_date == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(harvest_date));
-            }
-            if ((next_plant_date == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(next_plant_date));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1388,139 +1091,63 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> seed_id, 
-                    string sow_date, 
-                    string no_solution_date, 
-                    string half_strength_solution_date, 
-                    string full_strength_solution_date, 
-                    string transfer_date, 
-                    string harvest_date, 
-                    string next_plant_date, 
-                    int Original_plant_id, 
-                    global::System.Nullable<int> Original_seed_id, 
-                    string Original_sow_date, 
-                    string Original_no_solution_date, 
-                    string Original_half_strength_solution_date, 
-                    string Original_full_strength_solution_date, 
-                    string Original_transfer_date, 
-                    string Original_harvest_date, 
-                    string Original_next_plant_date, 
-                    int plant_id) {
-            if ((seed_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(seed_id.Value));
+        public virtual int Update(string seed_name, global::System.Nullable<int> seed_times_planted, global::System.Nullable<int> seed_times_sprouted, global::System.Nullable<double> seed_germination_rate, int Original_seed_id, string Original_seed_name, global::System.Nullable<int> Original_seed_times_planted, global::System.Nullable<int> Original_seed_times_sprouted, global::System.Nullable<double> Original_seed_germination_rate, int seed_id) {
+            if ((seed_name == null)) {
+                throw new global::System.ArgumentNullException("seed_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(seed_name));
             }
-            if ((sow_date == null)) {
+            if ((seed_times_planted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(seed_times_planted.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(sow_date));
+            if ((seed_times_sprouted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(seed_times_sprouted.Value));
             }
-            if ((no_solution_date == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(no_solution_date));
+            if ((seed_germination_rate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(seed_germination_rate.Value));
             }
-            if ((half_strength_solution_date == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(half_strength_solution_date));
-            }
-            if ((full_strength_solution_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_seed_id));
+            if ((Original_seed_name == null)) {
+                throw new global::System.ArgumentNullException("Original_seed_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(full_strength_solution_date));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_seed_name));
             }
-            if ((transfer_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(transfer_date));
-            }
-            if ((harvest_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Original_seed_times_planted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_seed_times_planted.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(harvest_date));
-            }
-            if ((next_plant_date == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(next_plant_date));
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_plant_id));
-            if ((Original_seed_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_seed_id.Value));
+            if ((Original_seed_times_sprouted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_seed_times_sprouted.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_sow_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_sow_date));
-            }
-            if ((Original_no_solution_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((Original_seed_germination_rate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(Original_seed_germination_rate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_no_solution_date));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_half_strength_solution_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_half_strength_solution_date));
-            }
-            if ((Original_full_strength_solution_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_full_strength_solution_date));
-            }
-            if ((Original_transfer_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_transfer_date));
-            }
-            if ((Original_harvest_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_harvest_date));
-            }
-            if ((Original_next_plant_date == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_next_plant_date));
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(plant_id));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(seed_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1541,25 +1168,8 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> seed_id, 
-                    string sow_date, 
-                    string no_solution_date, 
-                    string half_strength_solution_date, 
-                    string full_strength_solution_date, 
-                    string transfer_date, 
-                    string harvest_date, 
-                    string next_plant_date, 
-                    int Original_plant_id, 
-                    global::System.Nullable<int> Original_seed_id, 
-                    string Original_sow_date, 
-                    string Original_no_solution_date, 
-                    string Original_half_strength_solution_date, 
-                    string Original_full_strength_solution_date, 
-                    string Original_transfer_date, 
-                    string Original_harvest_date, 
-                    string Original_next_plant_date) {
-            return this.Update(seed_id, sow_date, no_solution_date, half_strength_solution_date, full_strength_solution_date, transfer_date, harvest_date, next_plant_date, Original_plant_id, Original_seed_id, Original_sow_date, Original_no_solution_date, Original_half_strength_solution_date, Original_full_strength_solution_date, Original_transfer_date, Original_harvest_date, Original_next_plant_date, Original_plant_id);
+        public virtual int Update(string seed_name, global::System.Nullable<int> seed_times_planted, global::System.Nullable<int> seed_times_sprouted, global::System.Nullable<double> seed_germination_rate, int Original_seed_id, string Original_seed_name, global::System.Nullable<int> Original_seed_times_planted, global::System.Nullable<int> Original_seed_times_sprouted, global::System.Nullable<double> Original_seed_germination_rate) {
+            return this.Update(seed_name, seed_times_planted, seed_times_sprouted, seed_germination_rate, Original_seed_id, Original_seed_name, Original_seed_times_planted, Original_seed_times_sprouted, Original_seed_germination_rate, Original_seed_id);
         }
     }
     
@@ -1575,7 +1185,7 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         
         private UpdateOrderOption _updateOrder;
         
-        private PLANTTableAdapter _pLANTTableAdapter;
+        private SEEDSTableAdapter _sEEDSTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1597,12 +1207,12 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PLANTTableAdapter PLANTTableAdapter {
+        public SEEDSTableAdapter SEEDSTableAdapter {
             get {
-                return this._pLANTTableAdapter;
+                return this._sEEDSTableAdapter;
             }
             set {
-                this._pLANTTableAdapter = value;
+                this._sEEDSTableAdapter = value;
             }
         }
         
@@ -1625,9 +1235,9 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._pLANTTableAdapter != null) 
-                            && (this._pLANTTableAdapter.Connection != null))) {
-                    return this._pLANTTableAdapter.Connection;
+                if (((this._sEEDSTableAdapter != null) 
+                            && (this._sEEDSTableAdapter.Connection != null))) {
+                    return this._sEEDSTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1642,7 +1252,7 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._pLANTTableAdapter != null)) {
+                if ((this._sEEDSTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1656,12 +1266,12 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(HYDROPONICS_TESTDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pLANTTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PLANT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._sEEDSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SEEDS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pLANTTableAdapter.Update(updatedRows));
+                    result = (result + this._sEEDSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1675,11 +1285,11 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(HYDROPONICS_TESTDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pLANTTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PLANT.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._sEEDSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SEEDS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pLANTTableAdapter.Update(addedRows));
+                    result = (result + this._sEEDSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1693,11 +1303,11 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(HYDROPONICS_TESTDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._pLANTTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PLANT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._sEEDSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SEEDS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pLANTTableAdapter.Update(deletedRows));
+                    result = (result + this._sEEDSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1740,8 +1350,8 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._pLANTTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._pLANTTableAdapter.Connection) == false))) {
+            if (((this._sEEDSTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sEEDSTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1777,13 +1387,13 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._pLANTTableAdapter != null)) {
-                    revertConnections.Add(this._pLANTTableAdapter, this._pLANTTableAdapter.Connection);
-                    this._pLANTTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._pLANTTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._pLANTTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._pLANTTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._pLANTTableAdapter.Adapter);
+                if ((this._sEEDSTableAdapter != null)) {
+                    revertConnections.Add(this._sEEDSTableAdapter, this._sEEDSTableAdapter.Connection);
+                    this._sEEDSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._sEEDSTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._sEEDSTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sEEDSTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sEEDSTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1844,9 +1454,9 @@ SELECT plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_dat
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._pLANTTableAdapter != null)) {
-                    this._pLANTTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pLANTTableAdapter]));
-                    this._pLANTTableAdapter.Transaction = null;
+                if ((this._sEEDSTableAdapter != null)) {
+                    this._sEEDSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sEEDSTableAdapter]));
+                    this._sEEDSTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
