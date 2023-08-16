@@ -22,7 +22,7 @@ namespace Hydroponics_application
         }
         DateTime sowDate, transferDate, harvestDate, nextPlantDate;
         string seedName;
-        int timesPlanted,seedId;
+        int timesPlanted, seedId;
 
         private void addPlantForm_Load(object sender, EventArgs e)
         {
@@ -48,21 +48,19 @@ namespace Hydroponics_application
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private void transferDateButton_Click(object sender, EventArgs e)
         {
-            /*
+            
             seedName = comboBox1.Text;
             timesPlanted = Convert.ToInt32(textBox1.Text);
             sowDateLbl.Text = "";
-            waterWithNoSolutionLbl.Text = "";
-            HalfStrengthLbl.Text = "";
-            FullStrengthLbl.Text = "";
             transferDate = dateTimePicker.Value;
             harvestDate = mainForm.getHarvestDate(transferDate);
             nextPlantDate = mainForm.getNextPlantDate(harvestDate);
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(seedName, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
-            sendTimesPlantedToDatabase(timesPlanted, seedId);*/
+            sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text,timesPlanted);
+            timesPlanted += updateSeeds.getTimesPlantedFromDatabase(seedName);
+            updateSeeds.sendDataToDatabase(seedName, timesPlanted);
         }
 
         private void sowDateButton_Click(object sender, EventArgs e)
