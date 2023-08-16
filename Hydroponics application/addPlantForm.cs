@@ -20,14 +20,14 @@ namespace Hydroponics_application
         {
             InitializeComponent();
         }
-        DateTime sowDate, noSolutionDate, halfStrengthSolutionDate, fullStrengthSolutionDate, transferDate, harvestDate, nextPlantDate;
+        DateTime sowDate, transferDate, harvestDate, nextPlantDate;
         string seedName;
         int timesPlanted,seedId;
 
         private void addPlantForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hYDROPONICSAPPDataSet.SEEDLINGS' table. You can move, or remove it, as needed.
-            this.sEEDLINGSTableAdapter.Fill(this.hYDROPONICSAPPDataSet.SEEDLINGS);
+            // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet1.SEEDS' table. You can move, or remove it, as needed.
+            this.sEEDSTableAdapter.Fill(this.hYDROPONICS_TESTDataSet1.SEEDS);
 
         }
 
@@ -67,46 +67,38 @@ namespace Hydroponics_application
 
         private void sowDateButton_Click(object sender, EventArgs e)
         {
-            /*
+            
             seedName = comboBox1.Text;
             timesPlanted = Convert.ToInt32(textBox1.Text);
-            sowDate = dateTimePicker.Value;
-            noSolutionDate = mainForm.getNoSolutionDate(sowDate);
-            halfStrengthSolutionDate = mainForm.getHalfStrengthSolutionDate(noSolutionDate);
-            fullStrengthSolutionDate = mainForm.getFullStrengthSoltuionDate(halfStrengthSolutionDate);
-            transferDate = mainForm.getTransferDate(fullStrengthSolutionDate);
+            sowDate = mainForm.getSowDate();
+            transferDate = mainForm.getTransferDate(sowDate);
             harvestDate = mainForm.getHarvestDate(transferDate);
             nextPlantDate = mainForm.getNextPlantDate(harvestDate);
-
             sowDateLbl.Text = sowDate.ToString("MM/dd/yyyy");
-            waterWithNoSolutionLbl.Text = sowDate.ToString("MM/dd/yyyy") + " - " + noSolutionDate.ToString("MM/dd/yyyy");
-            HalfStrengthLbl.Text = noSolutionDate.AddDays(1).ToString("MM/dd/yyyy") + " - " + halfStrengthSolutionDate.ToString("MM/dd/yyyy");
-            FullStrengthLbl.Text = halfStrengthSolutionDate.AddDays(1).ToString("MM/dd/yyyy") + " - " + fullStrengthSolutionDate.ToString("MM/dd/yyyy");
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(seedName, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
+            sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text, timesPlanted);
             timesPlanted+=updateSeeds.getTimesPlantedFromDatabase(seedName);
             updateSeeds.sendDataToDatabase(seedName, timesPlanted);
-            */
+            
          }
 
-        private void sendDataToDatabase(string seed, string sowDate, string noSolutionDate, string halfStrengthDate, string fullStrengthDate, string transferDate, string harvestDate, string nextPlantDate)
+        private void sendDataToDatabase(string seed, string sowDate, string transferDate, string harvestDate, string nextPlantDate, int seedsPlanted)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
+            int seedID = getSeedId(seed);
 
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@sowDate, @noSolutionDate, @halfStrengthDate, @fullStrengthDate, @transferDate, @harvestDate, @nextPlantDate, @seed)", conn);
-                command.Parameters.Add(new SqlParameter("seed", seed));
+                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted)", conn);
+                command.Parameters.Add(new SqlParameter("seed_id", seedID));
                 command.Parameters.Add(new SqlParameter("sowDate", sowDate));
-                command.Parameters.Add(new SqlParameter("noSolutionDate", noSolutionDate));
-                command.Parameters.Add(new SqlParameter("halfStrengthDate", halfStrengthDate));
-                command.Parameters.Add(new SqlParameter("fullStrengthDate", fullStrengthDate));
                 command.Parameters.Add(new SqlParameter("transferDate", transferDate));
                 command.Parameters.Add(new SqlParameter("harvestDate", harvestDate));
                 command.Parameters.Add(new SqlParameter("nextPlantDate", nextPlantDate));
+                command.Parameters.Add(new SqlParameter("seedsPlanted", seedsPlanted));
                 command.ExecuteNonQuery();
                 MessageBox.Show("Successfully Added");
             }
