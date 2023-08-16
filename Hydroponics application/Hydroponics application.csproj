@@ -179,6 +179,12 @@
     <Compile Include="viewseedsform.Designer.cs">
       <DependentUpon>viewseedsform.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewStatistics.Designer.cs">
+      <DependentUpon>viewStatistics.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addPlantForm.resx">
       <DependentUpon>addPlantForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewseedsform.resx">
       <DependentUpon>viewseedsform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewStatistics.resx">
+      <DependentUpon>viewStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Hydroponics application_TemporaryKey.pfx" />
     <None Include="HYDROPONICS_TESTDataSet.xsc">

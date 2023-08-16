@@ -30,7 +30,7 @@ namespace Hydroponics_application
             loadTable();
         }
 
-        void loadTable()
+        public void loadTable()
         {
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand loadTable = new SqlCommand("SELECT * FROM SEEDS", con);
@@ -105,7 +105,6 @@ namespace Hydroponics_application
             updateButton.Visible = false;
             cancelButton.Visible = false;
             editButton.Visible = true;
- 
         }
     }
 }

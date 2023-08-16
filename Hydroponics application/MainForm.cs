@@ -103,7 +103,10 @@ namespace Hydroponics_application
 
         private void addStatsButton_Click(object sender, EventArgs e)
         {
-
+            viewStatistics viewStatistics = new viewStatistics();
+            viewStatistics.RefToMainForm = this;
+            this.Visible = false;
+            viewStatistics.Show();
         }
 
         private void viewStatsButton_Click(object sender, EventArgs e)
