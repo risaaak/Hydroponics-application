@@ -119,6 +119,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HYDROPONICSAPPDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HYDROPONICS_TESTDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HYDROPONICS_TESTDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HYDROPONICS_TESTDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HYDROPONICS_TESTDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HYDROPONICS_TESTDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HYDROPONICS_TESTDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +160,23 @@
     <Compile Include="viewgrowboxform.Designer.cs">
       <DependentUpon>viewgrowboxform.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewPlant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewPlant.Designer.cs">
+      <DependentUpon>viewPlant.cs</DependentUpon>
+    </Compile>
     <Compile Include="viewseedlingtrayform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewseedlingtrayform.Designer.cs">
       <DependentUpon>viewseedlingtrayform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewSeeds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewSeeds.Designer.cs">
+      <DependentUpon>viewSeeds.cs</DependentUpon>
     </Compile>
     <Compile Include="viewseedsform.cs">
       <SubType>Form</SubType>
@@ -196,8 +223,14 @@
     <EmbeddedResource Include="viewgrowboxform.resx">
       <DependentUpon>viewgrowboxform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="viewPlant.resx">
+      <DependentUpon>viewPlant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="viewseedlingtrayform.resx">
       <DependentUpon>viewseedlingtrayform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewSeeds.resx">
+      <DependentUpon>viewSeeds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewseedsform.resx">
       <DependentUpon>viewseedsform.cs</DependentUpon>
@@ -213,6 +246,39 @@
     </None>
     <None Include="HYDROPONICSAPPDataSet.xss">
       <DependentUpon>HYDROPONICSAPPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet.xsc">
+      <DependentUpon>HYDROPONICS_TESTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HYDROPONICS_TESTDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet.xss">
+      <DependentUpon>HYDROPONICS_TESTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet1.xsc">
+      <DependentUpon>HYDROPONICS_TESTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HYDROPONICS_TESTDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet1.xss">
+      <DependentUpon>HYDROPONICS_TESTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet2.xsc">
+      <DependentUpon>HYDROPONICS_TESTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HYDROPONICS_TESTDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HYDROPONICS_TESTDataSet2.xss">
+      <DependentUpon>HYDROPONICS_TESTDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -241,6 +307,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BrainDump.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

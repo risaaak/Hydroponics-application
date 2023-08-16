@@ -1,0 +1,12 @@
+﻿Add seedlings
+View seedlings
+Add plant
+View plants
+Add/Modify stats
+View Stats
+
+SQL
+
+seeds table (seed_id, seed_name, seed_times_planted, seed_times_sprouted, seed_germination_rate)
+plant table (plant_id, seed_id, sow_date, no_solution_date, half_strength_solution_date, full_strength_solution_dte, transfer_date, harvest_date, next_plant_date)
+statistics table (stats_id, seed_id, seed_price, seed_averge_weight, seed_times_planted, seed_times_sprouted)

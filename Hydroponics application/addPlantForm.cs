@@ -14,6 +14,8 @@ namespace Hydroponics_application
 {
     public partial class addPlantForm : Form
     {
+        public Form RefToMainForm { get; set; }
+        MainForm mainForm = new MainForm();
         public addPlantForm()
         {
             InitializeComponent();
@@ -34,13 +36,20 @@ namespace Hydroponics_application
 
         }
 
-        MainForm mainForm = new MainForm();
+        
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.RefToMainForm.Show();
+            this.Close();
+        }
+
         updateSeeds updateSeeds = new updateSeeds();
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private void transferDateButton_Click(object sender, EventArgs e)
         {
+            /*
             seedName = comboBox1.Text;
-            seedId = getSeedId(seedName);
             timesPlanted = Convert.ToInt32(textBox1.Text);
             sowDateLbl.Text = "";
             waterWithNoSolutionLbl.Text = "";
@@ -52,16 +61,16 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(seedId, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
-            sendTimesPlantedToDatabase(timesPlanted, seedId);
+            sendDataToDatabase(seedName, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
+            sendTimesPlantedToDatabase(timesPlanted, seedId);*/
         }
 
         private void sowDateButton_Click(object sender, EventArgs e)
         {
+            /*
             seedName = comboBox1.Text;
-            seedId = getSeedId(seedName);
             timesPlanted = Convert.ToInt32(textBox1.Text);
-            sowDate = mainForm.getSowDate();
+            sowDate = dateTimePicker.Value;
             noSolutionDate = mainForm.getNoSolutionDate(sowDate);
             halfStrengthSolutionDate = mainForm.getHalfStrengthSolutionDate(noSolutionDate);
             fullStrengthSolutionDate = mainForm.getFullStrengthSoltuionDate(halfStrengthSolutionDate);
@@ -76,19 +85,20 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(seedId, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
+            sendDataToDatabase(seedName, sowDateLbl.Text, waterWithNoSolutionLbl.Text, HalfStrengthLbl.Text, FullStrengthLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text);
             timesPlanted+=updateSeeds.getTimesPlantedFromDatabase(seedName);
             updateSeeds.sendDataToDatabase(seedName, timesPlanted);
+            */
          }
 
-        private void sendDataToDatabase(int seed, string sowDate, string noSolutionDate, string halfStrengthDate, string fullStrengthDate, string transferDate, string harvestDate, string nextPlantDate)
+        private void sendDataToDatabase(string seed, string sowDate, string noSolutionDate, string halfStrengthDate, string fullStrengthDate, string transferDate, string harvestDate, string nextPlantDate)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed, @sowDate, @noSolutionDate, @halfStrengthDate, @fullStrengthDate, @transferDate, @harvestDate, @nextPlantDate)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@sowDate, @noSolutionDate, @halfStrengthDate, @fullStrengthDate, @transferDate, @harvestDate, @nextPlantDate, @seed)", conn);
                 command.Parameters.Add(new SqlParameter("seed", seed));
                 command.Parameters.Add(new SqlParameter("sowDate", sowDate));
                 command.Parameters.Add(new SqlParameter("noSolutionDate", noSolutionDate));

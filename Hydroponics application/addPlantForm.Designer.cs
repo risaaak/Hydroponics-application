@@ -54,6 +54,7 @@
             this.hYDROPONICSAPPDataSet = new Hydroponics_application.HYDROPONICSAPPDataSet();
             this.sEEDLINGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sEEDLINGSTableAdapter = new Hydroponics_application.HYDROPONICSAPPDataSetTableAdapters.SEEDLINGSTableAdapter();
+            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICSAPPDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sEEDLINGSBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             // NextPlantDateLbl
             // 
             this.NextPlantDateLbl.AutoSize = true;
-            this.NextPlantDateLbl.Location = new System.Drawing.Point(159, 340);
+            this.NextPlantDateLbl.Location = new System.Drawing.Point(160, 359);
             this.NextPlantDateLbl.Name = "NextPlantDateLbl";
             this.NextPlantDateLbl.Size = new System.Drawing.Size(0, 13);
             this.NextPlantDateLbl.TabIndex = 41;
@@ -69,7 +70,7 @@
             // nextPlantDateLabel
             // 
             this.nextPlantDateLabel.AutoSize = true;
-            this.nextPlantDateLabel.Location = new System.Drawing.Point(81, 340);
+            this.nextPlantDateLabel.Location = new System.Drawing.Point(82, 359);
             this.nextPlantDateLabel.Name = "nextPlantDateLabel";
             this.nextPlantDateLabel.Size = new System.Drawing.Size(59, 13);
             this.nextPlantDateLabel.TabIndex = 40;
@@ -78,7 +79,7 @@
             // harvestDateLbl
             // 
             this.harvestDateLbl.AutoSize = true;
-            this.harvestDateLbl.Location = new System.Drawing.Point(162, 314);
+            this.harvestDateLbl.Location = new System.Drawing.Point(163, 333);
             this.harvestDateLbl.Name = "harvestDateLbl";
             this.harvestDateLbl.Size = new System.Drawing.Size(0, 13);
             this.harvestDateLbl.TabIndex = 39;
@@ -86,7 +87,7 @@
             // transferDateLbl
             // 
             this.transferDateLbl.AutoSize = true;
-            this.transferDateLbl.Location = new System.Drawing.Point(162, 285);
+            this.transferDateLbl.Location = new System.Drawing.Point(163, 304);
             this.transferDateLbl.Name = "transferDateLbl";
             this.transferDateLbl.Size = new System.Drawing.Size(0, 13);
             this.transferDateLbl.TabIndex = 38;
@@ -94,7 +95,7 @@
             // harvestDateLabel
             // 
             this.harvestDateLabel.AutoSize = true;
-            this.harvestDateLabel.Location = new System.Drawing.Point(67, 314);
+            this.harvestDateLabel.Location = new System.Drawing.Point(68, 333);
             this.harvestDateLabel.Name = "harvestDateLabel";
             this.harvestDateLabel.Size = new System.Drawing.Size(73, 13);
             this.harvestDateLabel.TabIndex = 37;
@@ -103,7 +104,7 @@
             // transferDateLabel
             // 
             this.transferDateLabel.AutoSize = true;
-            this.transferDateLabel.Location = new System.Drawing.Point(65, 285);
+            this.transferDateLabel.Location = new System.Drawing.Point(66, 304);
             this.transferDateLabel.Name = "transferDateLabel";
             this.transferDateLabel.Size = new System.Drawing.Size(75, 13);
             this.transferDateLabel.TabIndex = 36;
@@ -112,7 +113,7 @@
             // FullStrengthLbl
             // 
             this.FullStrengthLbl.AutoSize = true;
-            this.FullStrengthLbl.Location = new System.Drawing.Point(159, 258);
+            this.FullStrengthLbl.Location = new System.Drawing.Point(160, 277);
             this.FullStrengthLbl.Name = "FullStrengthLbl";
             this.FullStrengthLbl.Size = new System.Drawing.Size(0, 13);
             this.FullStrengthLbl.TabIndex = 35;
@@ -120,7 +121,7 @@
             // FullStrengthLabel
             // 
             this.FullStrengthLabel.AutoSize = true;
-            this.FullStrengthLabel.Location = new System.Drawing.Point(9, 258);
+            this.FullStrengthLabel.Location = new System.Drawing.Point(10, 277);
             this.FullStrengthLabel.Name = "FullStrengthLabel";
             this.FullStrengthLabel.Size = new System.Drawing.Size(131, 13);
             this.FullStrengthLabel.TabIndex = 34;
@@ -129,7 +130,7 @@
             // HalfStrengthLbl
             // 
             this.HalfStrengthLbl.AutoSize = true;
-            this.HalfStrengthLbl.Location = new System.Drawing.Point(159, 228);
+            this.HalfStrengthLbl.Location = new System.Drawing.Point(160, 247);
             this.HalfStrengthLbl.Name = "HalfStrengthLbl";
             this.HalfStrengthLbl.Size = new System.Drawing.Size(0, 13);
             this.HalfStrengthLbl.TabIndex = 33;
@@ -137,7 +138,7 @@
             // HalfStrengthLabel
             // 
             this.HalfStrengthLabel.AutoSize = true;
-            this.HalfStrengthLabel.Location = new System.Drawing.Point(15, 228);
+            this.HalfStrengthLabel.Location = new System.Drawing.Point(16, 247);
             this.HalfStrengthLabel.Name = "HalfStrengthLabel";
             this.HalfStrengthLabel.Size = new System.Drawing.Size(125, 13);
             this.HalfStrengthLabel.TabIndex = 32;
@@ -146,7 +147,7 @@
             // waterWithNoSolutionLbl
             // 
             this.waterWithNoSolutionLbl.AutoSize = true;
-            this.waterWithNoSolutionLbl.Location = new System.Drawing.Point(159, 204);
+            this.waterWithNoSolutionLbl.Location = new System.Drawing.Point(160, 223);
             this.waterWithNoSolutionLbl.Name = "waterWithNoSolutionLbl";
             this.waterWithNoSolutionLbl.Size = new System.Drawing.Size(0, 13);
             this.waterWithNoSolutionLbl.TabIndex = 31;
@@ -154,7 +155,7 @@
             // waterWithNoSolutionLabel
             // 
             this.waterWithNoSolutionLabel.AutoSize = true;
-            this.waterWithNoSolutionLabel.Location = new System.Drawing.Point(21, 204);
+            this.waterWithNoSolutionLabel.Location = new System.Drawing.Point(22, 223);
             this.waterWithNoSolutionLabel.Name = "waterWithNoSolutionLabel";
             this.waterWithNoSolutionLabel.Size = new System.Drawing.Size(119, 13);
             this.waterWithNoSolutionLabel.TabIndex = 30;
@@ -163,7 +164,7 @@
             // sowDateLbl
             // 
             this.sowDateLbl.AutoSize = true;
-            this.sowDateLbl.Location = new System.Drawing.Point(159, 177);
+            this.sowDateLbl.Location = new System.Drawing.Point(160, 196);
             this.sowDateLbl.Name = "sowDateLbl";
             this.sowDateLbl.Size = new System.Drawing.Size(0, 13);
             this.sowDateLbl.TabIndex = 29;
@@ -171,7 +172,7 @@
             // sowDateLabel
             // 
             this.sowDateLabel.AutoSize = true;
-            this.sowDateLabel.Location = new System.Drawing.Point(83, 177);
+            this.sowDateLabel.Location = new System.Drawing.Point(84, 196);
             this.sowDateLabel.Name = "sowDateLabel";
             this.sowDateLabel.Size = new System.Drawing.Size(57, 13);
             this.sowDateLabel.TabIndex = 28;
@@ -179,7 +180,7 @@
             // 
             // transferDateButton
             // 
-            this.transferDateButton.Location = new System.Drawing.Point(146, 77);
+            this.transferDateButton.Location = new System.Drawing.Point(147, 96);
             this.transferDateButton.Name = "transferDateButton";
             this.transferDateButton.Size = new System.Drawing.Size(108, 23);
             this.transferDateButton.TabIndex = 27;
@@ -189,7 +190,7 @@
             // 
             // sowDateButton
             // 
-            this.sowDateButton.Location = new System.Drawing.Point(32, 77);
+            this.sowDateButton.Location = new System.Drawing.Point(33, 96);
             this.sowDateButton.Name = "sowDateButton";
             this.sowDateButton.Size = new System.Drawing.Size(108, 23);
             this.sowDateButton.TabIndex = 26;
@@ -200,7 +201,7 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(67, 43);
+            this.dateLabel.Location = new System.Drawing.Point(68, 62);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(36, 13);
             this.dateLabel.TabIndex = 25;
@@ -210,7 +211,7 @@
             // 
             this.dateTimePicker.CustomFormat = "";
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(118, 37);
+            this.dateTimePicker.Location = new System.Drawing.Point(119, 56);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(106, 20);
             this.dateTimePicker.TabIndex = 24;
@@ -220,7 +221,7 @@
             this.comboBox1.DataSource = this.sEEDLINGSBindingSource;
             this.comboBox1.DisplayMember = "seedlingname";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 114);
+            this.comboBox1.Location = new System.Drawing.Point(144, 133);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 42;
@@ -229,7 +230,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 121);
+            this.label1.Location = new System.Drawing.Point(106, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 43;
@@ -237,7 +238,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 148);
+            this.textBox1.Location = new System.Drawing.Point(144, 167);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 44;
@@ -245,7 +246,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 148);
+            this.label2.Location = new System.Drawing.Point(10, 167);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 13);
             this.label2.TabIndex = 45;
@@ -265,11 +266,22 @@
             // 
             this.sEEDLINGSTableAdapter.ClearBeforeFill = true;
             // 
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.TabIndex = 46;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // addPlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 408);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -328,5 +340,6 @@
         private HYDROPONICSAPPDataSet hYDROPONICSAPPDataSet;
         private System.Windows.Forms.BindingSource sEEDLINGSBindingSource;
         private HYDROPONICSAPPDataSetTableAdapters.SEEDLINGSTableAdapter sEEDLINGSTableAdapter;
+        private System.Windows.Forms.Button backButton;
     }
 }

@@ -33,5 +33,16 @@ namespace Hydroponics_application.Properties {
                 return ((string)(this["HYDROPONICSAPPConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Sec" +
+            "urity=True")]
+        public string HYDROPONICS_TESTConnectionString {
+            get {
+                return ((string)(this["HYDROPONICS_TESTConnectionString"]));
+            }
+        }
     }
 }

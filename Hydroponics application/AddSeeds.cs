@@ -13,6 +13,7 @@ namespace Hydroponics_application
 {
     public partial class AddSeeds : Form
     {
+        public Form RefToMainForm { get; set; }
         public AddSeeds()
         {
             InitializeComponent();
@@ -49,6 +50,12 @@ namespace Hydroponics_application
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.RefToMainForm.Show();
+            this.Close();
         }
     }
 }
