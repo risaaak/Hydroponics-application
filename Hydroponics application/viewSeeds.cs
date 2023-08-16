@@ -25,8 +25,9 @@ namespace Hydroponics_application
 
         private void viewSeeds_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet.SEEDS' table. You can move, or remove it, as needed.
-            this.sEEDSTableAdapter.Fill(this.hYDROPONICS_TESTDataSet.SEEDS);
+            // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet1.SEEDS' table. You can move, or remove it, as needed.
+            this.sEEDSTableAdapter.Fill(this.hYDROPONICS_TESTDataSet1.SEEDS);
+
 
         }
 

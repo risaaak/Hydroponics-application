@@ -30,21 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.hYDROPONICSAPPDataSet = new Hydroponics_application.HYDROPONICSAPPDataSet();
-            this.hYDROPONICSAPPDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hYDROPONICS_TESTDataSet = new Hydroponics_application.HYDROPONICS_TESTDataSet();
-            this.sEEDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sEEDSTableAdapter = new Hydroponics_application.HYDROPONICS_TESTDataSetTableAdapters.SEEDSTableAdapter();
             this.seedidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seednameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seedtimesplantedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seedtimessproutedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seedgerminationrateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backButton = new System.Windows.Forms.Button();
+            this.hYDROPONICS_TESTDataSet1 = new Hydroponics_application.HYDROPONICS_TESTDataSet1();
+            this.sEEDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sEEDSTableAdapter = new Hydroponics_application.HYDROPONICS_TESTDataSet1TableAdapters.SEEDSTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICSAPPDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICSAPPDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sEEDSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,30 +61,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 389);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // hYDROPONICSAPPDataSet
-            // 
-            this.hYDROPONICSAPPDataSet.DataSetName = "HYDROPONICSAPPDataSet";
-            this.hYDROPONICSAPPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hYDROPONICSAPPDataSetBindingSource
-            // 
-            this.hYDROPONICSAPPDataSetBindingSource.DataSource = this.hYDROPONICSAPPDataSet;
-            this.hYDROPONICSAPPDataSetBindingSource.Position = 0;
-            // 
-            // hYDROPONICS_TESTDataSet
-            // 
-            this.hYDROPONICS_TESTDataSet.DataSetName = "HYDROPONICS_TESTDataSet";
-            this.hYDROPONICS_TESTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sEEDSBindingSource
-            // 
-            this.sEEDSBindingSource.DataMember = "SEEDS";
-            this.sEEDSBindingSource.DataSource = this.hYDROPONICS_TESTDataSet;
-            // 
-            // sEEDSTableAdapter
-            // 
-            this.sEEDSTableAdapter.ClearBeforeFill = true;
             // 
             // seedidDataGridViewTextBoxColumn
             // 
@@ -136,6 +108,20 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // hYDROPONICS_TESTDataSet1
+            // 
+            this.hYDROPONICS_TESTDataSet1.DataSetName = "HYDROPONICS_TESTDataSet1";
+            this.hYDROPONICS_TESTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sEEDSBindingSource
+            // 
+            this.sEEDSBindingSource.DataMember = "SEEDS";
+            this.sEEDSBindingSource.DataSource = this.hYDROPONICS_TESTDataSet1;
+            // 
+            // sEEDSTableAdapter
+            // 
+            this.sEEDSTableAdapter.ClearBeforeFill = true;
+            // 
             // viewSeeds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,9 +133,7 @@
             this.Text = "viewSeeds";
             this.Load += new System.EventHandler(this.viewSeeds_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICSAPPDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICSAPPDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sEEDSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -157,16 +141,14 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource hYDROPONICSAPPDataSetBindingSource;
-        private HYDROPONICSAPPDataSet hYDROPONICSAPPDataSet;
-        private HYDROPONICS_TESTDataSet hYDROPONICS_TESTDataSet;
-        private System.Windows.Forms.BindingSource sEEDSBindingSource;
-        private HYDROPONICS_TESTDataSetTableAdapters.SEEDSTableAdapter sEEDSTableAdapter;
+        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn seedidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seednameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seedtimesplantedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seedtimessproutedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seedgerminationrateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button backButton;
+        private HYDROPONICS_TESTDataSet1 hYDROPONICS_TESTDataSet1;
+        private System.Windows.Forms.BindingSource sEEDSBindingSource;
+        private HYDROPONICS_TESTDataSet1TableAdapters.SEEDSTableAdapter sEEDSTableAdapter;
     }
 }
