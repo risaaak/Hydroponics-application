@@ -139,12 +139,10 @@ namespace Hydroponics_application
 
         private void addPlantButton_Click(object sender, EventArgs e)
         {
-            /*
             addPlantForm addPlantForm = new addPlantForm();
             addPlantForm.RefToMainForm = this;
             this.Visible = false;
             addPlantForm.Show();
-            */
         }
     }
 }
