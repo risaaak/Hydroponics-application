@@ -28,113 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.seedidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seednameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seedtimesplantedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seedtimessproutedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seedgerminationrateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backButton = new System.Windows.Forms.Button();
-            this.hYDROPONICS_TESTDataSet1 = new Hydroponics_application.HYDROPONICS_TESTDataSet1();
-            this.sEEDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sEEDSTableAdapter = new Hydroponics_application.HYDROPONICS_TESTDataSet1TableAdapters.SEEDSTableAdapter();
+            this.editButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sEEDSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.seedidDataGridViewTextBoxColumn,
-            this.seednameDataGridViewTextBoxColumn,
-            this.seedtimesplantedDataGridViewTextBoxColumn,
-            this.seedtimessproutedDataGridViewTextBoxColumn,
-            this.seedgerminationrateDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.sEEDSBindingSource;
+            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 389);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // seedidDataGridViewTextBoxColumn
-            // 
-            this.seedidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seedidDataGridViewTextBoxColumn.DataPropertyName = "seed_id";
-            this.seedidDataGridViewTextBoxColumn.HeaderText = "SEED ID";
-            this.seedidDataGridViewTextBoxColumn.Name = "seedidDataGridViewTextBoxColumn";
-            this.seedidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // seednameDataGridViewTextBoxColumn
-            // 
-            this.seednameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seednameDataGridViewTextBoxColumn.DataPropertyName = "seed_name";
-            this.seednameDataGridViewTextBoxColumn.HeaderText = "SEED NAME";
-            this.seednameDataGridViewTextBoxColumn.Name = "seednameDataGridViewTextBoxColumn";
-            // 
-            // seedtimesplantedDataGridViewTextBoxColumn
-            // 
-            this.seedtimesplantedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seedtimesplantedDataGridViewTextBoxColumn.DataPropertyName = "seed_times_planted";
-            this.seedtimesplantedDataGridViewTextBoxColumn.HeaderText = "TIMES PLANTED";
-            this.seedtimesplantedDataGridViewTextBoxColumn.Name = "seedtimesplantedDataGridViewTextBoxColumn";
-            // 
-            // seedtimessproutedDataGridViewTextBoxColumn
-            // 
-            this.seedtimessproutedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seedtimessproutedDataGridViewTextBoxColumn.DataPropertyName = "seed_times_sprouted";
-            this.seedtimessproutedDataGridViewTextBoxColumn.HeaderText = "TIMES SPROUTED";
-            this.seedtimessproutedDataGridViewTextBoxColumn.Name = "seedtimessproutedDataGridViewTextBoxColumn";
-            // 
-            // seedgerminationrateDataGridViewTextBoxColumn
-            // 
-            this.seedgerminationrateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seedgerminationrateDataGridViewTextBoxColumn.DataPropertyName = "seed_germination_rate";
-            this.seedgerminationrateDataGridViewTextBoxColumn.HeaderText = "GERMINATION RATE";
-            this.seedgerminationrateDataGridViewTextBoxColumn.Name = "seedgerminationrateDataGridViewTextBoxColumn";
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 13);
+            this.backButton.Location = new System.Drawing.Point(12, 12);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 2;
+            this.backButton.Size = new System.Drawing.Size(157, 31);
+            this.backButton.TabIndex = 1;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // hYDROPONICS_TESTDataSet1
+            // editButton
             // 
-            this.hYDROPONICS_TESTDataSet1.DataSetName = "HYDROPONICS_TESTDataSet1";
-            this.hYDROPONICS_TESTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.editButton.Location = new System.Drawing.Point(644, 12);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(144, 31);
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // sEEDSBindingSource
+            // updateButton
             // 
-            this.sEEDSBindingSource.DataMember = "SEEDS";
-            this.sEEDSBindingSource.DataSource = this.hYDROPONICS_TESTDataSet1;
+            this.updateButton.Location = new System.Drawing.Point(207, 444);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(153, 38);
+            this.updateButton.TabIndex = 4;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Visible = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
-            // sEEDSTableAdapter
+            // cancelButton
             // 
-            this.sEEDSTableAdapter.ClearBeforeFill = true;
+            this.cancelButton.Location = new System.Drawing.Point(425, 444);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(153, 38);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Visible = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // viewSeeds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 489);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.updateButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "viewSeeds";
             this.Text = "viewSeeds";
             this.Load += new System.EventHandler(this.viewSeeds_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sEEDSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,13 +112,8 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seedidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seednameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seedtimesplantedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seedtimessproutedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seedgerminationrateDataGridViewTextBoxColumn;
-        private HYDROPONICS_TESTDataSet1 hYDROPONICS_TESTDataSet1;
-        private System.Windows.Forms.BindingSource sEEDSBindingSource;
-        private HYDROPONICS_TESTDataSet1TableAdapters.SEEDSTableAdapter sEEDSTableAdapter;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
