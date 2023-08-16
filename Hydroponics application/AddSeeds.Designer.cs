@@ -30,7 +30,6 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Addbtn = new System.Windows.Forms.Button();
-            this.UpdateBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -44,23 +43,13 @@
             // 
             // Addbtn
             // 
-            this.Addbtn.Location = new System.Drawing.Point(70, 122);
+            this.Addbtn.Location = new System.Drawing.Point(162, 122);
             this.Addbtn.Name = "Addbtn";
             this.Addbtn.Size = new System.Drawing.Size(75, 23);
             this.Addbtn.TabIndex = 1;
             this.Addbtn.Text = "Add";
             this.Addbtn.UseVisualStyleBackColor = true;
             this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Location = new System.Drawing.Point(207, 122);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(75, 23);
-            this.UpdateBtn.TabIndex = 2;
-            this.UpdateBtn.Text = "Update";
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // backBtn
             // 
@@ -88,7 +77,6 @@
             this.ClientSize = new System.Drawing.Size(365, 206);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.Addbtn);
             this.Controls.Add(this.textBox1);
             this.Name = "AddSeeds";
@@ -102,7 +90,6 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button Addbtn;
-        private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label label1;
     }
