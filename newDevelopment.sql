@@ -25,13 +25,4 @@ select * from plant
 select * from SEEDS
 drop table plant
 
-insert into plant values(
-	1,
-	'8/16/2023',
-	'8/17/2023',
-	'8/19/2023',
-	'8/21/2023',
-	'8/23/2023',
-	'8/30/2023',
-	'825/2023'
-	)
+
