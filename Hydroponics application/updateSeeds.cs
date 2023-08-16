@@ -17,6 +17,7 @@ namespace Hydroponics_application
         {
             InitializeComponent();
         }
+
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
@@ -76,6 +77,11 @@ namespace Hydroponics_application
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
