@@ -22,7 +22,8 @@ namespace Hydroponics_application
         }
         DateTime sowDate, transferDate, harvestDate, nextPlantDate;
         string seedName;
-        int timesPlanted, seedId;
+        int timesPlanted, timesSprouted, seedId;
+        float germinationRate;
 
         private void addPlantForm_Load(object sender, EventArgs e)
         {
@@ -78,8 +79,10 @@ namespace Hydroponics_application
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
             sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text, timesPlanted);
             timesPlanted+=updateSeeds.getTimesPlantedFromDatabase(seedName);
-            updateSeeds.sendDataToDatabase(seedName, timesPlanted);
-            
+            timesSprouted+= updateSeeds.getTimesSproutedFromDatabase(seedName);
+            germinationRate += updateSeeds.getGerminationRate(timesPlanted, timesSprouted);
+
+            updateSeeds.sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
          }
 
         private void sendDataToDatabase(string seed, string sowDate, string transferDate, string harvestDate, string nextPlantDate, int seedsPlanted)

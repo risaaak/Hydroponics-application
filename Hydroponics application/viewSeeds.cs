@@ -90,7 +90,7 @@ namespace Hydroponics_application
                     updateTable.Parameters.AddWithValue("seedName", dataGridView1.Rows[i].Cells[1].Value);
                     updateTable.Parameters.AddWithValue("timesPlanted", dataGridView1.Rows[i].Cells[2].Value);
                     updateTable.Parameters.AddWithValue("timesSprouted", dataGridView1.Rows[i].Cells[3].Value);
-                    updateTable.Parameters.AddWithValue("seedGerminationRate", Convert.ToDecimal(dataGridView1.Rows[i].Cells[3].Value) / Convert.ToDecimal(dataGridView1.Rows[i].Cells[2].Value));
+                    updateTable.Parameters.AddWithValue("seedGerminationRate", Convert.ToDecimal(dataGridView1.Rows[i].Cells[3].Value) / Convert.ToDecimal(dataGridView1.Rows[i].Cells[2].Value) * 100);
                     updateTable.Parameters.AddWithValue("seedID", dataGridView1.Rows[i].Cells[0].Value);
 
                     con.Open();
