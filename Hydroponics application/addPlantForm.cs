@@ -120,16 +120,5 @@ namespace Hydroponics_application
 
             return seedId;
         }
-
-        private void sendTimesPlantedToDatabase(int timesPlanted, int seedId)
-        {
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted WHERE seed_id = @seedId",con);
-            command.Parameters.Add(new SqlParameter("timesPlanted",timesPlanted));
-            command.Parameters.Add(new SqlParameter("seedId", seedId));
-            command.ExecuteNonQuery();
-            con.Close();
-        }
     }
 }
