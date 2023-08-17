@@ -25,4 +25,5 @@ select * from plant
 select * from SEEDS
 drop table plant
 
+delete from seeds where seed_id = 2
 
