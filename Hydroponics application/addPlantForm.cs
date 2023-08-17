@@ -22,7 +22,7 @@ namespace Hydroponics_application
         }
         DateTime sowDate, transferDate, harvestDate, nextPlantDate;
         string seedName;
-        int timesPlanted, timesSprouted, seedId;
+        int timesPlanted, timesSprouted;
         float germinationRate;
 
         private void addPlantForm_Load(object sender, EventArgs e)
