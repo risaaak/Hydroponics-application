@@ -37,21 +37,6 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            /*
-            noSolutionDate = getNoSolutionDate(sowDate);
-            halfStrengthSolutionDate = getHalfStrengthSolutionDate(noSolutionDate);
-            fullStrengthSolutionDate = getFullStrengthSoltuionDate(halfStrengthSolutionDate);
-            transferDate = getTransferDate(fullStrengthSolutionDate);
-            harvestDate = getHarvestDate(transferDate);
-            nextPlantDate = getNextPlantDate(harvestDate);
-            waterWithNoSolutionLbl.Text = sowDate.ToString("MM/dd/yyyy") + " - " + noSolutionDate.ToString("MM/dd/yyyy");
-            HalfStrengthLbl.Text = noSolutionDate.AddDays(1).ToString("MM/dd/yyyy") +  " - " + halfStrengthSolutionDate.ToString("MM/dd/yyyy");
-            FullStrengthLbl.Text = halfStrengthSolutionDate.AddDays(1).ToString("MM/dd/yyyy") + " - " + fullStrengthSolutionDate.ToString("MM/dd/yyyy");
-            transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
-            harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
-            NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            */
-
         }
         
         public DateTime getSowDate()
@@ -74,31 +59,12 @@ namespace Hydroponics_application
         {
             return harvestDate.AddDays(-17);
         }
-        /*
-        public DateTime getNoSolutionDate(DateTime sowDate)
-        {
-            return sowDate.AddDays(6);
-        }
-
-        public DateTime getHalfStrengthSolutionDate(DateTime noSolutionDate)
-        {
-
-            return noSolutionDate.AddDays(6);
-        }
-        */
-        public void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void viewSeedsButton_Click(object sender, EventArgs e)
         {
-            
             viewSeeds viewSeeds = new viewSeeds();
             viewSeeds.RefToMainForm = this;
             this.Visible = false;
             viewSeeds.Show();
-            
         }
 
         private void addStatsButton_Click(object sender, EventArgs e)
@@ -109,11 +75,6 @@ namespace Hydroponics_application
             viewStatistics.Show();
         }
 
-        private void viewStatsButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void viewPlantsButton_Click(object sender, EventArgs e)
         {
             viewPlant viewPlant = new viewPlant();
@@ -121,12 +82,6 @@ namespace Hydroponics_application
             this.Visible = false;
             viewPlant.Show();
         }
-        /*
-        public DateTime getFullStrengthSoltuionDate(DateTime halfStrengthSolutionDate)
-        {
-            return halfStrengthSolutionDate.AddDays(2);
-        }
-        */
         private void transferDateButton_Click(object sender, EventArgs e)
         {
             transferDate = dateTimePicker.Value;
@@ -136,18 +91,6 @@ namespace Hydroponics_application
             transferDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            /*
-            sowDateLbl.Text = "";
-            waterWithNoSolutionLbl.Text = "";
-            HalfStrengthLbl.Text = "";
-            FullStrengthLbl.Text = "";
-            transferDate = dateTimePicker.Value;
-            harvestDate = getHarvestDate(transferDate);
-            nextPlantDate = getNextPlantDate(harvestDate);
-            transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
-            harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
-            NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            */
         }
 
         private void addPlantButton_Click(object sender, EventArgs e)

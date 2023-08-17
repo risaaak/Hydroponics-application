@@ -45,7 +45,6 @@
             this.addSeedsButton = new System.Windows.Forms.Button();
             this.viewSeedsButton = new System.Windows.Forms.Button();
             this.addStatsButton = new System.Windows.Forms.Button();
-            this.viewStatsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker
@@ -198,28 +197,17 @@
             // 
             this.addStatsButton.Location = new System.Drawing.Point(154, 472);
             this.addStatsButton.Name = "addStatsButton";
-            this.addStatsButton.Size = new System.Drawing.Size(101, 23);
+            this.addStatsButton.Size = new System.Drawing.Size(215, 23);
             this.addStatsButton.TabIndex = 22;
-            this.addStatsButton.Text = "Add/Modify Stats";
+            this.addStatsButton.Text = "View Statistics";
             this.addStatsButton.UseVisualStyleBackColor = true;
             this.addStatsButton.Click += new System.EventHandler(this.addStatsButton_Click);
-            // 
-            // viewStatsButton
-            // 
-            this.viewStatsButton.Location = new System.Drawing.Point(268, 472);
-            this.viewStatsButton.Name = "viewStatsButton";
-            this.viewStatsButton.Size = new System.Drawing.Size(101, 23);
-            this.viewStatsButton.TabIndex = 23;
-            this.viewStatsButton.Text = "View Stats";
-            this.viewStatsButton.UseVisualStyleBackColor = true;
-            this.viewStatsButton.Click += new System.EventHandler(this.viewStatsButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 587);
-            this.Controls.Add(this.viewStatsButton);
             this.Controls.Add(this.addStatsButton);
             this.Controls.Add(this.viewSeedsButton);
             this.Controls.Add(this.addSeedsButton);
@@ -239,7 +227,6 @@
             this.Controls.Add(this.dateTimePicker);
             this.Name = "MainForm";
             this.Text = "Hydroponics Application";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +251,5 @@
         private System.Windows.Forms.Button addSeedsButton;
         private System.Windows.Forms.Button viewSeedsButton;
         private System.Windows.Forms.Button addStatsButton;
-        private System.Windows.Forms.Button viewStatsButton;
     }
 }
