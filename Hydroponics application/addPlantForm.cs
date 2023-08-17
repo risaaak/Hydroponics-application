@@ -31,25 +31,17 @@ namespace Hydroponics_application
             this.sEEDSTableAdapter.Fill(this.hYDROPONICS_TESTDataSet1.SEEDS);
 
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         
-
         private void backButton_Click(object sender, EventArgs e)
         {
             this.RefToMainForm.Show();
             this.Close();
         }
 
-        updateSeeds updateSeeds = new updateSeeds();
+        updateSeed updateSeed = new updateSeed();
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private void transferDateButton_Click(object sender, EventArgs e)
         {
-            
             seedName = comboBox1.Text;
             timesPlanted = Convert.ToInt32(textBox1.Text);
             sowDateLbl.Text = "";
@@ -60,13 +52,14 @@ namespace Hydroponics_application
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
             sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text,timesPlanted);
-            timesPlanted += updateSeeds.getTimesPlantedFromDatabase(seedName);
-            updateSeeds.sendDataToDatabase(seedName, timesPlanted);
+            timesPlanted += updateSeed.getTimesPlantedFromDatabase(seedName);
+            timesSprouted += updateSeed.getTimesSproutedFromDatabase(seedName);
+            germinationRate += updateSeed.getGerminationRate(timesPlanted, timesSprouted);
+            updateSeed.sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
         }
 
         private void sowDateButton_Click(object sender, EventArgs e)
         {
-            
             seedName = comboBox1.Text;
             timesPlanted = Convert.ToInt32(textBox1.Text);
             sowDate = mainForm.getSowDate();
@@ -78,18 +71,18 @@ namespace Hydroponics_application
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
             sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text, timesPlanted);
-            timesPlanted+=updateSeeds.getTimesPlantedFromDatabase(seedName);
-            timesSprouted+= updateSeeds.getTimesSproutedFromDatabase(seedName);
-            germinationRate += updateSeeds.getGerminationRate(timesPlanted, timesSprouted);
+            timesPlanted+= updateSeed.getTimesPlantedFromDatabase(seedName);
+            timesSprouted+= updateSeed.getTimesSproutedFromDatabase(seedName);
+            germinationRate += updateSeed.getGerminationRate(timesPlanted, timesSprouted);
 
-            updateSeeds.sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
+            updateSeed.sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
          }
 
         private void sendDataToDatabase(string seed, string sowDate, string transferDate, string harvestDate, string nextPlantDate, int seedsPlanted)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            int seedID = getSeedId(seed);
+            int seedID = updateSeed.getSeedId(seed);
 
             try
             {
@@ -107,18 +100,6 @@ namespace Hydroponics_application
             {
                 MessageBox.Show(e.Message);
             }
-            
-        }
-        private int getSeedId(string seedName)
-        {
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand getSeedID = new SqlCommand("SELECT seed_id FROM SEEDS WHERE seed_name = @seedName", con);
-            getSeedID.Parameters.Add(new SqlParameter("seedName", seedName));
-            int seedId = (int)getSeedID.ExecuteScalar();
-            con.Close();
-
-            return seedId;
         }
     }
 }

@@ -108,6 +108,7 @@
     <Compile Include="AddSeeds.Designer.cs">
       <DependentUpon>AddSeeds.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateSeed.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
