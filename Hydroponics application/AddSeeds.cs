@@ -25,12 +25,7 @@ namespace Hydroponics_application
             sendDataToDatabase(seedName);
         }
 
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-            updateSeeds updateSeeds = new updateSeeds();
-            updateSeeds.Show();
-            this.Hide();
-        }
+
 
         private void sendDataToDatabase(string seedname, int timesPlanted=0, int timesSprouted=0, float germinationRate=0)
         {
