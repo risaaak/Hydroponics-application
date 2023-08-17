@@ -30,18 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.plantidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seedidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sowdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transferdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.harvestdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nextplantdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seedsplantedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pLANTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hYDROPONICS_TESTDataSet2 = new Hydroponics_application.HYDROPONICS_TESTDataSet2();
             this.backButton = new System.Windows.Forms.Button();
             this.hYDROPONICSAPPDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pLANTTableAdapter = new Hydroponics_application.HYDROPONICS_TESTDataSet2TableAdapters.PLANTTableAdapter();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLANTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet2)).BeginInit();
@@ -50,72 +46,14 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.plantidDataGridViewTextBoxColumn,
-            this.seedidDataGridViewTextBoxColumn,
-            this.sowdateDataGridViewTextBoxColumn,
-            this.transferdateDataGridViewTextBoxColumn,
-            this.harvestdateDataGridViewTextBoxColumn,
-            this.nextplantdateDataGridViewTextBoxColumn,
-            this.seedsplantedDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.pLANTBindingSource;
+            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 40);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(985, 398);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // plantidDataGridViewTextBoxColumn
-            // 
-            this.plantidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.plantidDataGridViewTextBoxColumn.DataPropertyName = "plant_id";
-            this.plantidDataGridViewTextBoxColumn.HeaderText = "plant_id";
-            this.plantidDataGridViewTextBoxColumn.Name = "plantidDataGridViewTextBoxColumn";
-            this.plantidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // seedidDataGridViewTextBoxColumn
-            // 
-            this.seedidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seedidDataGridViewTextBoxColumn.DataPropertyName = "seed_id";
-            this.seedidDataGridViewTextBoxColumn.HeaderText = "seed_id";
-            this.seedidDataGridViewTextBoxColumn.Name = "seedidDataGridViewTextBoxColumn";
-            // 
-            // sowdateDataGridViewTextBoxColumn
-            // 
-            this.sowdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sowdateDataGridViewTextBoxColumn.DataPropertyName = "sow_date";
-            this.sowdateDataGridViewTextBoxColumn.HeaderText = "sow_date";
-            this.sowdateDataGridViewTextBoxColumn.Name = "sowdateDataGridViewTextBoxColumn";
-            // 
-            // transferdateDataGridViewTextBoxColumn
-            // 
-            this.transferdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.transferdateDataGridViewTextBoxColumn.DataPropertyName = "transfer_date";
-            this.transferdateDataGridViewTextBoxColumn.HeaderText = "transfer_date";
-            this.transferdateDataGridViewTextBoxColumn.Name = "transferdateDataGridViewTextBoxColumn";
-            // 
-            // harvestdateDataGridViewTextBoxColumn
-            // 
-            this.harvestdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.harvestdateDataGridViewTextBoxColumn.DataPropertyName = "harvest_date";
-            this.harvestdateDataGridViewTextBoxColumn.HeaderText = "harvest_date";
-            this.harvestdateDataGridViewTextBoxColumn.Name = "harvestdateDataGridViewTextBoxColumn";
-            // 
-            // nextplantdateDataGridViewTextBoxColumn
-            // 
-            this.nextplantdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nextplantdateDataGridViewTextBoxColumn.DataPropertyName = "next_plant_date";
-            this.nextplantdateDataGridViewTextBoxColumn.HeaderText = "next_plant_date";
-            this.nextplantdateDataGridViewTextBoxColumn.Name = "nextplantdateDataGridViewTextBoxColumn";
-            // 
-            // seedsplantedDataGridViewTextBoxColumn
-            // 
-            this.seedsplantedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seedsplantedDataGridViewTextBoxColumn.DataPropertyName = "seeds_planted";
-            this.seedsplantedDataGridViewTextBoxColumn.HeaderText = "seeds_planted";
-            this.seedsplantedDataGridViewTextBoxColumn.Name = "seedsplantedDataGridViewTextBoxColumn";
             // 
             // pLANTBindingSource
             // 
@@ -141,11 +79,46 @@
             // 
             this.pLANTTableAdapter.ClearBeforeFill = true;
             // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(888, 11);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(109, 23);
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(873, 11);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(109, 23);
+            this.deleteButton.TabIndex = 3;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Visible = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(769, 12);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(98, 23);
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Visible = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // viewPlant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 450);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "viewPlant";
@@ -167,12 +140,8 @@
         private HYDROPONICS_TESTDataSet2 hYDROPONICS_TESTDataSet2;
         private System.Windows.Forms.BindingSource pLANTBindingSource;
         private HYDROPONICS_TESTDataSet2TableAdapters.PLANTTableAdapter pLANTTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plantidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seedidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sowdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transferdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn harvestdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nextplantdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seedsplantedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
