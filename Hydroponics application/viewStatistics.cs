@@ -45,6 +45,13 @@ namespace Hydroponics_application
             plantdt.Clear();
             dataAdapter.Fill(plantdt);
             dataGridView2.DataSource = plantdt;
+
+            SqlCommand loadExpenditureTable = new SqlCommand("SELECT * FROM EXPENDITURES", con);
+            dataAdapter.SelectCommand = loadExpenditureTable;
+            DataTable expenditureTable = new DataTable();
+            expenditureTable.Clear();
+            dataAdapter.Fill(expenditureTable);
+            dataGridView3.DataSource = expenditureTable;
         }
     }
 }
