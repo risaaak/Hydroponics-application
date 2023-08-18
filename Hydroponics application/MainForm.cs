@@ -81,6 +81,14 @@ namespace Hydroponics_application
             addIncomeForm.Show();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addExpenditureForm addExpenditureForm = new addExpenditureForm();
+            addExpenditureForm.RefToMainForm = this;
+            this.Visible = false;
+            addExpenditureForm.Show();
+        }
+
         private void viewPlantsButton_Click(object sender, EventArgs e)
         {
             viewPlant viewPlant = new viewPlant();
