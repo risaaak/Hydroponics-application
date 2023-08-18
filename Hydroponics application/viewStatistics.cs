@@ -52,6 +52,13 @@ namespace Hydroponics_application
             expenditureTable.Clear();
             dataAdapter.Fill(expenditureTable);
             dataGridView3.DataSource = expenditureTable;
+
+            SqlCommand loadIncomeTable = new SqlCommand("SELECT * FROM INCOME", con);
+            dataAdapter.SelectCommand = loadIncomeTable;
+            DataTable incomeTable = new DataTable();
+            incomeTable.Clear();
+            dataAdapter.Fill(incomeTable);
+            dataGridView4.DataSource = incomeTable;
         }
     }
 }

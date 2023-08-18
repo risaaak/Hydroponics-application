@@ -72,6 +72,15 @@ namespace Hydroponics_application
             this.Visible = false;
             viewStatistics.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddIncomeForm addIncomeForm = new AddIncomeForm();
+            addIncomeForm.RefToMainForm = this;
+            this.Visible = false;
+            addIncomeForm.Show();
+        }
+
         private void viewPlantsButton_Click(object sender, EventArgs e)
         {
             viewPlant viewPlant = new viewPlant();

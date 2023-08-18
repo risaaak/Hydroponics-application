@@ -28,6 +28,16 @@ CREATE TABLE EXPENDITURES (
 	item_price FLOAT
 )
 
+CREATE TABLE INCOME (
+	income_id INT PRIMARY KEY IDENTITY(000001,1),
+	income_description VARCHAR(255),
+	name VARCHAR(255),
+	quantity int,
+	price_per_piece FLOAT,
+	total_amount FLOAT,
+	income_date DATETIME
+	)
+
 UPDATE SEEDS SET seed_times_planted = 2, seed_times_sprouted=1, seed_germination_rate = seed_times_sprouted / seed_times_planted * 100 WHERE seed_name = 'jonction'
 select * from plant
 select * from SEEDS
