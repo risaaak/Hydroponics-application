@@ -23,9 +23,11 @@ CREATE TABLE PLANT (
 CREATE TABLE EXPENDITURES (
 	item_id INT PRIMARY KEY IDENTITY(000001,1),
 	item_name VARCHAR(255),
-	item_quantity INT,
 	item_description VARCHAR(255),
-	item_price FLOAT
+	item_quantity INT,
+	item_price FLOAT,
+	item_total_amount FLOAT,
+	item_date DATETIME
 )
 
 CREATE TABLE INCOME (
@@ -41,7 +43,7 @@ CREATE TABLE INCOME (
 UPDATE SEEDS SET seed_times_planted = 2, seed_times_sprouted=1, seed_germination_rate = seed_times_sprouted / seed_times_planted * 100 WHERE seed_name = 'jonction'
 select * from plant
 select * from SEEDS
-drop table plant
+drop table EXPENDITURES
 
 delete from seeds where seed_id = 2
 
