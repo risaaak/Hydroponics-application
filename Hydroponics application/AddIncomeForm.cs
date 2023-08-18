@@ -18,15 +18,13 @@ namespace Hydroponics_application
         {
             InitializeComponent();
         }
+
         int quantity;
         double price, totalAmount;
         string name, description;
         DateTime date;
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         public void loadTable()
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -46,6 +44,7 @@ namespace Hydroponics_application
             price = Convert.ToDouble(pricePerPieceTextbox.Text);
             date = dateTimePicker1.Value;
             totalAmount = getTotalAmount(quantity,price);
+
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand sendDataToDatabase = new SqlCommand("INSERT INTO INCOME VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
                 " @totalAmount, @incomeDate)",con);
@@ -55,6 +54,7 @@ namespace Hydroponics_application
             sendDataToDatabase.Parameters.AddWithValue("pricePerPiece", price);
             sendDataToDatabase.Parameters.AddWithValue("totalAmount", totalAmount);
             sendDataToDatabase.Parameters.AddWithValue("incomeDate", date);
+
             con.Open();
             sendDataToDatabase.ExecuteNonQuery();
             con.Close();
@@ -76,15 +76,6 @@ namespace Hydroponics_application
             this.Close();
         }
 
-        private void quantityTextbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void productNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void quantityTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' )

@@ -46,7 +46,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(311, 266);
+            this.addButton.Location = new System.Drawing.Point(310, 278);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(120, 23);
             this.addButton.TabIndex = 0;
@@ -57,7 +57,7 @@
             // productDescriptionBox
             // 
             this.productDescriptionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productDescriptionBox.Location = new System.Drawing.Point(82, 176);
+            this.productDescriptionBox.Location = new System.Drawing.Point(81, 188);
             this.productDescriptionBox.Multiline = true;
             this.productDescriptionBox.Name = "productDescriptionBox";
             this.productDescriptionBox.Size = new System.Drawing.Size(263, 61);
@@ -66,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 160);
+            this.label1.Location = new System.Drawing.Point(78, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 2;
@@ -76,16 +76,15 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(497, 64);
+            this.dateTimePicker1.Location = new System.Drawing.Point(496, 76);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(148, 22);
             this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(494, 48);
+            this.label2.Location = new System.Drawing.Point(493, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 4;
@@ -112,24 +111,22 @@
             // 
             // productNameTextBox
             // 
-            this.productNameTextBox.Location = new System.Drawing.Point(82, 68);
+            this.productNameTextBox.Location = new System.Drawing.Point(81, 80);
             this.productNameTextBox.Name = "productNameTextBox";
             this.productNameTextBox.Size = new System.Drawing.Size(263, 20);
             this.productNameTextBox.TabIndex = 7;
-            this.productNameTextBox.TextChanged += new System.EventHandler(this.productNameTextBox_TextChanged);
             // 
             // quantityTextbox
             // 
-            this.quantityTextbox.Location = new System.Drawing.Point(82, 115);
+            this.quantityTextbox.Location = new System.Drawing.Point(81, 127);
             this.quantityTextbox.Name = "quantityTextbox";
             this.quantityTextbox.Size = new System.Drawing.Size(115, 20);
             this.quantityTextbox.TabIndex = 8;
-            this.quantityTextbox.TextChanged += new System.EventHandler(this.quantityTextbox_TextChanged);
             this.quantityTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTextbox_KeyPress);
             // 
             // pricePerPieceTextbox
             // 
-            this.pricePerPieceTextbox.Location = new System.Drawing.Point(226, 115);
+            this.pricePerPieceTextbox.Location = new System.Drawing.Point(225, 127);
             this.pricePerPieceTextbox.Name = "pricePerPieceTextbox";
             this.pricePerPieceTextbox.Size = new System.Drawing.Size(119, 20);
             this.pricePerPieceTextbox.TabIndex = 9;
@@ -138,7 +135,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 43);
+            this.label3.Location = new System.Drawing.Point(81, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 10;
@@ -147,7 +144,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 96);
+            this.label4.Location = new System.Drawing.Point(81, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 11;
@@ -156,7 +153,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(223, 96);
+            this.label5.Location = new System.Drawing.Point(222, 108);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 12;

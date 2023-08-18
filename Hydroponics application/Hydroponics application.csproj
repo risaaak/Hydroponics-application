@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addExpenditureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addExpenditureForm.Designer.cs">
+      <DependentUpon>addExpenditureForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddIncomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     <Compile Include="viewStatistics.Designer.cs">
       <DependentUpon>viewStatistics.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addExpenditureForm.resx">
+      <DependentUpon>addExpenditureForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddIncomeForm.resx">
       <DependentUpon>AddIncomeForm.cs</DependentUpon>
     </EmbeddedResource>
