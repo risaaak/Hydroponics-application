@@ -76,6 +76,7 @@
             this.itemQuantityTextbox.Name = "itemQuantityTextbox";
             this.itemQuantityTextbox.Size = new System.Drawing.Size(100, 20);
             this.itemQuantityTextbox.TabIndex = 3;
+            this.itemQuantityTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemQuantityTextbox_KeyPress);
             // 
             // itemPriceTextBox
             // 
@@ -83,6 +84,7 @@
             this.itemPriceTextBox.Name = "itemPriceTextBox";
             this.itemPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.itemPriceTextBox.TabIndex = 4;
+            this.itemPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemPrice_KeyPress);
             // 
             // label2
             // 
