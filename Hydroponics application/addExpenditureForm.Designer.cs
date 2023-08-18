@@ -135,9 +135,9 @@
             this.Date.AutoSize = true;
             this.Date.Location = new System.Drawing.Point(471, 58);
             this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(35, 13);
+            this.Date.Size = new System.Drawing.Size(30, 13);
             this.Date.TabIndex = 10;
-            this.Date.Text = "label5";
+            this.Date.Text = "Date";
             // 
             // dataGridView1
             // 
