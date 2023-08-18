@@ -24,9 +24,6 @@ namespace Hydroponics_application
             string seedName = textBox1.Text;
             sendDataToDatabase(seedName);
         }
-
-
-
         private void sendDataToDatabase(string seedname, int timesPlanted=0, int timesSprouted=0, float germinationRate=0)
         {
             SqlConnection con = new SqlConnection(connectionString);

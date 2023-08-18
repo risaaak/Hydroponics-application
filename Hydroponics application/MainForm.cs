@@ -38,7 +38,6 @@ namespace Hydroponics_application
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
         }
-        
         public DateTime getSowDate()
         {
             DateTime sowDate = dateTimePicker.Value;
@@ -66,7 +65,6 @@ namespace Hydroponics_application
             this.Visible = false;
             viewSeeds.Show();
         }
-
         private void addStatsButton_Click(object sender, EventArgs e)
         {
             viewStatistics viewStatistics = new viewStatistics();
@@ -74,7 +72,6 @@ namespace Hydroponics_application
             this.Visible = false;
             viewStatistics.Show();
         }
-
         private void viewPlantsButton_Click(object sender, EventArgs e)
         {
             viewPlant viewPlant = new viewPlant();
@@ -92,7 +89,6 @@ namespace Hydroponics_application
             harvestDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
         }
-
         private void addPlantButton_Click(object sender, EventArgs e)
         {
             addPlantForm addPlantForm = new addPlantForm();
