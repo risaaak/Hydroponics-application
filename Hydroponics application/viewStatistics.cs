@@ -66,9 +66,12 @@ namespace Hydroponics_application
             financeTable.Clear();
             dataAdapter.Fill(financeTable);
             dataGridView5.DataSource = financeTable;
-            addDataToFinanceTable();
+
+            label1.Text = getTotalExpenditure(expenditureTable).ToString();
+            label2.Text = getTotalIncome(incomeTable).ToString();
         }
 
+        
         public void addDataToFinanceTable(double income = 0, double expense = 0, double earnings = 0, double date = 1/11/2023)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -81,6 +84,28 @@ namespace Hydroponics_application
             con.Open();
             command.ExecuteNonQuery();
             con.Close();
+        }
+
+        public double getTotalExpenditure(DataTable a)
+        {
+            double total = 0;
+            //string[] array = new string[a.Rows.Count];
+            for (int i = 0; i < a.Rows.Count; i++)
+            {
+                total += Convert.ToDouble(dataGridView3.Rows[i].Cells[5].Value);
+            }
+            return total;
+        }
+
+        public double getTotalIncome(DataTable a)
+        {
+            double total = 0;
+            //string[] array = new string[a.Rows.Count];
+            for (int i = 0; i < a.Rows.Count; i++)
+            {
+                total += Convert.ToDouble(dataGridView4.Rows[i].Cells[5].Value);
+            }
+            return total;
         }
     }
 }
