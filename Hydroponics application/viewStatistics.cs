@@ -59,6 +59,13 @@ namespace Hydroponics_application
             incomeTable.Clear();
             dataAdapter.Fill(incomeTable);
             dataGridView4.DataSource = incomeTable;
+
+            SqlCommand loadFinanceTable = new SqlCommand("SELECT * FROM FINANCE", con);
+            dataAdapter.SelectCommand = loadFinanceTable;
+            DataTable financeTable = new DataTable();
+            financeTable.Clear();
+            dataAdapter.Fill(financeTable);
+            dataGridView5.DataSource = financeTable;
         }
     }
 }
