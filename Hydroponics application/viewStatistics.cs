@@ -66,6 +66,21 @@ namespace Hydroponics_application
             financeTable.Clear();
             dataAdapter.Fill(financeTable);
             dataGridView5.DataSource = financeTable;
+            addDataToFinanceTable();
+        }
+
+        public void addDataToFinanceTable(double income = 0, double expense = 0, double earnings = 0, double date = 1/11/2023)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("INSERT INTO FINANCE VALUES(@income, @expense, @earnings, @date)", con);
+            command.Parameters.AddWithValue("income", income);
+            command.Parameters.AddWithValue("expense", expense);
+            command.Parameters.AddWithValue("earnings", earnings);
+            command.Parameters.AddWithValue("date", date);
+
+            con.Open();
+            command.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
