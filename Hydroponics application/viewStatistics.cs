@@ -67,7 +67,7 @@ namespace Hydroponics_application
             dataAdapter.Fill(financeTable);
             dataGridView5.DataSource = financeTable;
 
-            label1.Text = getTotalExpenditure(expenditureTable).ToString();
+            label1.Text = getTotalExpensePerMonth(8).ToString();
             label2.Text = getTotalIncome(incomeTable).ToString();
         }
 
@@ -105,6 +105,23 @@ namespace Hydroponics_application
             {
                 total += Convert.ToDouble(dataGridView4.Rows[i].Cells[5].Value);
             }
+            return total;
+        }
+
+        public double getTotalExpensePerMonth(int date)
+        {
+            double total = 0;
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("select item_total_amount from EXPENDITURES where MONTH(item_date) = @month", con);
+            con.Open();
+
+            command.Parameters.AddWithValue("month", date);
+            SqlDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                total += read.GetDouble(0);
+            }
+            con.Close();
             return total;
         }
     }
