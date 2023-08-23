@@ -48,6 +48,32 @@ CREATE TABLE FINANCE (
 	date DATETIME
 	)
 
+CREATE TABLE WEEKLYFINANCE (
+   id INT PRIMARY KEY,
+   week DATE,
+   month DATE,
+   year DATE,
+   cash_outlflow FLOAT,
+   cash_inflow FLOAT,
+   earnings FLOAT
+   )
+
+CREATE TABLE MONTHLYFINANCE (
+	id INT PRIMARY KEY,
+	month DATE,
+	year DATE,
+	cash_outflow FLOAT,
+	cash_inflow FLOAT,
+	earnings FLOAT
+	)
+CREATE TABLE YEARLYFINANCE (
+	id INT PRIMARY KEY,
+	year DATE,
+	cash_outflow FLOAT,
+	cash_inflow FLOAT,
+	earnings FLOAT
+	)
+
 select item_total_amount from EXPENDITURES where MONTH(item_date) = 8
 
 
