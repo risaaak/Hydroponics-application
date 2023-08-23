@@ -48,6 +48,8 @@ CREATE TABLE FINANCE (
 	date DATETIME
 	)
 
+select item_total_amount from EXPENDITURES where MONTH(item_date) = 8
+
 
 UPDATE SEEDS SET seed_times_planted = 2, seed_times_sprouted=1, seed_germination_rate = seed_times_sprouted / seed_times_planted * 100 WHERE seed_name = 'jonction'
 select * from plant
