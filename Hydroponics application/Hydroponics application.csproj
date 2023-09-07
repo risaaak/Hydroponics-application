@@ -192,6 +192,7 @@
     <Compile Include="viewStatistics.Designer.cs">
       <DependentUpon>viewStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="WeeklyFinance.cs" />
     <EmbeddedResource Include="addExpenditureForm.resx">
       <DependentUpon>addExpenditureForm.cs</DependentUpon>
     </EmbeddedResource>

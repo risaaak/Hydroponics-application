@@ -51,7 +51,6 @@ CREATE TABLE FINANCE (
 CREATE TABLE WEEKLYFINANCE (
    id INT PRIMARY KEY,
    week DATE,
-   month DATE,
    year DATE,
    cash_outlflow FLOAT,
    cash_inflow FLOAT,
@@ -84,3 +83,12 @@ drop table EXPENDITURES
 
 delete from seeds where seed_id = 2
 
+select sum(item_total_amount) as sum, '33' as week from expenditures where datepart(ISOWK,item_date) = 33;
+
+select sum(item_total_amount) as sum from expenditures where DATEPART(ISO_WEEK,GETDATE()) =33;
+
+select * from expenditures
+
+select DATEPART(ISOWK,'2023-08-18 16:28:59.093')
+
+SELECT SUM(item_total_amount) FROM EXPENDITURES where datepart(ISOWK,item_date) = 33

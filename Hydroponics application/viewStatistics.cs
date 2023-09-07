@@ -28,7 +28,6 @@ namespace Hydroponics_application
             this.RefToMainForm.Show();
             this.Close();
         }
-
         private void viewStatistics_Load(object sender, EventArgs e)
         {
             loadSeedsTable();
@@ -36,6 +35,8 @@ namespace Hydroponics_application
             loadExpenditureTable();
             loadIncomeTable();
             loadWeeklyFinanceTable();
+            WeeklyFinance weeklyFinance = new WeeklyFinance();
+            label1.Text = weeklyFinance.getExpenseFromExpenseTable(33).ToString();
         }
         public void loadSeedsTable()
         {
@@ -70,7 +71,6 @@ namespace Hydroponics_application
             dataAdapter.Fill(expenditureTable);
             dataGridView3.DataSource = expenditureTable;
         }
-        
         public void loadIncomeTable()
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -93,6 +93,8 @@ namespace Hydroponics_application
             dataAdapter.Fill(WeeklyfinanceTable);
             dataGridView5.DataSource = WeeklyfinanceTable;
         }
+
+        /*
         public void addDataToFinanceTable(double income = 0, double expense = 0, double earnings = 0, double date = 1/11/2023)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -106,7 +108,7 @@ namespace Hydroponics_application
             command.ExecuteNonQuery();
             con.Close();
         }
-
+        
         public double getTotalExpenditure(DataTable a)
         {
             double total = 0;
@@ -117,7 +119,7 @@ namespace Hydroponics_application
             }
             return total;
         }
-
+        
         public double getTotalIncome(DataTable a)
         {
             double total = 0;
@@ -145,5 +147,6 @@ namespace Hydroponics_application
             con.Close();
             return total;
         }
+        */
     }
 }
