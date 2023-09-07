@@ -40,6 +40,19 @@ namespace Hydroponics_application
             return sum;
         }
 
+        public double getIncomeFromIncomeTable(int week)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand getWeekFromIncomeTable = new SqlCommand("SELECT SUM(total_amount) FROM INCOME " +
+                "where datepart(ISOWK,income_date) = @week", con);
+            getWeekFromIncomeTable.Parameters.AddWithValue("week", week);
+            con.Open();
+            double sum = Convert.ToDouble(getWeekFromIncomeTable.ExecuteScalar());
+            con.Close();
+
+            return sum;
+        }
+
 
     }
 }
