@@ -62,7 +62,7 @@ namespace Hydroponics_application
         {
             seedName = comboBox1.Text;
             timesPlanted = Convert.ToInt32(textBox1.Text);
-            sowDate = mainForm.getSowDate();
+            sowDate = dateTimePicker.Value;
             transferDate = mainForm.getTransferDate(sowDate);
             harvestDate = mainForm.getHarvestDate(transferDate);
             nextPlantDate = mainForm.getNextPlantDate(harvestDate);

@@ -44,7 +44,7 @@
             this.viewPlantsButton = new System.Windows.Forms.Button();
             this.addSeedsButton = new System.Windows.Forms.Button();
             this.viewSeedsButton = new System.Windows.Forms.Button();
-            this.addStatsButton = new System.Windows.Forms.Button();
+            this.ViewStatsButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -195,15 +195,15 @@
             this.viewSeedsButton.UseVisualStyleBackColor = true;
             this.viewSeedsButton.Click += new System.EventHandler(this.viewSeedsButton_Click);
             // 
-            // addStatsButton
+            // ViewStatsButton
             // 
-            this.addStatsButton.Location = new System.Drawing.Point(154, 515);
-            this.addStatsButton.Name = "addStatsButton";
-            this.addStatsButton.Size = new System.Drawing.Size(215, 23);
-            this.addStatsButton.TabIndex = 22;
-            this.addStatsButton.Text = "View Statistics";
-            this.addStatsButton.UseVisualStyleBackColor = true;
-            this.addStatsButton.Click += new System.EventHandler(this.addStatsButton_Click);
+            this.ViewStatsButton.Location = new System.Drawing.Point(154, 515);
+            this.ViewStatsButton.Name = "ViewStatsButton";
+            this.ViewStatsButton.Size = new System.Drawing.Size(215, 23);
+            this.ViewStatsButton.TabIndex = 22;
+            this.ViewStatsButton.Text = "View Statistics";
+            this.ViewStatsButton.UseVisualStyleBackColor = true;
+            this.ViewStatsButton.Click += new System.EventHandler(this.addStatsButton_Click);
             // 
             // button1
             // 
@@ -232,7 +232,7 @@
             this.ClientSize = new System.Drawing.Size(506, 587);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.addStatsButton);
+            this.Controls.Add(this.ViewStatsButton);
             this.Controls.Add(this.viewSeedsButton);
             this.Controls.Add(this.addSeedsButton);
             this.Controls.Add(this.viewPlantsButton);
@@ -274,7 +274,7 @@
         private System.Windows.Forms.Button viewPlantsButton;
         private System.Windows.Forms.Button addSeedsButton;
         private System.Windows.Forms.Button viewSeedsButton;
-        private System.Windows.Forms.Button addStatsButton;
+        private System.Windows.Forms.Button ViewStatsButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }
