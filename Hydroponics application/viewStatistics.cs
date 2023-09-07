@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -30,6 +31,14 @@ namespace Hydroponics_application
 
         private void viewStatistics_Load(object sender, EventArgs e)
         {
+            loadSeedsTable();
+            loadPlantTable();
+            loadExpenditureTable();
+            loadIncomeTable();
+            loadWeeklyFinanceTable();
+        }
+        public void loadSeedsTable()
+        {
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand loadSeedTable = new SqlCommand("SELECT * FROM SEEDS", con);
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
@@ -38,40 +47,52 @@ namespace Hydroponics_application
             seeddt.Clear();
             dataAdapter.Fill(seeddt);
             dataGridView1.DataSource = seeddt;
-
+        }
+        public void loadPlantTable()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
             SqlCommand loadPlantTable = new SqlCommand("SELECT * FROM PLANT", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = loadPlantTable;
             DataTable plantdt = new DataTable();
             plantdt.Clear();
             dataAdapter.Fill(plantdt);
             dataGridView2.DataSource = plantdt;
-
+        }
+        public void loadExpenditureTable()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
             SqlCommand loadExpenditureTable = new SqlCommand("SELECT * FROM EXPENDITURES", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = loadExpenditureTable;
             DataTable expenditureTable = new DataTable();
             expenditureTable.Clear();
             dataAdapter.Fill(expenditureTable);
             dataGridView3.DataSource = expenditureTable;
-
+        }
+        
+        public void loadIncomeTable()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
             SqlCommand loadIncomeTable = new SqlCommand("SELECT * FROM INCOME", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = loadIncomeTable;
             DataTable incomeTable = new DataTable();
             incomeTable.Clear();
             dataAdapter.Fill(incomeTable);
             dataGridView4.DataSource = incomeTable;
-
-            SqlCommand loadFinanceTable = new SqlCommand("SELECT * FROM FINANCE", con);
-            dataAdapter.SelectCommand = loadFinanceTable;
-            DataTable financeTable = new DataTable();
-            financeTable.Clear();
-            dataAdapter.Fill(financeTable);
-            dataGridView5.DataSource = financeTable;
-
-            label1.Text = getTotalExpensePerMonth(8).ToString();
-            label2.Text = getTotalIncome(incomeTable).ToString();
         }
-
-        
+        public void loadWeeklyFinanceTable()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand loadWeeklyFinanceTable = new SqlCommand("SELECT * FROM WEEKLYFINANCE", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = loadWeeklyFinanceTable;
+            DataTable WeeklyfinanceTable = new DataTable();
+            WeeklyfinanceTable.Clear();
+            dataAdapter.Fill(WeeklyfinanceTable);
+            dataGridView5.DataSource = WeeklyfinanceTable;
+        }
         public void addDataToFinanceTable(double income = 0, double expense = 0, double earnings = 0, double date = 1/11/2023)
         {
             SqlConnection con = new SqlConnection(connectionString);

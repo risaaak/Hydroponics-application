@@ -42,6 +42,7 @@
             this.backButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.statistics.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,6 +63,7 @@
             this.statistics.Controls.Add(this.financeTab);
             this.statistics.Controls.Add(this.tabPage3);
             this.statistics.Controls.Add(this.tabPage4);
+            this.statistics.Controls.Add(this.tabPage5);
             this.statistics.Location = new System.Drawing.Point(2, 43);
             this.statistics.Name = "statistics";
             this.statistics.SelectedIndex = 0;
@@ -158,7 +160,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(791, 385);
             this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Finance Statistics";
+            this.tabPage4.Text = "Weekly Statistics";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dataGridView5
@@ -198,6 +200,16 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(791, 385);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Monthly Statistics";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // viewStatistics
             // 
@@ -243,5 +255,6 @@
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }
