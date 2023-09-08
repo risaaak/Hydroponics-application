@@ -35,8 +35,6 @@ namespace Hydroponics_application
             loadExpenditureTable();
             loadIncomeTable();
             loadWeeklyFinanceTable();
-            WeeklyFinance weeklyFinance = new WeeklyFinance();
-            label1.Text = weeklyFinance.getExpenseFromExpenseTable(33).ToString();
         }
         public void loadSeedsTable()
         {
