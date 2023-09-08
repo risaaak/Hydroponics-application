@@ -27,7 +27,7 @@ namespace Hydroponics_application
             con.Close();
         }
 
-        public double getExpenseFromExpenseTable(int week)
+        public double getExpense(int week)
         {
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand getWeekFromExpenseTable = new SqlCommand("SELECT SUM(item_total_amount) FROM EXPENDITURES " +
@@ -40,7 +40,7 @@ namespace Hydroponics_application
             return sum;
         }
 
-        public double getIncomeFromIncomeTable(int week)
+        public double getIncome(int week)
         {
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand getWeekFromIncomeTable = new SqlCommand("SELECT SUM(total_amount) FROM INCOME " +
@@ -51,6 +51,11 @@ namespace Hydroponics_application
             con.Close();
 
             return sum;
+        }
+
+        public double getEarnings(double income, double expense)
+        {
+            return income -expense;
         }
 
 
