@@ -73,6 +73,17 @@ CREATE TABLE YEARLYFINANCE (
 	earnings FLOAT
 	)
 
+CREATE TABLE WEEKLYEXPENSE(
+	ID INT PRIMARY KEY IDENTITY(000001,1),
+	AMOUNT FLOAT,
+	DATE INT)
+
+CREATE TABLE WEEKLYINCOME(
+	ID INT PRIMARY KEY IDENTITY(000001,1),
+	AMOUNT FLOAT,
+	DATE INT)
+
+
 select item_total_amount from EXPENDITURES where MONTH(item_date) = 8
 
 
@@ -92,3 +103,26 @@ select * from expenditures
 select DATEPART(ISOWK,'2023-08-18 16:28:59.093')
 
 SELECT SUM(item_total_amount) FROM EXPENDITURES where datepart(ISOWK,item_date) = 33
+
+select sum(item_total_amount),CONCAT(CAST(DATEPART(ISO_WEEK,item_date) AS INT), CAST(DATEPART(yyyy,item_date) AS INT)) from expenditures group by DATEPART(ISO_WEEK,item_date), year(item_date)
+
+
+INSERT INTO WEEKLYEXPENSE(AMOUNT, DATE)
+select sum(item_total_amount),CONCAT(CAST(DATEPART(ISO_WEEK,item_date) AS INT), CAST(DATEPART(yyyy,item_date) AS INT)) from expenditures group by DATEPART(ISO_WEEK,item_date), year(item_date)
+
+INSERT INTO WEEKLYINCOME(AMOUNT, DATE)
+select sum(total_amount),CONCAT(CAST(DATEPART(ISO_WEEK,income_date) AS INT), CAST(DATEPART(yyyy,income_date) AS INT)) from INCOME group by DATEPART(ISO_WEEK,income_date), year(income_date)
+
+IF  EXISTS (SELECT * FROM sys.objects 
+WHERE object_id = OBJECT_ID(N'WEEKLYEXPENSE') 
+AND type in (N'U'))
+BEGIN
+      DROP TABLE WEEKLYEXPENSE
+END
+
+
+
+
+
+
+SELECT * FROM WEEKLYEXPENSE
