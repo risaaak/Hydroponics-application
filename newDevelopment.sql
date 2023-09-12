@@ -48,10 +48,10 @@ CREATE TABLE FINANCE (
 	date DATETIME
 	)
 
+	DROP TABLE WEEKLYFINANCE
 CREATE TABLE WEEKLYFINANCE (
-   id INT PRIMARY KEY,
-   week DATE,
-   year DATE,
+   id INT PRIMARY KEY IDENTITY(000001,1),
+   DATE INT,
    cash_outlflow FLOAT,
    cash_inflow FLOAT,
    earnings FLOAT
@@ -119,10 +119,12 @@ AND type in (N'U'))
 BEGIN
       DROP TABLE WEEKLYEXPENSE
 END
+SELECT * FROM WEEKLYFINANCE
+select * from WEEKLYINCOME
+select * from weeklyexpense
 
+select sum(amount) from (
+	select amount,date from WEEKLYINCOME union select amount, date from weeklyexpense
+) as amount
 
-
-
-
-
-SELECT * FROM WEEKLYEXPENSE
+if exists(date == 332023)
