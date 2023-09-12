@@ -49,7 +49,7 @@ namespace Hydroponics_application
             description = itemDescriptionTextbox.Text;
             price = Convert.ToDouble(itemPriceTextBox.Text);
             quantity = Convert.ToInt32(itemQuantityTextbox.Text);
-            totalAmount = getTotalAmount(quantity, price);
+            totalAmount = getTotalAmount(quantity, price *-1);
             date = DateTime.Now;
 
             SqlConnection con = new SqlConnection(connectionString);
