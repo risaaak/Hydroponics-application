@@ -83,7 +83,7 @@ namespace Hydroponics_application
         public void loadWeeklyFinanceTable()
         {
             SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadWeeklyFinanceTable = new SqlCommand("SELECT * FROM WEEKLYFINANCE", con);
+            SqlCommand loadWeeklyFinanceTable = new SqlCommand("EXEC INSERTINTOWEEKLYFINANCE", con);
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = loadWeeklyFinanceTable;
             DataTable WeeklyfinanceTable = new DataTable();
