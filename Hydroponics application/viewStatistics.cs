@@ -35,6 +35,7 @@ namespace Hydroponics_application
             loadExpenditureTable();
             loadIncomeTable();
             loadWeeklyFinanceTable();
+            loadMonthlyFinanceTable();
         }
         public void loadSeedsTable()
         {
@@ -92,6 +93,17 @@ namespace Hydroponics_application
             dataGridView5.DataSource = WeeklyfinanceTable;
         }
 
+        public void loadMonthlyFinanceTable()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand loadMonthlyFinanceTable = new SqlCommand("EXEC MONTHLYFINANCEPROCEDURE", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = loadMonthlyFinanceTable;
+            DataTable MonthlyfinanceTable = new DataTable();
+            MonthlyfinanceTable.Clear();
+            dataAdapter.Fill(MonthlyfinanceTable);
+            dataGridView6.DataSource = MonthlyfinanceTable;
+        }
         /*
         public void addDataToFinanceTable(double income = 0, double expense = 0, double earnings = 0, double date = 1/11/2023)
         {
