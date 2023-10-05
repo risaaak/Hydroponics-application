@@ -76,6 +76,24 @@ namespace Hydroponics_application
             this.Close();
         }
 
+        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(typeComboBox.Text == "Lettuce")
+            {
+                productNameLabel.Visible = false;
+                productNameTextBox.Visible = false;
+                weightLabel.Visible = true;
+                weightTextbox.Visible = true;
+            }
+            else
+            {
+                productNameLabel.Visible = true;
+                productNameTextBox.Visible = true;
+                weightLabel.Visible = false;
+                weightTextbox.Visible = false;
+            }
+        }
+
         private void quantityTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' )

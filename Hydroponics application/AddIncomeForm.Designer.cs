@@ -38,9 +38,13 @@
             this.productNameTextBox = new System.Windows.Forms.TextBox();
             this.quantityTextbox = new System.Windows.Forms.TextBox();
             this.pricePerPieceTextbox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.productNameLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.weightLabel = new System.Windows.Forms.Label();
+            this.weightTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,16 +61,16 @@
             // productDescriptionBox
             // 
             this.productDescriptionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productDescriptionBox.Location = new System.Drawing.Point(81, 188);
+            this.productDescriptionBox.Location = new System.Drawing.Point(81, 199);
             this.productDescriptionBox.Multiline = true;
             this.productDescriptionBox.Name = "productDescriptionBox";
-            this.productDescriptionBox.Size = new System.Drawing.Size(263, 61);
+            this.productDescriptionBox.Size = new System.Drawing.Size(290, 61);
             this.productDescriptionBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 172);
+            this.label1.Location = new System.Drawing.Point(78, 183);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 2;
@@ -111,40 +115,42 @@
             // 
             // productNameTextBox
             // 
-            this.productNameTextBox.Location = new System.Drawing.Point(81, 80);
+            this.productNameTextBox.Location = new System.Drawing.Point(81, 113);
             this.productNameTextBox.Name = "productNameTextBox";
-            this.productNameTextBox.Size = new System.Drawing.Size(263, 20);
+            this.productNameTextBox.Size = new System.Drawing.Size(290, 20);
             this.productNameTextBox.TabIndex = 7;
+            this.productNameTextBox.Visible = false;
             // 
             // quantityTextbox
             // 
-            this.quantityTextbox.Location = new System.Drawing.Point(81, 127);
+            this.quantityTextbox.Location = new System.Drawing.Point(81, 160);
             this.quantityTextbox.Name = "quantityTextbox";
-            this.quantityTextbox.Size = new System.Drawing.Size(115, 20);
+            this.quantityTextbox.Size = new System.Drawing.Size(95, 20);
             this.quantityTextbox.TabIndex = 8;
             this.quantityTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTextbox_KeyPress);
             // 
             // pricePerPieceTextbox
             // 
-            this.pricePerPieceTextbox.Location = new System.Drawing.Point(225, 127);
+            this.pricePerPieceTextbox.Location = new System.Drawing.Point(282, 160);
             this.pricePerPieceTextbox.Name = "pricePerPieceTextbox";
-            this.pricePerPieceTextbox.Size = new System.Drawing.Size(119, 20);
+            this.pricePerPieceTextbox.Size = new System.Drawing.Size(89, 20);
             this.pricePerPieceTextbox.TabIndex = 9;
             this.pricePerPieceTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pricePerPiece_Keypress);
             // 
-            // label3
+            // productNameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Product Name";
+            this.productNameLabel.AutoSize = true;
+            this.productNameLabel.Location = new System.Drawing.Point(81, 88);
+            this.productNameLabel.Name = "productNameLabel";
+            this.productNameLabel.Size = new System.Drawing.Size(75, 13);
+            this.productNameLabel.TabIndex = 10;
+            this.productNameLabel.Text = "Product Name";
+            this.productNameLabel.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(81, 108);
+            this.label4.Location = new System.Drawing.Point(81, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 11;
@@ -153,20 +159,64 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 108);
+            this.label5.Location = new System.Drawing.Point(279, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Price per Piece";
+            // 
+            // typeComboBox
+            // 
+            this.typeComboBox.DisplayMember = "(none)";
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Items.AddRange(new object[] {
+            "Lettuce",
+            "Others"});
+            this.typeComboBox.Location = new System.Drawing.Point(81, 60);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.typeComboBox.TabIndex = 13;
+            this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(84, 41);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(31, 13);
+            this.typeLabel.TabIndex = 14;
+            this.typeLabel.Text = "Type";
+            // 
+            // weightLabel
+            // 
+            this.weightLabel.AutoSize = true;
+            this.weightLabel.Location = new System.Drawing.Point(188, 141);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Size = new System.Drawing.Size(41, 13);
+            this.weightLabel.TabIndex = 15;
+            this.weightLabel.Text = "Weight";
+            this.weightLabel.Visible = false;
+            // 
+            // weightTextbox
+            // 
+            this.weightTextbox.Location = new System.Drawing.Point(182, 160);
+            this.weightTextbox.Name = "weightTextbox";
+            this.weightTextbox.Size = new System.Drawing.Size(94, 20);
+            this.weightTextbox.TabIndex = 16;
+            this.weightTextbox.Visible = false;
             // 
             // AddIncomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 621);
+            this.Controls.Add(this.weightTextbox);
+            this.Controls.Add(this.weightLabel);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.productNameLabel);
             this.Controls.Add(this.pricePerPieceTextbox);
             this.Controls.Add(this.quantityTextbox);
             this.Controls.Add(this.productNameTextBox);
@@ -198,8 +248,12 @@
         private System.Windows.Forms.TextBox productNameTextBox;
         private System.Windows.Forms.TextBox quantityTextbox;
         private System.Windows.Forms.TextBox pricePerPieceTextbox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label productNameLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox typeComboBox;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label weightLabel;
+        private System.Windows.Forms.TextBox weightTextbox;
     }
 }
