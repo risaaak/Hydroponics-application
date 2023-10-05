@@ -20,7 +20,7 @@ namespace Hydroponics_application
         }
 
         int quantity;
-        double price, totalAmount;
+        double price, totalAmount, totalWeight, averageWeight;
         string name, description;
         DateTime date;
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -44,6 +44,8 @@ namespace Hydroponics_application
             price = Convert.ToDouble(pricePerPieceTextbox.Text);
             date = dateTimePicker1.Value;
             totalAmount = getTotalAmount(quantity,price);
+            totalWeight = Convert.ToDouble(weightTextbox.Text);
+            averageWeight = totalWeight / quantity;
 
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand sendDataToDatabase = new SqlCommand("INSERT INTO INCOME VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
@@ -58,6 +60,20 @@ namespace Hydroponics_application
             con.Open();
             sendDataToDatabase.ExecuteNonQuery();
             con.Close();
+            if(typeComboBox.Text == "Lettuce")
+            {
+                SqlCommand sendToLettuceSalesTable = new SqlCommand("INSERT INTO LETTUCESALES VALUES(@DATE, @COUNT, @TOTAL_WEIGHT,@AVERAGE_WEIGHT)", con);
+                sendToLettuceSalesTable.Parameters.AddWithValue("DATE", date);
+                sendToLettuceSalesTable.Parameters.AddWithValue("COUNT", quantity);
+                sendToLettuceSalesTable.Parameters.AddWithValue("TOTAL_WEIGHT", totalWeight);
+                sendToLettuceSalesTable.Parameters.AddWithValue("AVERAGE_WEIGHT", averageWeight);
+                using(con)
+                {
+                    con.Open();
+                    sendToLettuceSalesTable.ExecuteNonQuery();
+                }
+
+            }
             loadTable();
         }
         public double getTotalAmount(int quantity, double totalAmount)
