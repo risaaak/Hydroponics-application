@@ -16,7 +16,8 @@ CREATE TABLE PLANT (
 	transfer_date VARCHAR(255),
 	harvest_date VARCHAR(255),
 	next_plant_date VARCHAR(255),
-	seeds_planted int
+	seeds_planted int,
+	seeds_sprouted float
 	)
 	*/
 
@@ -302,3 +303,4 @@ CREATE TABLE LETTUCESALES (
 	TOTAL_WEIGHT FLOAT,
 	AVERAGE_WEIGHT FLOAT,
 	)
+
