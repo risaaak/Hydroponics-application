@@ -32,6 +32,7 @@ namespace Hydroponics_application
         {
             loadSeedsTable();
             loadPlantTable();
+            loadLettuceSalesTable();
             loadExpenditureTable();
             loadIncomeTable();
             loadWeeklyFinanceTable();
@@ -59,6 +60,17 @@ namespace Hydroponics_application
             plantdt.Clear();
             dataAdapter.Fill(plantdt);
             dataGridView2.DataSource = plantdt;
+        }
+        public void loadLettuceSalesTable()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand loadLettuceSalesTable = new SqlCommand("SELECT * FROM LETTUCESALES", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand= loadLettuceSalesTable;
+            DataTable lettuceSalesTable = new DataTable();
+            lettuceSalesTable.Clear();
+            dataAdapter.Fill(lettuceSalesTable);
+            dataGridView8.DataSource = lettuceSalesTable;
         }
         public void loadExpenditureTable()
         {
