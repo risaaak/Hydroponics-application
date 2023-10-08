@@ -37,6 +37,7 @@ namespace Hydroponics_application
             deleteButton.Visible = true;
             cancelButton.Visible = true;
             dataGridView1.Enabled = true;
+            confirmButton.Visible = true;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Hydroponics_application
             deleteButton.Visible = false;
             cancelButton.Visible = false;
             dataGridView1.Enabled = false;
+            confirmButton.Visible = false;
             loadTable();
         }
 
@@ -74,6 +76,32 @@ namespace Hydroponics_application
             editButton.Visible = true;
             cancelButton.Visible = false;
             deleteButton.Visible = false;
+            confirmButton.Visible = false;
+        }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            confirmButton.Visible = true;
+            for(int i=0;i<dataGridView1.Rows.Count-1;i++)
+            {
+                using(SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand updatePlantTable = new SqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_ID = @PLANT_ID", connection);
+                    SqlParameter parameter = updatePlantTable.Parameters.AddWithValue("@SEEDS_SPROUTED", dataGridView1.Rows[i].Cells[7].Value);
+                    updatePlantTable.Parameters.AddWithValue("PLANT_ID", dataGridView1.Rows[i].Cells[0].Value);
+                    if(dataGridView1.Rows[i].Cells[7].Value == null)
+                    {
+                        parameter.Value = DBNull.Value;
+                    }
+                    connection.Open();
+                    updatePlantTable.ExecuteNonQuery();
+                }
+            }
+            loadTable();
+            editButton.Visible = true;
+            confirmButton.Visible=false;
+            deleteButton.Visible=false;
+            cancelButton.Visible=false;
         }
     }
 }

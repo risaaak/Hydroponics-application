@@ -38,6 +38,7 @@
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.confirmButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLANTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hYDROPONICS_TESTDataSet2)).BeginInit();
@@ -91,7 +92,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(873, 11);
+            this.deleteButton.Location = new System.Drawing.Point(654, 11);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(109, 23);
             this.deleteButton.TabIndex = 3;
@@ -102,7 +103,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(769, 12);
+            this.cancelButton.Location = new System.Drawing.Point(769, 11);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(98, 23);
             this.cancelButton.TabIndex = 4;
@@ -111,11 +112,23 @@
             this.cancelButton.Visible = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // confirmButton
+            // 
+            this.confirmButton.Location = new System.Drawing.Point(873, 12);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(98, 23);
+            this.confirmButton.TabIndex = 5;
+            this.confirmButton.Text = "Confirm";
+            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Visible = false;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
+            // 
             // viewPlant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 450);
+            this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -143,5 +156,6 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button confirmButton;
     }
 }
