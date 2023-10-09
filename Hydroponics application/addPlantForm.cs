@@ -86,13 +86,14 @@ namespace Hydroponics_application
 
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted, @timesSprouted)", conn);
                 command.Parameters.Add(new SqlParameter("seed_id", seedID));
                 command.Parameters.Add(new SqlParameter("sowDate", sowDate));
                 command.Parameters.Add(new SqlParameter("transferDate", transferDate));
                 command.Parameters.Add(new SqlParameter("harvestDate", harvestDate));
                 command.Parameters.Add(new SqlParameter("nextPlantDate", nextPlantDate));
                 command.Parameters.Add(new SqlParameter("seedsPlanted", seedsPlanted));
+                command.Parameters.Add(new SqlParameter("timesSprouted", DBNull.Value));
                 command.ExecuteNonQuery();
                 MessageBox.Show("Successfully Added");
             }
