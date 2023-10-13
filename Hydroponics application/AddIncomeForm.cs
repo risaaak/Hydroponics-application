@@ -44,7 +44,14 @@ namespace Hydroponics_application
             price = Convert.ToDouble(pricePerPieceTextbox.Text);
             date = dateTimePicker1.Value;
             totalAmount = getTotalAmount(quantity,price);
-            totalWeight = Convert.ToDouble(weightTextbox.Text);
+            if (typeComboBox.Text == "Others")
+            {
+                totalWeight = 0;
+            }
+            else
+                //TODO: Fix error
+                name = "Lettuce";
+                totalWeight = Convert.ToDouble(weightTextbox.Text);
             averageWeight = totalWeight / quantity;
 
             SqlConnection con = new SqlConnection(connectionString);
