@@ -304,3 +304,22 @@ CREATE TABLE LETTUCESALES (
 	AVERAGE_WEIGHT FLOAT,
 	)
 
+
+ALTER TABLE PLANT drop constraint FK_PLANT_seed_id
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'seed_id')
+BEGIN
+  ALTER TABLE plant
+  ADD CONSTRAINT fk_seed_id
+  FOREIGN KEY (seed_id)
+  REFERENCES seeds(seed_id) /* make sure Resources.id is a PRIMARY KEY */
+END;
+
+alter table plant
+drop constraint FK__PLANT__seed_id__5441852A
+
+
+alter table plant
+alter column seed_id nvarchar(100)
+
+EXEC sp_rename 'PLANT.seed_id', 'seed_name', 'COLUMN'
