@@ -51,7 +51,7 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text,timesPlanted);
+            sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text,timesPlanted, 0);
             timesPlanted += updateSeed.getTimesPlantedFromDatabase(seedName);
             timesSprouted += updateSeed.getTimesSproutedFromDatabase(seedName);
             germinationRate += updateSeed.getGerminationRate(timesPlanted, timesSprouted);
@@ -70,7 +70,7 @@ namespace Hydroponics_application
             transferDateLbl.Text = transferDate.ToString("MM/dd/yyyy");
             harvestDateLbl.Text = harvestDate.ToString("MM/dd/yyyy");
             NextPlantDateLbl.Text = nextPlantDate.ToString("MM/dd/yyyy");
-            sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text, timesPlanted);
+            sendDataToDatabase(seedName, sowDateLbl.Text, transferDateLbl.Text, harvestDateLbl.Text, NextPlantDateLbl.Text, timesPlanted, 0);
             timesPlanted+= updateSeed.getTimesPlantedFromDatabase(seedName);
             timesSprouted+= updateSeed.getTimesSproutedFromDatabase(seedName);
             germinationRate += updateSeed.getGerminationRate(timesPlanted, timesSprouted);
@@ -78,17 +78,16 @@ namespace Hydroponics_application
             updateSeed.sendDataToDatabase(seedName, timesPlanted, timesSprouted, germinationRate);
          }
 
-        private void sendDataToDatabase(string seed, string sowDate, string transferDate, string harvestDate, string nextPlantDate, int seedsPlanted)
+        private void sendDataToDatabase(string seed, string sowDate, string transferDate, string harvestDate, string nextPlantDate, int seedsPlanted, double germinationRate = 0)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             /*
             int seedID = updateSeed.getSeedId(seed);
             */
-
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted, @timesSprouted)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted, @timesSprouted, @germinationRate)", conn);
                 command.Parameters.Add(new SqlParameter("seed_id", seed));
                 command.Parameters.Add(new SqlParameter("sowDate", sowDate));
                 command.Parameters.Add(new SqlParameter("transferDate", transferDate));
@@ -96,6 +95,7 @@ namespace Hydroponics_application
                 command.Parameters.Add(new SqlParameter("nextPlantDate", nextPlantDate));
                 command.Parameters.Add(new SqlParameter("seedsPlanted", seedsPlanted));
                 command.Parameters.Add(new SqlParameter("timesSprouted", DBNull.Value));
+                command.Parameters.Add(new SqlParameter("germinationRate", DBNull.Value));
                 command.ExecuteNonQuery();
                 MessageBox.Show("Successfully Added");
             }
@@ -103,6 +103,7 @@ namespace Hydroponics_application
             {
                 MessageBox.Show(e.Message);
             }
+            conn.Close();
         }
     }
 }
