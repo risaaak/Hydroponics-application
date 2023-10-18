@@ -79,10 +79,19 @@ namespace Hydroponics_application
             using(SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT LAST FROM LAST_GERMINATION_UPDATE",con);
+                SqlCommand cmd = new SqlCommand("SELECT LAST FROM LAST_GERMINATION_UPDATE", con);
                 last = Convert.ToInt32(cmd.ExecuteScalar());
             }
             return last;
+        }
+        public void updateLastGerminationRate(int last)
+        {
+            using(SqlConnection con = new SqlConnection(connectionString)) {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE LAST_GERMINATION_UPDATE SET LAST = @LAST", con);
+                cmd.Parameters.Add(new SqlParameter("LAST",last));
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
