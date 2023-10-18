@@ -68,5 +68,21 @@ namespace Hydroponics_application
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void updateGerminationRate()
+        {
+            
+        }
+        public int? getLastGerminationRateUpdate()
+        {
+            int? last;
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT LAST FROM LAST_GERMINATION_UPDATE",con);
+                last = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return last;
+        }
     }
 }

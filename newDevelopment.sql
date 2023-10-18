@@ -325,3 +325,7 @@ alter column seed_id nvarchar(100)
 EXEC sp_rename 'PLANT.seed_id', 'seed_name', 'COLUMN'
 
 ALTER TABLE PLANT ADD germination_rate FLOAT
+
+CREATE TABLE LAST_GERMINATION_UPDATE (
+	LAST INT NOT NULL UNIQUE
+	)

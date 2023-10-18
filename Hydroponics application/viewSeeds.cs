@@ -13,6 +13,8 @@ namespace Hydroponics_application
 {
     public partial class viewSeeds : Form
     {
+        updateSeed updateSeed = new updateSeed();
+
         public Form RefToMainForm { get; set; }
         public viewSeeds()
         {
@@ -28,6 +30,7 @@ namespace Hydroponics_application
         private void viewSeeds_Load(object sender, EventArgs e)
         {
             loadTable();
+            Console.WriteLine(updateSeed.getLastGerminationRateUpdate());
         }
 
         public void loadTable()
