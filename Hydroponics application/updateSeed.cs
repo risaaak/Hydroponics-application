@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,10 +69,64 @@ namespace Hydroponics_application
                 MessageBox.Show(ex.Message);
             }
         }
-
-        public void updateGerminationRate()
+        public int getTimesPlantedFromPlantDatabase(string seedName, int? last)
         {
-            
+            int timesPlanted = 0;
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand command = new SqlCommand("SELECT SUM(seeds_planted) FROM PLANT WHERE seed_name = @seedName AND plant_id > @last", con);
+                    timesPlanted = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            return timesPlanted;
+        }
+        public int getTimesSproutedFromPlantDatabase(string seedName, int? last)
+        {
+            int timesSprouted = 0;
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand command = new SqlCommand("SELECT SUM(seeds_sprouted) FROM PLANT WHERE seed_name = @seedName AND plant_id > @last", con);
+                    timesSprouted = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            return timesSprouted;
+        }
+
+        public void updateGerminationRate(string seedName)
+        {
+            int? last = getLastGerminationRateUpdate();
+            int timesPlanted = getTimesPlantedFromDatabase(seedName) + getTimesPlantedFromPlantDatabase(seedName,last);
+            int timesSprouted = getTimesSproutedFromDatabase(seedName) + getTimesSproutedFromPlantDatabase(seedName,last);
+            double germinationRate = getGerminationRate(timesPlanted, timesSprouted);
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, " +
+                    "seed_times_sprouted = timesSprouted, seed_germination_rate = germinationRate WHERE seed_name = seedName", con);
+                int a = command.ExecuteNonQuery();
+                if(a>1)
+                {
+                    MessageBox.Show("Updated Succesfully");
+                    updateLastGerminationRate(last + 1);
+                }
+
+                
+                
+            }
         }
         public int? getLastGerminationRateUpdate()
         {
@@ -84,7 +139,7 @@ namespace Hydroponics_application
             }
             return last;
         }
-        public void updateLastGerminationRate(int last)
+        public void updateLastGerminationRate(int? last)
         {
             using(SqlConnection con = new SqlConnection(connectionString)) {
                 con.Open();

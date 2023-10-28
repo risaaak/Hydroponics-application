@@ -68,6 +68,13 @@ namespace Hydroponics_application
             dt.Clear();
             sqlDataAdapter.Fill(dt);
             dataGridView1.DataSource = dt;
+            for(int i = 0, n = dataGridView1.Rows.Count; i < n;i++)
+            {
+                if (dataGridView1.Rows[i].Cells[7].Value != null )
+                {
+                    dataGridView1.Rows[i].Cells[8].Value = Math.Round((Convert.ToDecimal(dataGridView1.Rows[i].Cells[7].Value) / Convert.ToDecimal(dataGridView1.Rows[i].Cells[6].Value)) * 100,2);
+                }
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -329,3 +329,6 @@ ALTER TABLE PLANT ADD germination_rate FLOAT
 CREATE TABLE LAST_GERMINATION_UPDATE (
 	LAST INT NOT NULL UNIQUE
 	)
+
+SELECT SUM(seeds_planted), seed_name from PLANT WHERE plant_id > 24 group by seed_name
+select * from PLANT
