@@ -70,7 +70,7 @@ namespace Hydroponics_application
             dataGridView1.DataSource = dt;
             for(int i = 0, n = dataGridView1.Rows.Count; i < n;i++)
             {
-                if (dataGridView1.Rows[i].Cells[7].Value != null )
+                if (dataGridView1.Rows[i].Cells[7].Value != null && dataGridView1.Rows[i].Cells[7].Value != DBNull.Value)
                 {
                     dataGridView1.Rows[i].Cells[8].Value = Math.Round((Convert.ToDecimal(dataGridView1.Rows[i].Cells[7].Value) / Convert.ToDecimal(dataGridView1.Rows[i].Cells[6].Value)) * 100,2);
                 }
@@ -93,7 +93,7 @@ namespace Hydroponics_application
             {
                 using(SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    SqlCommand updatePlantTable = new SqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_ID = @PLANT_ID", connection);
+                    SqlCommand updatePlantTable = new SqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_NAME = @PLANT_ID", connection);
                     SqlParameter parameter = updatePlantTable.Parameters.AddWithValue("@SEEDS_SPROUTED", dataGridView1.Rows[i].Cells[7].Value);
                     updatePlantTable.Parameters.AddWithValue("PLANT_ID", dataGridView1.Rows[i].Cells[0].Value);
                     if(dataGridView1.Rows[i].Cells[7].Value == null)
