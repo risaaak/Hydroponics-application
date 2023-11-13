@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace Hydroponics_application
 {
+
     public partial class viewPlant : Form
     {
+
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public viewPlant()
         {
@@ -93,7 +95,7 @@ namespace Hydroponics_application
             {
                 using(SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    SqlCommand updatePlantTable = new SqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_NAME = @PLANT_ID", connection);
+                    SqlCommand updatePlantTable = new SqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_ID = @PLANT_ID", connection);
                     SqlParameter parameter = updatePlantTable.Parameters.AddWithValue("@SEEDS_SPROUTED", dataGridView1.Rows[i].Cells[7].Value);
                     updatePlantTable.Parameters.AddWithValue("PLANT_ID", dataGridView1.Rows[i].Cells[0].Value);
                     if(dataGridView1.Rows[i].Cells[7].Value == null)
@@ -103,6 +105,20 @@ namespace Hydroponics_application
                     connection.Open();
                     updatePlantTable.ExecuteNonQuery();
                 }
+            }
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand updateSeedTable = new SqlCommand("UPDATE SEEDS SET seed_times_sprouted = seed_times_sprouted + @timesSprouted WHERE seed_name = @seedName", connection);
+                if (dataGridView1.CurrentRow.Cells[7] == null)
+                {
+                    updateSeedTable.Parameters.AddWithValue("@timesSprouted", null);
+                }
+                else
+                    updateSeedTable.Parameters.AddWithValue("@timesSprouted", dataGridView1.CurrentRow.Cells[7].Value);
+
+                updateSeedTable.Parameters.AddWithValue("@seedName", dataGridView1.CurrentRow.Cells[1].Value);
+                connection.Open();
+                updateSeedTable.ExecuteNonQuery();
             }
             loadTable();
             editButton.Visible = true;

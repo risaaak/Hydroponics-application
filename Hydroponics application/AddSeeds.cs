@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Hydroponics_application
 {
     public partial class AddSeeds : Form
@@ -18,7 +19,9 @@ namespace Hydroponics_application
         {
             InitializeComponent();
         }
-        public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        /*public string connectionString = "Server=kiouni.db.elephantsql.com,5432;Database=ttzzdghro;User Id=ttzzdghro;Password=2QmlTkgNPJaenYWrozh36JUR8S8lqEos; Trusted_Connection=True;";
+         * */
+        public string connectionString = "postgres://tzzdghro:2QmlTkgNPJaenYWrozh36JUR8S8lqEos@kiouni.db.elephantsql.com/tzzdghro";
         private void Addbtn_Click(object sender, EventArgs e)
         {
             string seedName = textBox1.Text;
@@ -42,6 +45,7 @@ namespace Hydroponics_application
             {
                 MessageBox.Show(ex.Message);
             }
+            con.Close();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
