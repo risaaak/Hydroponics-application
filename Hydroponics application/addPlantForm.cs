@@ -35,13 +35,14 @@ namespace Hydroponics_application
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
-                NpgsqlCommand loadCombobox = new NpgsqlCommand("SELECT seed_name FROM SEEDS", conn);
+                NpgsqlCommand loadCombobox = new NpgsqlCommand("SELECT seed_name FROM SEEDS ORDER BY seed_id", conn);
                 NpgsqlDataReader sqlDataReader = loadCombobox.ExecuteReader();
                 while(sqlDataReader.Read())
                 {
                     comboBox1.Items.Add(sqlDataReader[0]);
                 }
             }
+            comboBox1.Text = comboBox1.Items[0].ToString();
 
         }
         
