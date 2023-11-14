@@ -16,20 +16,7 @@ namespace Hydroponics_application
     public partial class viewSeeds : Form
     {
         updateSeed updateSeed = new updateSeed();
-
-        public string connectionString()
-        {
-            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
-            builder.Host = "kiouni.db.elephantsql.com";
-            builder.Port = 5432;
-            builder.Database = "tzzdghro";
-            builder.Username = "tzzdghro";
-            builder.Password = "2QmlTkgNPJaenYWrozh36JUR8S8lqEos";
-            builder.TrustServerCertificate = true;
-            builder.SslMode = SslMode.Require;
-
-            return builder.ConnectionString;
-        }
+        public string connectionString = ConnectionString.connectionString();
         public Form RefToMainForm { get; set; }
         public viewSeeds()
         {
@@ -62,7 +49,7 @@ namespace Hydroponics_application
             builder.TrustServerCertificate = true;
             builder.SslMode = SslMode.Require;
             */
-            using(var conn = new NpgsqlConnection(connectionString()))
+            using(var conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
                 NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM SEEDS ORDER BY seed_id", conn);
@@ -125,7 +112,7 @@ namespace Hydroponics_application
             {
                 try
                 {
-                    NpgsqlConnection con = new NpgsqlConnection(connectionString());
+                    NpgsqlConnection con = new NpgsqlConnection(connectionString);
                     NpgsqlCommand updateTable = new NpgsqlCommand("UPDATE SEEDS SET seed_name = @seedName , " +
                         "seed_times_planted = @timesPlanted, " +
                         "seed_times_sprouted = @timesSprouted, " +

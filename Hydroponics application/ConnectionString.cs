@@ -8,21 +8,20 @@ using Npgsql;
 
 namespace Hydroponics_application
 {
-    public class ConnStr
+    public class ConnectionString
     {
-        public static string Get()
+        public static string connectionString()
         {
-            var uriString = ConfigurationManager.AppSettings["ELEPHANTSQL_URL"] ??
-                ConfigurationManager.AppSettings["LOCAL_URL"];
-            var uri = new Uri(uriString);
-            var db = uri.AbsolutePath.Trim('/');
-            var user = uri.UserInfo.Split(':')[0];
-            var passwd = uri.UserInfo.Split(':')[1];
-            var port = uri.Port > 0 ? uri.Port : 5432;
-            var connStr = string.Format("Server={0};Database={1};User Id={2};Password={3};Port={4}",
-                uri.Host, db, user, passwd, port);
-            return connStr;
-        }
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+            builder.Host = "kiouni.db.elephantsql.com";
+            builder.Port = 5432;
+            builder.Database = "tzzdghro";
+            builder.Username = "tzzdghro";
+            builder.Password = "2QmlTkgNPJaenYWrozh36JUR8S8lqEos";
+            builder.TrustServerCertificate = true;
+            builder.SslMode = SslMode.Require;
 
+            return builder.ConnectionString;
+        }
     }
 }
