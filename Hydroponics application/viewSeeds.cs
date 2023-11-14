@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
@@ -15,12 +17,27 @@ namespace Hydroponics_application
     {
         updateSeed updateSeed = new updateSeed();
 
+        public string connectionString()
+        {
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+            builder.Host = "kiouni.db.elephantsql.com";
+            builder.Port = 5432;
+            builder.Database = "tzzdghro";
+            builder.Username = "tzzdghro";
+            builder.Password = "2QmlTkgNPJaenYWrozh36JUR8S8lqEos";
+            builder.TrustServerCertificate = true;
+            builder.SslMode = SslMode.Require;
+
+            return builder.ConnectionString;
+        }
         public Form RefToMainForm { get; set; }
         public viewSeeds()
         {
             InitializeComponent();
         }
+        /*
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        */
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -35,6 +52,27 @@ namespace Hydroponics_application
 
         public void loadTable()
         {
+            /*
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+            builder.Host = "kiouni.db.elephantsql.com";
+            builder.Port = 5432;
+            builder.Database = "tzzdghro";
+            builder.Username = "tzzdghro";
+            builder.Password = "2QmlTkgNPJaenYWrozh36JUR8S8lqEos";
+            builder.TrustServerCertificate = true;
+            builder.SslMode = SslMode.Require;
+            */
+            using(var conn = new NpgsqlConnection(connectionString()))
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM SEEDS", conn);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                dt.Clear();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            /*
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand loadTable = new SqlCommand("SELECT * FROM SEEDS", con);
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
@@ -43,6 +81,7 @@ namespace Hydroponics_application
             dt.Clear();
             dataAdapter.Fill(dt);
             dataGridView1.DataSource = dt;
+            */
         }
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -68,7 +107,7 @@ namespace Hydroponics_application
             editButton.Visible = true;
             cancelButton.Visible = false;
             updateButton.Visible = false;
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(connectionString());
             SqlCommand loadTable = new SqlCommand("SELECT * FROM SEEDS", con);
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = loadTable;
@@ -84,7 +123,7 @@ namespace Hydroponics_application
             {
                 try
                 {
-                    SqlConnection con = new SqlConnection(connectionString);
+                    SqlConnection con = new SqlConnection(connectionString());
                     SqlCommand updateTable = new SqlCommand("UPDATE SEEDS SET seed_name = @seedName , " +
                         "seed_times_planted = @timesPlanted, " +
                         "seed_times_sprouted = @timesSprouted, " +

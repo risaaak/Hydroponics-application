@@ -48,9 +48,20 @@ namespace Hydroponics_application
                 cmd.Parameters.AddWithValue("@timesPlanted", timesPlanted);
                 cmd.Parameters.AddWithValue("@timesSprouted", timesSprouted);
                 cmd.Parameters.AddWithValue("@germinationRate", germinationRate);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    int a = cmd.ExecuteNonQuery();
+                    if (a >= 1)
+                    {
+                        MessageBox.Show("Succesfully added");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-
+            textBox1.Text = "";
             /*
             var connectionString = "Server=kiouni.db.elephantsql.com;Port=5432;User Id = ttzzdghro; Password=2QmlTkgNPJaenYWrozh36JUR8S8lqEos;Database=tzzdghro;Trust Server Certificate=true;SSL Mode=Require;";
             await using var dataSource = NpgsqlDataSource.Create(connectionString);
