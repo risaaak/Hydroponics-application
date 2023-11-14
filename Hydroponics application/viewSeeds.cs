@@ -65,7 +65,7 @@ namespace Hydroponics_application
             using(var conn = new NpgsqlConnection(connectionString()))
             {
                 conn.Open();
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM SEEDS", conn);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM SEEDS ORDER BY seed_id", conn);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataTable dt = new DataTable();
                 dt.Clear();
@@ -107,14 +107,16 @@ namespace Hydroponics_application
             editButton.Visible = true;
             cancelButton.Visible = false;
             updateButton.Visible = false;
-            SqlConnection con = new SqlConnection(connectionString());
-            SqlCommand loadTable = new SqlCommand("SELECT * FROM SEEDS", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadTable;
+            loadTable();
+            /*
+            NpgsqlConnection con = new NpgsqlConnection(connectionString());
+            NpgsqlCommand loadTable = new NpgsqlCommand("SELECT * FROM SEEDS", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadTable);
             DataTable dt = new DataTable();
             dt.Clear();
             dataAdapter.Fill(dt);
             dataGridView1.DataSource = dt;
+            */
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -123,8 +125,8 @@ namespace Hydroponics_application
             {
                 try
                 {
-                    SqlConnection con = new SqlConnection(connectionString());
-                    SqlCommand updateTable = new SqlCommand("UPDATE SEEDS SET seed_name = @seedName , " +
+                    NpgsqlConnection con = new NpgsqlConnection(connectionString());
+                    NpgsqlCommand updateTable = new NpgsqlCommand("UPDATE SEEDS SET seed_name = @seedName , " +
                         "seed_times_planted = @timesPlanted, " +
                         "seed_times_sprouted = @timesSprouted, " +
                         "seed_germination_rate = @seedGerminationRate " +
