@@ -55,7 +55,7 @@ namespace Hydroponics_application
             averageWeight = totalWeight / quantity;
 
             NpgsqlConnection con = new NpgsqlConnection(connectionString);
-            NpgsqlCommand sendDataToDatabase = new NpgsqlCommand("INSERT INTO INCOME VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
+            NpgsqlCommand sendDataToDatabase = new NpgsqlCommand("INSERT INTO INCOME (income_description, name, quantity, price_per_piece,total_amount, income_date) VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
                 " @totalAmount, @incomeDate)",con);
             sendDataToDatabase.Parameters.AddWithValue("name", name);
             sendDataToDatabase.Parameters.AddWithValue ("incomeDescription", description);
@@ -79,7 +79,6 @@ namespace Hydroponics_application
                     con.Open();
                     sendToLettuceSalesTable.ExecuteNonQuery();
                 }
-
             }
             loadTable();
         }
