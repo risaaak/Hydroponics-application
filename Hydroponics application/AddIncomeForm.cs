@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
@@ -23,14 +24,13 @@ namespace Hydroponics_application
         double price, totalAmount, totalWeight, averageWeight;
         string name, description;
         DateTime date;
-        public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public string connectionString = ConnectionString.connectionString();
         
         public void loadTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadTable = new SqlCommand("SELECT * FROM INCOME", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadTable = new NpgsqlCommand("SELECT * FROM INCOME", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadTable);
             DataTable dt = new DataTable();
             dt.Clear();
             dataAdapter.Fill(dt);
@@ -54,8 +54,8 @@ namespace Hydroponics_application
                 totalWeight = Convert.ToDouble(weightTextbox.Text);
             averageWeight = totalWeight / quantity;
 
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand sendDataToDatabase = new SqlCommand("INSERT INTO INCOME VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand sendDataToDatabase = new NpgsqlCommand("INSERT INTO INCOME VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
                 " @totalAmount, @incomeDate)",con);
             sendDataToDatabase.Parameters.AddWithValue("name", name);
             sendDataToDatabase.Parameters.AddWithValue ("incomeDescription", description);
@@ -69,7 +69,7 @@ namespace Hydroponics_application
             con.Close();
             if(typeComboBox.Text == "Lettuce")
             {
-                SqlCommand sendToLettuceSalesTable = new SqlCommand("INSERT INTO LETTUCESALES VALUES(@DATE, @COUNT, @TOTAL_WEIGHT,@AVERAGE_WEIGHT)", con);
+                NpgsqlCommand sendToLettuceSalesTable = new NpgsqlCommand("INSERT INTO LETTUCESALES VALUES(@DATE, @COUNT, @TOTAL_WEIGHT,@AVERAGE_WEIGHT)", con);
                 sendToLettuceSalesTable.Parameters.AddWithValue("DATE", date);
                 sendToLettuceSalesTable.Parameters.AddWithValue("COUNT", quantity);
                 sendToLettuceSalesTable.Parameters.AddWithValue("TOTAL_WEIGHT", totalWeight);

@@ -58,7 +58,7 @@ namespace Hydroponics_application
                 NpgsqlConnection con = new NpgsqlConnection(connectionString);
                 con.Open();
                 NpgsqlCommand command = new NpgsqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, seed_times_sprouted=@timesSprouted, seed_germination_rate = @germinationRate WHERE seed_name = @seedName", con);
-                command.Parameters.AddWithValue("@seedName", seedName)              
+                command.Parameters.AddWithValue("@seedName", seedName);              
                 command.Parameters.AddWithValue("@timesPlanted", timesPlanted);
                 command.Parameters.AddWithValue("@timesSprouted", timesSprouted);
                 command.Parameters.AddWithValue("@germinationRate", Math.Round(germinationRate, 2));
