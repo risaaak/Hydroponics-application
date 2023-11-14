@@ -161,8 +161,6 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.sEEDSBindingSource;
-            this.comboBox1.DisplayMember = "seed_name";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(144, 133);
             this.comboBox1.Name = "comboBox1";

@@ -40,7 +40,7 @@ namespace Hydroponics_application
             builder.TrustServerCertificate = true;
             builder.SslMode = SslMode.Require;
 
-            using (var conn = new NpgsqlConnection(builder.ConnectionString))
+            await using (var conn = new NpgsqlConnection(builder.ConnectionString))
             {
                 conn.Open();
                 using var cmd = new NpgsqlCommand("INSERT INTO SEEDS (seed_name, seed_times_planted, seed_times_sprouted, seed_germination_rate) VALUES(@seedname, @timesPlanted, @timesSprouted, @germinationRate)", conn);

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
@@ -27,8 +28,20 @@ namespace Hydroponics_application
 
         private void addPlantForm_Load(object sender, EventArgs e)
         {
+            /*
             // TODO: This line of code loads data into the 'hYDROPONICS_TESTDataSet1.SEEDS' table. You can move, or remove it, as needed.
             this.sEEDSTableAdapter.Fill(this.hYDROPONICS_TESTDataSet1.SEEDS);
+            */
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                NpgsqlCommand loadCombobox = new NpgsqlCommand("SELECT seed_name FROM SEEDS", conn);
+                NpgsqlDataReader sqlDataReader = loadCombobox.ExecuteReader();
+                while(sqlDataReader.Read())
+                {
+                    comboBox1.Items.Add(sqlDataReader[0]);
+                }
+            }
 
         }
         
@@ -39,7 +52,10 @@ namespace Hydroponics_application
         }
 
         updateSeed updateSeed = new updateSeed();
+        /*
         public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        */
+        public string connectionString = ConnectionString.connectionString();
         private void transferDateButton_Click(object sender, EventArgs e)
         {
             seedName = comboBox1.Text;
@@ -80,22 +96,22 @@ namespace Hydroponics_application
 
         private void sendDataToDatabase(string seed, string sowDate, string transferDate, string harvestDate, string nextPlantDate, int seedsPlanted, double germinationRate = 0)
         {
-            SqlConnection conn = new SqlConnection(connectionString);
+            NpgsqlConnection conn = new NpgsqlConnection(connectionString);
             conn.Open();
             /*
             int seedID = updateSeed.getSeedId(seed);
             */
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO PLANT VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted, @timesSprouted, @germinationRate)", conn);
-                command.Parameters.Add(new SqlParameter("seed_id", seed));
-                command.Parameters.Add(new SqlParameter("sowDate", sowDate));
-                command.Parameters.Add(new SqlParameter("transferDate", transferDate));
-                command.Parameters.Add(new SqlParameter("harvestDate", harvestDate));
-                command.Parameters.Add(new SqlParameter("nextPlantDate", nextPlantDate));
-                command.Parameters.Add(new SqlParameter("seedsPlanted", seedsPlanted));
-                command.Parameters.Add(new SqlParameter("timesSprouted", DBNull.Value));
-                command.Parameters.Add(new SqlParameter("germinationRate", DBNull.Value));
+                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO PLANT(seed_name, sow_date, transfer_date, harvest_date, next_plant_date, seeds_planted, seeds_sprouted, germination_rate) VALUES (@seed_id, @sowDate, @transferDate, @harvestDate, @nextPlantDate, @seedsPlanted, @timesSprouted, @germinationRate)", conn);
+                command.Parameters.AddWithValue("@seed_id", seed);
+                command.Parameters.AddWithValue("@sowDate", sowDate);
+                command.Parameters.AddWithValue("@transferDate", transferDate);
+                command.Parameters.AddWithValue("@harvestDate", harvestDate);
+                command.Parameters.AddWithValue("@nextPlantDate", nextPlantDate);
+                command.Parameters.AddWithValue("@seedsPlanted", seedsPlanted);
+                command.Parameters.AddWithValue("@timesSprouted", DBNull.Value);
+                command.Parameters.AddWithValue("@germinationRate", DBNull.Value);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Successfully Added");
             }
