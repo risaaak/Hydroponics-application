@@ -49,10 +49,11 @@ namespace Hydroponics_application
                 totalWeight = 0;
             }
             else
-                //TODO: Fix error
+            {
                 name = "Lettuce";
                 totalWeight = Convert.ToDouble(weightTextbox.Text);
-            averageWeight = totalWeight / quantity;
+                averageWeight = totalWeight / quantity;
+            }
 
             NpgsqlConnection con = new NpgsqlConnection(connectionString);
             NpgsqlCommand sendDataToDatabase = new NpgsqlCommand("INSERT INTO INCOME (income_description, name, quantity, price_per_piece,total_amount, income_date) VALUES(@incomeDescription, @name, @quantity, @pricePerPiece," +
