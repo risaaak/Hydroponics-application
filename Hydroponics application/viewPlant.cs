@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
@@ -15,7 +16,7 @@ namespace Hydroponics_application
     public partial class viewPlant : Form
     {
 
-        public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public string connectionString = ConnectionString.connectionString();
         public viewPlant()
         {
             InitializeComponent();
@@ -62,10 +63,9 @@ namespace Hydroponics_application
 
         private void loadTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadTable = new SqlCommand("select * from plant",con);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            sqlDataAdapter.SelectCommand = loadTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadTable = new NpgsqlCommand("select * from plant ORDER BY plant_id",con);
+            NpgsqlDataAdapter sqlDataAdapter = new NpgsqlDataAdapter(loadTable);
             DataTable dt = new DataTable();
             dt.Clear();
             sqlDataAdapter.Fill(dt);
@@ -93,10 +93,10 @@ namespace Hydroponics_application
             confirmButton.Visible = true;
             for(int i=0;i<dataGridView1.Rows.Count-1;i++)
             {
-                using(SqlConnection connection = new SqlConnection(connectionString))
+                using(NpgsqlConnection connection = new NpgsqlConnection(connectionString))
                 {
-                    SqlCommand updatePlantTable = new SqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_ID = @PLANT_ID", connection);
-                    SqlParameter parameter = updatePlantTable.Parameters.AddWithValue("@SEEDS_SPROUTED", dataGridView1.Rows[i].Cells[7].Value);
+                    NpgsqlCommand updatePlantTable = new NpgsqlCommand("UPDATE PLANT SET SEEDS_SPROUTED = @SEEDS_SPROUTED WHERE PLANT_ID = @PLANT_ID", connection);
+                    NpgsqlParameter parameter = updatePlantTable.Parameters.AddWithValue("@SEEDS_SPROUTED", dataGridView1.Rows[i].Cells[7].Value);
                     updatePlantTable.Parameters.AddWithValue("PLANT_ID", dataGridView1.Rows[i].Cells[0].Value);
                     if(dataGridView1.Rows[i].Cells[7].Value == null)
                     {
@@ -106,9 +106,9 @@ namespace Hydroponics_application
                     updatePlantTable.ExecuteNonQuery();
                 }
             }
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                SqlCommand updateSeedTable = new SqlCommand("UPDATE SEEDS SET seed_times_sprouted = seed_times_sprouted + @timesSprouted WHERE seed_name = @seedName", connection);
+                NpgsqlCommand updateSeedTable = new NpgsqlCommand("UPDATE SEEDS SET seed_times_sprouted = seed_times_sprouted + @timesSprouted WHERE seed_name = @seedName", connection);
                 if (dataGridView1.CurrentRow.Cells[7] == null)
                 {
                     updateSeedTable.Parameters.AddWithValue("@timesSprouted", null);
