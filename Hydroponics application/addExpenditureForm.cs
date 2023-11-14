@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
@@ -15,11 +16,10 @@ namespace Hydroponics_application
     {
         public Form RefToMainForm { get; set; }
 
-        public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        string name, description;
+        public string connectionString = ConnectionString.connectionString();
+        string name, description,date;
         int quantity;
         double price, totalAmount;
-        DateTime date;
 
         public addExpenditureForm()
         {
@@ -28,10 +28,9 @@ namespace Hydroponics_application
 
         public void loadTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadTable = new SqlCommand("SELECT * FROM EXPENDITURES", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadTable = new NpgsqlCommand("SELECT * FROM EXPENDITURES", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadTable);
             DataTable table = new DataTable();
             table.Clear();
             dataAdapter.Fill(table);
@@ -50,10 +49,10 @@ namespace Hydroponics_application
             price = Convert.ToDouble(itemPriceTextBox.Text);
             quantity = Convert.ToInt32(itemQuantityTextbox.Text);
             totalAmount = getTotalAmount(quantity, price *-1);
-            date = DateTime.Now;
+            date = dateTimePicker1.Value.ToString("MM/dd/yyyy");
 
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand sendDataToDatabase = new SqlCommand("INSERT INTO EXPENDITURES VALUES(@name, @description, @quantity, @price, " +
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand sendDataToDatabase = new NpgsqlCommand("INSERT INTO EXPENDITURES(item_name, item_description, item_quantity, item_price, item_total_amount, item_date) VALUES(@name, @description, @quantity, @price, " +
                 "@totalAmount, @date)", con);
             sendDataToDatabase.Parameters.AddWithValue("name", name);
             sendDataToDatabase.Parameters.AddWithValue("description", description);
