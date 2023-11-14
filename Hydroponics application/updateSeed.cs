@@ -6,30 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
 
     public class updateSeed
     {
-        public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public string connectionString = ConnectionString.connectionString();
         public int getTimesPlantedFromDatabase(string seedName)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
             con.Open();
             int timesPlanted = 0;
-            SqlCommand getTimesPlanted = new SqlCommand("SELECT seed_times_planted FROM SEEDS WHERE seed_name=@seedName", con);
-            getTimesPlanted.Parameters.Add(new SqlParameter("seedName", seedName));
+            NpgsqlCommand getTimesPlanted = new NpgsqlCommand("SELECT seed_times_planted FROM SEEDS WHERE seed_name=@seedName", con);
+            getTimesPlanted.Parameters.AddWithValue("@seedName", seedName);
             timesPlanted = Convert.ToInt32(getTimesPlanted.ExecuteScalar());
             return timesPlanted;
         }
         public int getTimesSproutedFromDatabase(string seedName)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
             con.Open();
             int timesSprouted = 0;
-            SqlCommand getTimesSprouted = new SqlCommand("SELECT seed_times_sprouted FROM SEEDS WHERE seed_name=@seedName", con);
-            getTimesSprouted.Parameters.Add(new SqlParameter("seedName", seedName));
+            NpgsqlCommand getTimesSprouted = new NpgsqlCommand("SELECT seed_times_sprouted FROM SEEDS WHERE seed_name=@seedName", con);
+            getTimesSprouted.Parameters.AddWithValue("@seedName", seedName);
             timesSprouted = Convert.ToInt32(getTimesSprouted.ExecuteScalar());
             return timesSprouted;
         }
@@ -41,10 +42,10 @@ namespace Hydroponics_application
         }
         public int getSeedId(string seedName)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
             con.Open();
-            SqlCommand getSeedID = new SqlCommand("SELECT seed_id FROM SEEDS WHERE seed_name = @seedName", con);
-            getSeedID.Parameters.Add(new SqlParameter("seedName", seedName));
+            NpgsqlCommand getSeedID = new NpgsqlCommand("SELECT seed_id FROM SEEDS WHERE seed_name = @seedName", con);
+            getSeedID.Parameters.AddWithValue("@seedName", seedName);
             int seedId = (int)getSeedID.ExecuteScalar();
             con.Close();
 
@@ -54,13 +55,13 @@ namespace Hydroponics_application
         {
             try
             {
-                SqlConnection con = new SqlConnection(connectionString);
+                NpgsqlConnection con = new NpgsqlConnection(connectionString);
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, seed_times_sprouted=@timesSprouted, seed_germination_rate = @germinationRate WHERE seed_name = @seedName", con);
-                command.Parameters.Add(new SqlParameter("seedName", seedName));
-                command.Parameters.Add(new SqlParameter("timesPlanted", timesPlanted));
-                command.Parameters.Add(new SqlParameter("timesSprouted", timesSprouted));
-                command.Parameters.Add(new SqlParameter("germinationRate", Math.Round(germinationRate, 2)));
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, seed_times_sprouted=@timesSprouted, seed_germination_rate = @germinationRate WHERE seed_name = @seedName", con);
+                command.Parameters.AddWithValue("@seedName", seedName)              
+                command.Parameters.AddWithValue("@timesPlanted", timesPlanted);
+                command.Parameters.AddWithValue("@timesSprouted", timesSprouted);
+                command.Parameters.AddWithValue("@germinationRate", Math.Round(germinationRate, 2));
                 command.ExecuteNonQuery();
                 MessageBox.Show("Successfully updated!");
             }
@@ -72,12 +73,12 @@ namespace Hydroponics_application
         public int getTimesPlantedFromPlantDatabase(string seedName, int? last)
         {
             int timesPlanted = 0;
-            using(SqlConnection con = new SqlConnection(connectionString))
+            using(NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand command = new SqlCommand("SELECT SUM(seeds_planted) FROM PLANT WHERE seed_name = @seedName AND plant_id > @last", con);
+                    NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(seeds_planted) FROM PLANT WHERE seed_name = @seedName AND plant_id > @last", con);
                     timesPlanted = command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -90,12 +91,12 @@ namespace Hydroponics_application
         public int getTimesSproutedFromPlantDatabase(string seedName, int? last)
         {
             int timesSprouted = 0;
-            using(SqlConnection con = new SqlConnection(connectionString))
+            using(NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand command = new SqlCommand("SELECT SUM(seeds_sprouted) FROM PLANT WHERE seed_name = @seedName AND plant_id > @last", con);
+                    NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(seeds_sprouted) FROM PLANT WHERE seed_name = @seedName AND plant_id > @last", con);
                     timesSprouted = command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -112,11 +113,10 @@ namespace Hydroponics_application
             int timesPlanted = getTimesPlantedFromDatabase(seedName) + getTimesPlantedFromPlantDatabase(seedName,last);
             int timesSprouted = getTimesSproutedFromDatabase(seedName) + getTimesSproutedFromPlantDatabase(seedName,last);
             double germinationRate = getGerminationRate(timesPlanted, timesSprouted);
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, " +
-                    "seed_times_sprouted = timesSprouted, seed_germination_rate = germinationRate WHERE seed_name = seedName", con);
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE SEEDS SET seed_times_planted = @timesPlanted, " + "seed_times_sprouted = timesSprouted, seed_germination_rate = germinationRate WHERE seed_name = seedName", con);
                 int a = command.ExecuteNonQuery();
                 if(a>1)
                 {
@@ -131,20 +131,20 @@ namespace Hydroponics_application
         public int? getLastGerminationRateUpdate()
         {
             int? last;
-            using(SqlConnection con = new SqlConnection(connectionString))
+            using(NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT LAST FROM LAST_GERMINATION_UPDATE", con);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT LAST FROM LAST_GERMINATION_UPDATE", con);
                 last = Convert.ToInt32(cmd.ExecuteScalar());
             }
             return last;
         }
         public void updateLastGerminationRate(int? last)
         {
-            using(SqlConnection con = new SqlConnection(connectionString)) {
+            using(NpgsqlConnection con = new NpgsqlConnection(connectionString)) {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE LAST_GERMINATION_UPDATE SET LAST = @LAST", con);
-                cmd.Parameters.Add(new SqlParameter("LAST",last));
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE LAST_GERMINATION_UPDATE SET LAST = @LAST", con);
+                cmd.Parameters.Add(new NpgsqlParameter("LAST",last));
                 cmd.ExecuteNonQuery();
             }
         }
