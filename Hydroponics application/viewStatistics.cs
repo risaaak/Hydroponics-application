@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Hydroponics_application
 {
@@ -16,7 +17,7 @@ namespace Hydroponics_application
     {
         public Form RefToMainForm { get; set; }
         MainForm mainForm = new MainForm();
-        public string connectionString = "Data Source=MY-DESKTOP\\SQLEXPRESS;Initial Catalog=HYDROPONICS_TEST;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public string connectionString = ConnectionString.connectionString();
 
         public viewStatistics()
         {
@@ -36,15 +37,14 @@ namespace Hydroponics_application
             loadExpenditureTable();
             loadIncomeTable();
             loadWeeklyFinanceTable();
-            loadMonthlyFinanceTable();
-            loadYearlyFinanceTable();
+            //loadMonthlyFinanceTable();
+            //loadYearlyFinanceTable();
         }
         public void loadSeedsTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadSeedTable = new SqlCommand("SELECT * FROM SEEDS", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadSeedTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadSeedTable = new NpgsqlCommand("SELECT * FROM SEEDS ORDER BY seed_id", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadSeedTable);
             DataTable seeddt = new DataTable();
             seeddt.Clear();
             dataAdapter.Fill(seeddt);
@@ -52,10 +52,9 @@ namespace Hydroponics_application
         }
         public void loadPlantTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadPlantTable = new SqlCommand("SELECT * FROM PLANT", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadPlantTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadPlantTable = new NpgsqlCommand("SELECT * FROM PLANT", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadPlantTable);
             DataTable plantdt = new DataTable();
             plantdt.Clear();
             dataAdapter.Fill(plantdt);
@@ -63,10 +62,9 @@ namespace Hydroponics_application
         }
         public void loadLettuceSalesTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadLettuceSalesTable = new SqlCommand("SELECT * FROM LETTUCESALES", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand= loadLettuceSalesTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadLettuceSalesTable = new NpgsqlCommand("SELECT * FROM LETTUCESALES", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadLettuceSalesTable);
             DataTable lettuceSalesTable = new DataTable();
             lettuceSalesTable.Clear();
             dataAdapter.Fill(lettuceSalesTable);
@@ -74,10 +72,9 @@ namespace Hydroponics_application
         }
         public void loadExpenditureTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadExpenditureTable = new SqlCommand("SELECT * FROM EXPENDITURES", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadExpenditureTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadExpenditureTable = new NpgsqlCommand("SELECT * FROM EXPENDITURES", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadExpenditureTable);
             DataTable expenditureTable = new DataTable();
             expenditureTable.Clear();
             dataAdapter.Fill(expenditureTable);
@@ -85,10 +82,9 @@ namespace Hydroponics_application
         }
         public void loadIncomeTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadIncomeTable = new SqlCommand("SELECT * FROM INCOME", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadIncomeTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadIncomeTable = new NpgsqlCommand("SELECT * FROM INCOME", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadIncomeTable);
             DataTable incomeTable = new DataTable();
             incomeTable.Clear();
             dataAdapter.Fill(incomeTable);
@@ -96,10 +92,9 @@ namespace Hydroponics_application
         }
         public void loadWeeklyFinanceTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadWeeklyFinanceTable = new SqlCommand("EXEC INSERTINTOWEEKLYFINANCE", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadWeeklyFinanceTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadWeeklyFinanceTable = new NpgsqlCommand("SELECT * FROM INSERTINTOWEEKLYFINANCE()", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadWeeklyFinanceTable);
             DataTable WeeklyfinanceTable = new DataTable();
             WeeklyfinanceTable.Clear();
             dataAdapter.Fill(WeeklyfinanceTable);
@@ -108,10 +103,9 @@ namespace Hydroponics_application
 
         public void loadMonthlyFinanceTable()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadMonthlyFinanceTable = new SqlCommand("EXEC MONTHLYFINANCEPROCEDURE", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadMonthlyFinanceTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadMonthlyFinanceTable = new NpgsqlCommand("EXEC MONTHLYFINANCEPROCEDURE", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadMonthlyFinanceTable);
             DataTable MonthlyfinanceTable = new DataTable();
             MonthlyfinanceTable.Clear();
             dataAdapter.Fill(MonthlyfinanceTable);
@@ -120,10 +114,9 @@ namespace Hydroponics_application
 
         public void loadYearlyFinanceTable() 
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand loadYearlyFinanceTable = new SqlCommand("EXEC YEARLYFINANCEPROCEDURE", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = loadYearlyFinanceTable;
+            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            NpgsqlCommand loadYearlyFinanceTable = new NpgsqlCommand("EXEC YEARLYFINANCEPROCEDURE", con);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(loadYearlyFinanceTable);
             DataTable YearlyfinanceTable = new DataTable();
             YearlyfinanceTable.Clear();
             dataAdapter.Fill(YearlyfinanceTable);
